@@ -1,0 +1,71 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Tom\Desktop
+vps2
+Z1 DXx6 sv_std 3 std 0 22 F[19LRNL:5;XmIFh[XOPn1
+Z2 I:=NSF:8<P7mjzGQ>GFWb=2
+Z3 VBX@E;1i[2g46VCT<eM?PA2
+Z4 !s105 ps2_sv_unit
+S1
+Z5 dC:\Users\Tom\Desktop\d1
+Z6 w1358361427
+Z7 8C:/Users/Tom/Desktop/d1/ps2.sv
+Z8 FC:/Users/Tom/Desktop/d1/ps2.sv
+L0 10
+Z9 OV;L;10.1b;51
+r1
+31
+Z10 o-work work -sv -O0
+!i10b 1
+Z11 !s100 Y?Bm4WKGcERZBLRj_VG263
+!s85 0
+Z12 !s108 1358361443.934000
+Z13 !s107 C:/Users/Tom/Desktop/d1/ps2.sv|
+Z14 !s90 -reportprogress|300|-work|work|-sv|C:/Users/Tom/Desktop/d1/ps2.sv|
+!s101 -O0
+vtes_ps2
+R1
+Z15 !s100 X>Id6[APKJne[Sjc;aQ?P0
+Z16 IgEHC7aDO[YbB3<mjd4@IQ0
+Z17 V?]SNMNAO3H_eA3_gNaTBE1
+Z18 !s105 test_ps2_sv_unit
+S1
+R5
+Z19 w1358358961
+Z20 8C:/Users/Tom/Desktop/d1/test_ps2.sv
+Z21 FC:/Users/Tom/Desktop/d1/test_ps2.sv
+L0 1
+R9
+r1
+31
+Z22 !s90 -reportprogress|300|-work|work|-sv|C:/Users/Tom/Desktop/d1/test_ps2.sv|
+R10
+Z23 !s108 1358358971.149000
+Z24 !s107 C:/Users/Tom/Desktop/d1/test_ps2.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vtest_ps2
+R1
+!i10b 1
+Z25 !s100 CbFmhV@OQhGbB=:2d[26:0
+Z26 ITWIR5N`6DEk0CaYl2Jklc3
+Z27 VG_kl8Woc3A:Ao<`jbR5[i1
+R18
+S1
+R5
+Z28 w1358358991
+R20
+R21
+L0 1
+R9
+r1
+!s85 0
+31
+!s108 1358361444.051000
+!s107 C:/Users/Tom/Desktop/d1/test_ps2.sv|
+R22
+!s101 -O0
+R10

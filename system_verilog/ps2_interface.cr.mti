@@ -1,0 +1,15 @@
+C:/Users/Tom/Desktop/d1/test_ps2.sv {1 {vlog -work work -sv C:/Users/Tom/Desktop/d1/test_ps2.sv
+Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+-- Compiling module test_ps2
+
+Top level modules:
+	test_ps2
+
+} {} {}} C:/Users/Tom/Desktop/d1/ps2.sv {1 {vlog -work work -sv C:/Users/Tom/Desktop/d1/ps2.sv
+Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+-- Compiling module ps2
+
+Top level modules:
+	ps2
+
+} {} {}}
