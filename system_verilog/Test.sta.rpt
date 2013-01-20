@@ -1,0 +1,472 @@
+TimeQuest Timing Analyzer report for Test
+Sun Jan 20 16:48:26 2013
+Quartus II 64-Bit Version 12.0 Build 178 05/31/2012 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Fmax Summary
+  6. Setup Summary
+  7. Hold Summary
+  8. Recovery Summary
+  9. Removal Summary
+ 10. Minimum Pulse Width Summary
+ 11. Setup: 'ps2_nclk'
+ 12. Hold: 'ps2_nclk'
+ 13. Minimum Pulse Width: 'ps2_nclk'
+ 14. Setup Times
+ 15. Hold Times
+ 16. Clock to Output Times
+ 17. Minimum Clock to Output Times
+ 18. Propagation Delay
+ 19. Minimum Propagation Delay
+ 20. Setup Transfers
+ 21. Hold Transfers
+ 22. Report TCCS
+ 23. Report RSKM
+ 24. Unconstrained Paths
+ 25. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2012 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                      ;
++--------------------+---------------------------------------------------+
+; Quartus II Version ; Version 12.0 Build 178 05/31/2012 SJ Full Version ;
+; Revision Name      ; Test                                              ;
+; Device Family      ; MAX3000A                                          ;
+; Device Name        ; EPM3064ALC44-10                                   ;
+; Timing Models      ; Final                                             ;
+; Delay Model        ; Slow Model                                        ;
+; Rise/Fall Delays   ; Unavailable                                       ;
++--------------------+---------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 64          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     1 processor            ; 100.0%      ;
+;     2-64 processors        ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                               ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets      ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+; ps2_nclk   ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { ps2_nclk } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+
+
++-------------------------------------------------+
+; Fmax Summary                                    ;
++-----------+-----------------+------------+------+
+; Fmax      ; Restricted Fmax ; Clock Name ; Note ;
++-----------+-----------------+------------+------+
+; 58.82 MHz ; 58.82 MHz       ; ps2_nclk   ;      ;
++-----------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++------------------------------------+
+; Setup Summary                      ;
++----------+---------+---------------+
+; Clock    ; Slack   ; End Point TNS ;
++----------+---------+---------------+
+; ps2_nclk ; -16.000 ; -43.600       ;
++----------+---------+---------------+
+
+
++----------------------------------+
+; Hold Summary                     ;
++----------+-------+---------------+
+; Clock    ; Slack ; End Point TNS ;
++----------+-------+---------------+
+; ps2_nclk ; 5.800 ; 0.000         ;
++----------+-------+---------------+
+
+
+--------------------
+; Recovery Summary ;
+--------------------
+No paths to report.
+
+
+-------------------
+; Removal Summary ;
+-------------------
+No paths to report.
+
+
++-----------------------------------+
+; Minimum Pulse Width Summary       ;
++----------+--------+---------------+
+; Clock    ; Slack  ; End Point TNS ;
++----------+--------+---------------+
+; ps2_nclk ; -3.500 ; -28.000       ;
++----------+--------+---------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Setup: 'ps2_nclk'                                                                                               ;
++---------+----------------+----------------+--------------+-------------+--------------+------------+------------+
+; Slack   ; From Node      ; To Node        ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++---------+----------------+----------------+--------------+-------------+--------------+------------+------------+
+; -16.000 ; ps2_present[3] ; ps2_present[0] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 14.100     ;
+; -16.000 ; ps2_present[0] ; ps2_present[0] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 14.100     ;
+; -16.000 ; ps2_present[2] ; ps2_present[0] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 14.100     ;
+; -16.000 ; ps2_present[1] ; ps2_present[0] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 14.100     ;
+; -9.200  ; ps2_present[0] ; ps2_present[3] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; ps2_present[3] ; ps2_present[3] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; ps2_present[2] ; ps2_present[3] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; ps2_present[1] ; ps2_present[3] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; ps2_present[3] ; ps2_present[1] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; ps2_present[1] ; ps2_present[1] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; ps2_present[0] ; ps2_present[1] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; ps2_present[1] ; ps2_present[2] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; ps2_present[0] ; ps2_present[2] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; ps2_present[3] ; ps2_present[2] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; ps2_present[2] ; ps2_present[2] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
++---------+----------------+----------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Hold: 'ps2_nclk'                                                                                              ;
++-------+----------------+----------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node      ; To Node        ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------+----------------+--------------+-------------+--------------+------------+------------+
+; 5.800 ; ps2_present[2] ; ps2_present[2] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.100      ;
+; 6.000 ; ps2_present[3] ; ps2_present[0] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; ps2_present[0] ; ps2_present[0] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; ps2_present[2] ; ps2_present[0] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; ps2_present[1] ; ps2_present[0] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; ps2_present[0] ; ps2_present[3] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; ps2_present[3] ; ps2_present[3] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; ps2_present[2] ; ps2_present[3] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; ps2_present[1] ; ps2_present[3] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; ps2_present[3] ; ps2_present[1] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; ps2_present[1] ; ps2_present[1] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; ps2_present[0] ; ps2_present[1] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; ps2_present[1] ; ps2_present[2] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; ps2_present[0] ; ps2_present[2] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; ps2_present[3] ; ps2_present[2] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
++-------+----------------+----------------+--------------+-------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'ps2_nclk'                                                                        ;
++--------+--------------+----------------+------------------+----------+------------+--------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock    ; Clock Edge ; Target             ;
++--------+--------------+----------------+------------------+----------+------------+--------------------+
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Fall       ; ps2_present[0]     ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Fall       ; ps2_present[0]     ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Fall       ; ps2_present[1]     ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Fall       ; ps2_present[1]     ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Fall       ; ps2_present[2]     ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Fall       ; ps2_present[2]     ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Fall       ; ps2_present[3]     ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Fall       ; ps2_present[3]     ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; ps2_nclk ; Rise       ; ps2_nclk|dataout   ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; ps2_nclk|dataout   ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; ps2_nclk ; Rise       ; ps2_present[0]|clk ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; ps2_present[0]|clk ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; ps2_nclk ; Rise       ; ps2_present[1]|clk ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; ps2_present[1]|clk ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; ps2_nclk ; Rise       ; ps2_present[2]|clk ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; ps2_present[2]|clk ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; ps2_nclk ; Rise       ; ps2_present[3]|clk ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; ps2_present[3]|clk ;
++--------+--------------+----------------+------------------+----------+------------+--------------------+
+
+
++-------------------------------------------------------------------------+
+; Setup Times                                                             ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; ndata     ; ps2_nclk   ; 13.200 ; 13.200 ; Fall       ; ps2_nclk        ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; ndata     ; ps2_nclk   ; -9.000 ; -9.000 ; Fall       ; ps2_nclk        ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++------------------------------------------------------------------------------------+
+; Clock to Output Times                                                              ;
++----------------------+------------+--------+--------+------------+-----------------+
+; Data Port            ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++----------------------+------------+--------+--------+------------+-----------------+
+; last_serial_data[*]  ; ps2_nclk   ; 27.600 ; 27.600 ; Fall       ; ps2_nclk        ;
+;  last_serial_data[0] ; ps2_nclk   ; 27.600 ; 27.600 ; Fall       ; ps2_nclk        ;
+;  last_serial_data[1] ; ps2_nclk   ; 24.700 ; 24.700 ; Fall       ; ps2_nclk        ;
+;  last_serial_data[2] ; ps2_nclk   ; 24.700 ; 24.700 ; Fall       ; ps2_nclk        ;
+;  last_serial_data[3] ; ps2_nclk   ; 24.700 ; 24.700 ; Fall       ; ps2_nclk        ;
+;  last_serial_data[4] ; ps2_nclk   ; 24.700 ; 24.700 ; Fall       ; ps2_nclk        ;
+;  last_serial_data[5] ; ps2_nclk   ; 24.700 ; 24.700 ; Fall       ; ps2_nclk        ;
+;  last_serial_data[6] ; ps2_nclk   ; 27.600 ; 27.600 ; Fall       ; ps2_nclk        ;
+;  last_serial_data[7] ; ps2_nclk   ; 24.700 ; 24.700 ; Fall       ; ps2_nclk        ;
+; serial_data[*]       ; ps2_nclk   ; 20.800 ; 20.800 ; Fall       ; ps2_nclk        ;
+;  serial_data[0]      ; ps2_nclk   ; 20.800 ; 20.800 ; Fall       ; ps2_nclk        ;
+;  serial_data[1]      ; ps2_nclk   ; 17.900 ; 17.900 ; Fall       ; ps2_nclk        ;
+;  serial_data[2]      ; ps2_nclk   ; 17.900 ; 17.900 ; Fall       ; ps2_nclk        ;
+;  serial_data[3]      ; ps2_nclk   ; 17.900 ; 17.900 ; Fall       ; ps2_nclk        ;
+;  serial_data[4]      ; ps2_nclk   ; 17.900 ; 17.900 ; Fall       ; ps2_nclk        ;
+;  serial_data[5]      ; ps2_nclk   ; 17.900 ; 17.900 ; Fall       ; ps2_nclk        ;
+;  serial_data[6]      ; ps2_nclk   ; 20.800 ; 20.800 ; Fall       ; ps2_nclk        ;
+;  serial_data[7]      ; ps2_nclk   ; 17.900 ; 17.900 ; Fall       ; ps2_nclk        ;
+; valid                ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
++----------------------+------------+--------+--------+------------+-----------------+
+
+
++------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                      ;
++----------------------+------------+--------+--------+------------+-----------------+
+; Data Port            ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++----------------------+------------+--------+--------+------------+-----------------+
+; last_serial_data[*]  ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
+;  last_serial_data[0] ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
+;  last_serial_data[1] ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
+;  last_serial_data[2] ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
+;  last_serial_data[3] ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
+;  last_serial_data[4] ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
+;  last_serial_data[5] ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
+;  last_serial_data[6] ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
+;  last_serial_data[7] ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
+; serial_data[*]       ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
+;  serial_data[0]      ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
+;  serial_data[1]      ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
+;  serial_data[2]      ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
+;  serial_data[3]      ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
+;  serial_data[4]      ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
+;  serial_data[5]      ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
+;  serial_data[6]      ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
+;  serial_data[7]      ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
+; valid                ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
++----------------------+------------+--------+--------+------------+-----------------+
+
+
++----------------------------------------------------------------------+
+; Propagation Delay                                                    ;
++------------+---------------------+--------+--------+--------+--------+
+; Input Port ; Output Port         ; RR     ; RF     ; FR     ; FF     ;
++------------+---------------------+--------+--------+--------+--------+
+; ndata      ; last_serial_data[0] ; 23.800 ; 23.800 ; 23.800 ; 23.800 ;
+; ndata      ; last_serial_data[1] ; 20.900 ; 17.000 ; 17.000 ; 20.900 ;
+; ndata      ; last_serial_data[2] ; 20.900 ; 17.000 ; 17.000 ; 20.900 ;
+; ndata      ; last_serial_data[3] ; 20.900 ; 17.000 ; 17.000 ; 20.900 ;
+; ndata      ; last_serial_data[4] ; 20.900 ; 17.000 ; 17.000 ; 20.900 ;
+; ndata      ; last_serial_data[5] ; 20.900 ; 17.000 ; 17.000 ; 20.900 ;
+; ndata      ; last_serial_data[6] ; 23.800 ; 23.800 ; 23.800 ; 23.800 ;
+; ndata      ; last_serial_data[7] ; 20.900 ; 17.000 ; 17.000 ; 20.900 ;
+; ndata      ; serial_data[0]      ; 17.000 ; 17.000 ; 17.000 ; 17.000 ;
+; ndata      ; serial_data[1]      ; 14.100 ; 10.200 ; 10.200 ; 14.100 ;
+; ndata      ; serial_data[2]      ; 14.100 ; 10.200 ; 10.200 ; 14.100 ;
+; ndata      ; serial_data[3]      ; 14.100 ; 10.200 ; 10.200 ; 14.100 ;
+; ndata      ; serial_data[4]      ; 14.100 ; 10.200 ; 10.200 ; 14.100 ;
+; ndata      ; serial_data[5]      ; 14.100 ; 10.200 ; 10.200 ; 14.100 ;
+; ndata      ; serial_data[6]      ; 17.000 ; 17.000 ; 17.000 ; 17.000 ;
+; ndata      ; serial_data[7]      ; 14.100 ; 10.200 ; 10.200 ; 14.100 ;
++------------+---------------------+--------+--------+--------+--------+
+
+
++----------------------------------------------------------------------+
+; Minimum Propagation Delay                                            ;
++------------+---------------------+--------+--------+--------+--------+
+; Input Port ; Output Port         ; RR     ; RF     ; FR     ; FF     ;
++------------+---------------------+--------+--------+--------+--------+
+; ndata      ; last_serial_data[0] ; 23.800 ; 17.000 ; 17.000 ; 23.800 ;
+; ndata      ; last_serial_data[1] ; 20.900 ; 17.000 ; 17.000 ; 20.900 ;
+; ndata      ; last_serial_data[2] ; 20.900 ; 17.000 ; 17.000 ; 20.900 ;
+; ndata      ; last_serial_data[3] ; 20.900 ; 17.000 ; 17.000 ; 20.900 ;
+; ndata      ; last_serial_data[4] ; 20.900 ; 17.000 ; 17.000 ; 20.900 ;
+; ndata      ; last_serial_data[5] ; 20.900 ; 17.000 ; 17.000 ; 20.900 ;
+; ndata      ; last_serial_data[6] ; 23.800 ; 17.000 ; 17.000 ; 23.800 ;
+; ndata      ; last_serial_data[7] ; 20.900 ; 17.000 ; 17.000 ; 20.900 ;
+; ndata      ; serial_data[0]      ; 17.000 ; 10.200 ; 10.200 ; 17.000 ;
+; ndata      ; serial_data[1]      ; 14.100 ; 10.200 ; 10.200 ; 14.100 ;
+; ndata      ; serial_data[2]      ; 14.100 ; 10.200 ; 10.200 ; 14.100 ;
+; ndata      ; serial_data[3]      ; 14.100 ; 10.200 ; 10.200 ; 14.100 ;
+; ndata      ; serial_data[4]      ; 14.100 ; 10.200 ; 10.200 ; 14.100 ;
+; ndata      ; serial_data[5]      ; 14.100 ; 10.200 ; 10.200 ; 14.100 ;
+; ndata      ; serial_data[6]      ; 17.000 ; 10.200 ; 10.200 ; 17.000 ;
+; ndata      ; serial_data[7]      ; 14.100 ; 10.200 ; 10.200 ; 14.100 ;
++------------+---------------------+--------+--------+--------+--------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; ps2_nclk   ; ps2_nclk ; 0        ; 0        ; 0        ; 30       ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; ps2_nclk   ; ps2_nclk ; 0        ; 0        ; 0        ; 30       ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 2     ; 2    ;
+; Unconstrained Input Port Paths  ; 21    ; 21   ;
+; Unconstrained Output Ports      ; 17    ; 17   ;
+; Unconstrained Output Port Paths ; 84    ; 84   ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 12.0 Build 178 05/31/2012 SJ Full Version
+    Info: Processing started: Sun Jan 20 16:48:09 2013
+Info: Command: quartus_sta Test -c Test
+Info: qsta_default_script.tcl version: #4
+Info (20030): Parallel compilation is enabled and will use 16 of the 64 processors detected
+Info (306004): Started post-fitting delay annotation
+Info (306005): Delay annotation completed successfully
+Warning (335095): TimeQuest Timing Analyzer does not support the analysis of latches as synchronous elements for the currently selected device family.
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'Test.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name ps2_nclk ps2_nclk
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "last_serial_data[0]$latch~6|[2]"
+    Warning (332126): Node "last_serial_data[0]$latch~6|dataout"
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "serial_data[0]$latch~6|[1]"
+    Warning (332126): Node "serial_data[0]$latch~6|dataout"
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "last_serial_data[7]$latch~6|[2]"
+    Warning (332126): Node "last_serial_data[7]$latch~6|dataout"
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "last_serial_data[6]$latch~6|[2]"
+    Warning (332126): Node "last_serial_data[6]$latch~6|dataout"
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "last_serial_data[5]$latch~6|[2]"
+    Warning (332126): Node "last_serial_data[5]$latch~6|dataout"
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "last_serial_data[4]$latch~6|[2]"
+    Warning (332126): Node "last_serial_data[4]$latch~6|dataout"
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "last_serial_data[3]$latch~6|[2]"
+    Warning (332126): Node "last_serial_data[3]$latch~6|dataout"
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "last_serial_data[2]$latch~6|[2]"
+    Warning (332126): Node "last_serial_data[2]$latch~6|dataout"
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "last_serial_data[1]$latch~6|[2]"
+    Warning (332126): Node "last_serial_data[1]$latch~6|dataout"
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "serial_data[7]$latch~6|[0]"
+    Warning (332126): Node "serial_data[7]$latch~6|dataout"
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "serial_data[6]$latch~6|[1]"
+    Warning (332126): Node "serial_data[6]$latch~6|dataout"
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "serial_data[5]$latch~6|[0]"
+    Warning (332126): Node "serial_data[5]$latch~6|dataout"
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "serial_data[4]$latch~6|[0]"
+    Warning (332126): Node "serial_data[4]$latch~6|dataout"
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "serial_data[3]$latch~6|[0]"
+    Warning (332126): Node "serial_data[3]$latch~6|dataout"
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "serial_data[2]$latch~6|[0]"
+    Warning (332126): Node "serial_data[2]$latch~6|dataout"
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "serial_data[1]$latch~6|[0]"
+    Warning (332126): Node "serial_data[1]$latch~6|dataout"
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -16.000
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):   -16.000       -43.600 ps2_nclk 
+Info (332146): Worst-case hold slack is 5.800
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     5.800         0.000 ps2_nclk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.500
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -3.500       -28.000 ps2_nclk 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 51 warnings
+    Info: Peak virtual memory: 371 megabytes
+    Info: Processing ended: Sun Jan 20 16:48:26 2013
+    Info: Elapsed time: 00:00:17
+    Info: Total CPU time (on all processors): 00:00:01
+
+

@@ -1,0 +1,25 @@
+|ps2
+serial_data[0] <= serial_data[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+serial_data[1] <= serial_data[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+serial_data[2] <= serial_data[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+serial_data[3] <= serial_data[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
+serial_data[4] <= serial_data[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
+serial_data[5] <= serial_data[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
+serial_data[6] <= serial_data[6]$latch.DB_MAX_OUTPUT_PORT_TYPE
+serial_data[7] <= serial_data[7]$latch.DB_MAX_OUTPUT_PORT_TYPE
+last_serial_data[0] <= last_serial_data[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+last_serial_data[1] <= last_serial_data[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+last_serial_data[2] <= last_serial_data[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+last_serial_data[3] <= last_serial_data[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
+last_serial_data[4] <= last_serial_data[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
+last_serial_data[5] <= last_serial_data[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
+last_serial_data[6] <= last_serial_data[6]$latch.DB_MAX_OUTPUT_PORT_TYPE
+last_serial_data[7] <= last_serial_data[7]$latch.DB_MAX_OUTPUT_PORT_TYPE
+valid <= valid.DB_MAX_OUTPUT_PORT_TYPE
+paritycheck <= <GND>
+Clk => ~NO_FANOUT~
+nReset => always2.IN0
+ps2_nclk => always2.IN0
+ndata => serial_data.IN0
+
+
