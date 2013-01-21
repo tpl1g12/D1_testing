@@ -316,7 +316,7 @@ int main() {
     while(1) {
         wdt_reset(); // keep the watchdog happy
         usbPoll();
-        
+
         // characters are sent when messageState == STATE_SEND and after receiving
         // the initial LED state from PC (good way to wait until device is recognized)
         if(usbInterruptIsReady() && messageState == STATE_SEND && LED_state != 0xff){
