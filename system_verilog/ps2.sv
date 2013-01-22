@@ -1,15 +1,14 @@
 /////////////////////////////////////////////////////////////////////
 // D1 program for keyboard input, encyption, data transfer
 // 
-// Last Updated: 22/01/13 - Removed the combinational latches.
+// Last Updated: 20/01/13 - Removed the combinational latches.
 //        Removed parity. Still just a serial-parallel converter.
-//	  Fully tested and works in real life
 //        
 /////////////////////////////////////////////////////////////////////
 
 module ps2 #(parameter N = 11)(output logic [N-1:0] serial_data,  
         output logic led, valid,
-        input logic Clk, nReset, ps2_nclk, ndata, output logic [3:0] serial_counter );
+        input logic Clk, nReset, ps2_nclk, ndata, output logic [3:0] serial_counter, output logic next_lfsr );
 
          logic [N-4:0] last_serial_data;
          //logic [6:0] serial_counter ;
@@ -18,19 +17,27 @@ module ps2 #(parameter N = 11)(output logic [N-1:0] serial_data,
 //      s19,s20,s21,s22,s23,s24,s25,s26,s27,s28,s29,s30} present_state, next_state;
 
 //enum {t0,t1,t2,t3,t4,t5,t6,t7,t8,t9} ps2_present, ps2_next;
-      
-//Main clock state machine    
-//this is for encryption and the secure wire communication  
-//should be done in another block
-always_ff @(posedge Clk, negedge nReset)
-  begin: SEQ1
-     //Add reset code
 
+logic [16-1:0] lfsr;
+//lfsr
+//not sure which clock.. 
+always_ff @(posedge ps2_nclk, negedge nReset)
+  begin: SEQ1
+     if (!nReset)
+      begin
+        lfsr[N-1:1] <= '1;
+    end
+     else
+    begin
+        lfsr <= {lfsr[N-2:0], next_lfsr};
+     end
  end
   
 always_comb
   begin: COM1
-    
+    //taps at 10 12 13 15
+     //addressed from 0
+     next_lfsr = (((lfsr[13]^lfsr[15])^lfsr[12])^lfsr[10]);
   end
 
 //PS2 clock state machine
