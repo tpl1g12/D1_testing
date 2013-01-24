@@ -13,7 +13,9 @@
 #include <inttypes.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdint.h>
 #include "usbdrv.h"
+//#include "conversion.h"
 #define F_CPU 12000000
 // *********************************
 // *** BASIC PROGRAM DEFINITIONS ***
@@ -74,8 +76,9 @@ static uchar idleRate; // repeat rate for keyboards
 
 #define STATE_SEND 1
 #define STATE_DONE 0
-volatile uint8_t value, buffer[8], h;
-volatile int bit =0;
+volatile uint8_t value, buffer[8];
+volatile int bit = 0, h,j;
+volatile uint8_t res = 0, message;
 static uchar messageState = STATE_DONE;
 static uchar messageBuffer[1] = "";
 static uchar messagePtr = 0;
@@ -115,10 +118,120 @@ uchar ch_checker()
 return 0;
 }
 */
+void conversion()
+{
+	if (res == 0x1c)
+	{
+		message = 'a';
+	}
+	if (res == 0x32)
+	{
+		message = 'b';
+	}
+	if (res == 0x21)
+	{
+		message = 'c';
+	}
+	if (res == 0x23)
+	{
+		message = 'd';
+	}
+	if (res == 0x24)
+	{
+		message = 'e';
+	}
+	if (res == 0x2b)
+	{
+		message = 'f';
+	}
+	if (res == 0x34)
+	{
+		message = 'g';
+	}
+	if (res == 0x33)
+	{
+		message = 'h';
+	}
+	if (res == 0x43)
+	{
+		message = 'i';
+	}
+	if (res == 0x3b)
+	{
+		message = 'j';
+	}
+	if (res == 0x42)
+	{
+		message = 'k';
+	}
+	if (res == 0x4b)
+	{
+		message = 'l';
+	}
+	if (res == 0x3a)
+	{
+		message = 'm';
+	}
+	if (res == 0x31)
+	{
+		message = 'n';
+	}
+	if (res == 0x44)
+	{
+		message = 'o';
+	}
+	if (res == 0x4d)
+	{
+		message = 'p';
+	}
+	if (res == 0x15)
+	{
+		message = 'q';
+	}
+	if (res == 0x2d)
+	{
+		message = 'r';
+	}
+	if (res == 0x1b)
+	{
+		message = 's';
+	}
+	if (res == 0x2c)
+	{
+		message = 't';
+	}
+	if (res == 0x3c)
+	{
+		message = 'u';
+	}
+	if (res == 0x2a)
+	{
+		message = 'v';
+	}
+	if (res == 0x1d)
+	{
+		message = 'w';
+	}
+	if (res == 0x22)
+	{
+		message = 'x';
+	}
+	if (res == 0x35)
+	{
+		message = 'y';
+	}
+	if (res == 0x1a)
+	{
+		message = 'z';
+	}
+
+}
+
 uchar buildReport() {
     uchar ch;
     
-    if(messageState == STATE_DONE || messagePtr >= sizeof(messageBuffer) || messageBuffer[messagePtr] == 0) {
+    if(messageState == STATE_DONE || message == 0)
+    {
         keyboard_report.modifier = 0;
         keyboard_report.keycode[0] = 0;
         return STATE_DONE;
@@ -128,7 +241,7 @@ uchar buildReport() {
     { // send a keypress
     //    ch = ch_checker();
     //    ch = messageBuffer[1];
-    	ch = messageBuffer[0];
+    	ch = message;
         // convert character to modifier + keycode
         	if(ch >= '0' && ch <= '9')
         	{
@@ -251,7 +364,14 @@ ISR(INT1_vect)
 
 	if(bit == 8)
 	{
-		memcpy(messageBuffer, (char*)&buffer, 1);
+		//memcpy(messageBuffer, (char*)&buffer, 1);
+		for (j = 0 ; j != 8 ; j++)
+			{
+			    res <<= 1;					//converting byte to integer
+			    res |= buffer[j];
+			}
+		conversion();
+
 		for(h=0;h<8;h++)
 		    	{
 		    		buffer[h] = '0';
@@ -302,6 +422,7 @@ int main() {
         	if(usbInterruptIsReady() && messageState == STATE_SEND)
         		{
         		messageState = buildReport();
+        		message = 0;
         		usbSetInterrupt((void *)&keyboard_report, sizeof(keyboard_report));
         		}
         }
