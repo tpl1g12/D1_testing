@@ -56,52 +56,52 @@
  -- Pin directions (input, output or bidir) are based on device operating in user mode.
  ---------------------------------------------------------------------------------
 
-Quartus II 64-Bit Version 12.0 Build 178 05/31/2012 SJ Full Version
+Quartus II 64-Bit Version 12.0 Build 263 08/02/2012 Service Pack 2 SJ Full Version
 CHIP  "Test"  ASSIGNED TO AN: EPM3064ALC44-10
 
 Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage : I/O Bank  : User Assignment
 -------------------------------------------------------------------------------------------------------------
-nReset                       : 1         : input  : 3.3-V LVTTL       :         :           : N              
+nReset                       : 1         : input  : 3.3-V LVTTL       :         :           : Y              
 GND+                         : 2         :        :                   :         :           :                
 VCCINT                       : 3         : power  :                   : 3.3V    :           :                
-last_serial_data[6]          : 4         : output : 3.3-V LVTTL       :         :           : N              
-last_serial_data[2]          : 5         : output : 3.3-V LVTTL       :         :           : N              
-serial_data[6]               : 6         : output : 3.3-V LVTTL       :         :           : N              
+serial_clk_out               : 4         : output : 3.3-V LVTTL       :         :           : Y              
+serial_data[1]               : 5         : output : 3.3-V LVTTL       :         :           : N              
+serial_data[2]               : 6         : output : 3.3-V LVTTL       :         :           : N              
 TDI                          : 7         : input  : 3.3-V LVTTL       :         :           : N              
-last_serial_data[1]          : 8         : output : 3.3-V LVTTL       :         :           : N              
-serial_data[1]               : 9         : output : 3.3-V LVTTL       :         :           : N              
+serial_data[0]               : 8         : output : 3.3-V LVTTL       :         :           : Y              
+serial_out                   : 9         : output : 3.3-V LVTTL       :         :           : Y              
 GND                          : 10        : gnd    :                   :         :           :                
-serial_data[2]               : 11        : output : 3.3-V LVTTL       :         :           : N              
-valid                        : 12        : output : 3.3-V LVTTL       :         :           : N              
+ndata                        : 11        : input  : 3.3-V LVTTL       :         :           : Y              
+ps2_nclk                     : 12        : input  : 3.3-V LVTTL       :         :           : Y              
 TMS                          : 13        : input  : 3.3-V LVTTL       :         :           : N              
-last_serial_data[4]          : 14        : output : 3.3-V LVTTL       :         :           : N              
+RESERVED                     : 14        :        :                   :         :           :                
 VCCIO                        : 15        : power  :                   : 3.3V    :           :                
-Clk                          : 16        : input  : 3.3-V LVTTL       :         :           : Y              
+serial_clk                   : 16        : output : 3.3-V LVTTL       :         :           : Y              
 GND                          : 17        : gnd    :                   :         :           :                
-serial_data[5]               : 18        : output : 3.3-V LVTTL       :         :           : N              
-serial_data[4]               : 19        : output : 3.3-V LVTTL       :         :           : N              
-last_serial_data[5]          : 20        : output : 3.3-V LVTTL       :         :           : N              
+RESERVED                     : 18        :        :                   :         :           :                
+RESERVED                     : 19        :        :                   :         :           :                
+RESERVED                     : 20        :        :                   :         :           :                
 RESERVED                     : 21        :        :                   :         :           :                
 GND                          : 22        : gnd    :                   :         :           :                
 VCCINT                       : 23        : power  :                   : 3.3V    :           :                
-serial_data[3]               : 24        : output : 3.3-V LVTTL       :         :           : N              
-serial_data[7]               : 25        : output : 3.3-V LVTTL       :         :           : N              
-last_serial_data[3]          : 26        : output : 3.3-V LVTTL       :         :           : N              
-last_serial_data[0]          : 27        : output : 3.3-V LVTTL       :         :           : N              
-last_serial_data[7]          : 28        : output : 3.3-V LVTTL       :         :           : N              
-paritycheck                  : 29        : output : 3.3-V LVTTL       :         :           : N              
+serial_data[4]               : 24        : output : 3.3-V LVTTL       :         :           : N              
+serial_data[3]               : 25        : output : 3.3-V LVTTL       :         :           : N              
+serial_data[8]               : 26        : output : 3.3-V LVTTL       :         :           : N              
+serial_data[6]               : 27        : output : 3.3-V LVTTL       :         :           : N              
+valid                        : 28        : output : 3.3-V LVTTL       :         :           : Y              
+serial_data[7]               : 29        : output : 3.3-V LVTTL       :         :           : N              
 GND                          : 30        : gnd    :                   :         :           :                
-serial_data[0]               : 31        : output : 3.3-V LVTTL       :         :           : N              
+serial_data[5]               : 31        : output : 3.3-V LVTTL       :         :           : N              
 TCK                          : 32        : input  : 3.3-V LVTTL       :         :           : N              
-RESERVED                     : 33        :        :                   :         :           :                
-RESERVED                     : 34        :        :                   :         :           :                
+led                          : 33        : output : 3.3-V LVTTL       :         :           : Y              
+serial_data[9]               : 34        : output : 3.3-V LVTTL       :         :           : N              
 VCCIO                        : 35        : power  :                   : 3.3V    :           :                
 GND                          : 36        : gnd    :                   :         :           :                
-ndata                        : 37        : input  : 3.3-V LVTTL       :         :           : N              
+RESERVED                     : 37        :        :                   :         :           :                
 TDO                          : 38        : output : 3.3-V LVTTL       :         :           : N              
-RESERVED                     : 39        :        :                   :         :           :                
+serial_data[10]              : 39        : output : 3.3-V LVTTL       :         :           : N              
 RESERVED                     : 40        :        :                   :         :           :                
 RESERVED                     : 41        :        :                   :         :           :                
 GND                          : 42        : gnd    :                   :         :           :                
-ps2_nclk                     : 43        : input  : 3.3-V LVTTL       :         :           : N              
+Clk                          : 43        : input  : 3.3-V LVTTL       :         :           : Y              
 GND+                         : 44        :        :                   :         :           :                
