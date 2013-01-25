@@ -2,16 +2,40 @@
 TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
+Type  : Setup 'serial_clk~reg0'
+Slack : -19.800
+TNS   : -73.300
+
 Type  : Setup 'ps2_nclk'
-Slack : -16.000
-TNS   : -43.600
+Slack : -10.000
+TNS   : -292.300
+
+Type  : Setup 'Clk'
+Slack : -9.000
+TNS   : -81.000
+
+Type  : Hold 'Clk'
+Slack : 0.600
+TNS   : 0.000
 
 Type  : Hold 'ps2_nclk'
 Slack : 5.800
 TNS   : 0.000
 
+Type  : Hold 'serial_clk~reg0'
+Slack : 5.800
+TNS   : 0.000
+
 Type  : Minimum Pulse Width 'ps2_nclk'
 Slack : -3.500
-TNS   : -28.000
+TNS   : -231.000
+
+Type  : Minimum Pulse Width 'Clk'
+Slack : -3.500
+TNS   : -63.000
+
+Type  : Minimum Pulse Width 'serial_clk~reg0'
+Slack : -3.500
+TNS   : -42.000
 
 ------------------------------------------------------------

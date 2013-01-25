@@ -1,6 +1,6 @@
 Fitter report for Test
-Sun Jan 20 16:48:07 2013
-Quartus II 64-Bit Version 12.0 Build 178 05/31/2012 SJ Full Version
+Thu Jan 24 18:46:07 2013
+Quartus II 64-Bit Version 12.0 Build 263 08/02/2012 Service Pack 2 SJ Full Version
 
 
 ---------------------
@@ -24,7 +24,7 @@ Quartus II 64-Bit Version 12.0 Build 178 05/31/2012 SJ Full Version
  16. Non-Global High Fan-Out Signals
  17. Interconnect Usage Summary
  18. LAB Macrocells
- 19. Shareable Expander
+ 19. Parallel Expander
  20. Logic Cell Interconnection
  21. Fitter Device Options
  22. Fitter Messages
@@ -50,19 +50,19 @@ applicable agreement for further details.
 
 
 
-+-----------------------------------------------------------------------+
-; Fitter Summary                                                        ;
-+---------------------------+-------------------------------------------+
-; Fitter Status             ; Successful - Sun Jan 20 16:48:07 2013     ;
-; Quartus II 64-Bit Version ; 12.0 Build 178 05/31/2012 SJ Full Version ;
-; Revision Name             ; Test                                      ;
-; Top-level Entity Name     ; ps2                                       ;
-; Family                    ; MAX3000A                                  ;
-; Device                    ; EPM3064ALC44-10                           ;
-; Timing Models             ; Final                                     ;
-; Total macrocells          ; 24 / 64 ( 38 % )                          ;
-; Total pins                ; 26 / 34 ( 76 % )                          ;
-+---------------------------+-------------------------------------------+
++----------------------------------------------------------------------------+
+; Fitter Summary                                                             ;
++---------------------------+------------------------------------------------+
+; Fitter Status             ; Successful - Thu Jan 24 18:46:07 2013          ;
+; Quartus II 64-Bit Version ; 12.0 Build 263 08/02/2012 SP 2 SJ Full Version ;
+; Revision Name             ; Test                                           ;
+; Top-level Entity Name     ; ps2                                            ;
+; Family                    ; MAX3000A                                       ;
+; Device                    ; EPM3064ALC44-10                                ;
+; Timing Models             ; Final                                          ;
+; Total macrocells          ; 60 / 64 ( 94 % )                               ;
+; Total pins                ; 24 / 34 ( 71 % )                               ;
++---------------------------+------------------------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------+
@@ -91,15 +91,15 @@ applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 64          ;
-; Maximum allowed            ; 16          ;
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
 ; Maximum used               ; 1           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     1 processor            ; 100.0%      ;
-;     2-64 processors        ;   0.0%      ;
+;     2-4 processors         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -114,24 +114,24 @@ The pin-out file can be found in H:/D1_Keyboard_Test/Test.pin.
 +-----------------------------------+------------------+
 ; Resource                          ; Usage            ;
 +-----------------------------------+------------------+
-; Logic cells                       ; 24 / 64 ( 38 % ) ;
-; Registers                         ; 4 / 64 ( 6 % )   ;
-; Number of pterms used             ; 71               ;
+; Logic cells                       ; 60 / 64 ( 94 % ) ;
+; Registers                         ; 48 / 64 ( 75 % ) ;
+; Number of pterms used             ; 190              ;
 ; User inserted logic elements      ; 0                ;
-; I/O pins                          ; 26 / 34 ( 76 % ) ;
+; I/O pins                          ; 24 / 34 ( 71 % ) ;
 ;     -- Clock pins                 ; 1 / 2 ( 50 % )   ;
 ;     -- Dedicated input pins       ; 1 / 2 ( 50 % )   ;
 ;                                   ;                  ;
 ; Global signals                    ; 2                ;
-; Shareable expanders               ; 11 / 64 ( 17 % ) ;
-; Parallel expanders                ; 0 / 60 ( 0 % )   ;
-; Cells using turbo bit             ; 24 / 64 ( 38 % ) ;
-; Maximum fan-out node              ; ps2_present[3]   ;
-; Maximum fan-out                   ; 34               ;
-; Highest non-global fan-out signal ; ps2_present[3]   ;
-; Highest non-global fan-out        ; 34               ;
-; Total fan-out                     ; 221              ;
-; Average fan-out                   ; 3.62             ;
+; Shareable expanders               ; 0 / 64 ( 0 % )   ;
+; Parallel expanders                ; 3 / 60 ( 5 % )   ;
+; Cells using turbo bit             ; 60 / 64 ( 94 % ) ;
+; Maximum fan-out node              ; nReset           ;
+; Maximum fan-out                   ; 48               ;
+; Highest non-global fan-out signal ; ps2_nclk         ;
+; Highest non-global fan-out        ; 33               ;
+; Total fan-out                     ; 352              ;
+; Average fan-out                   ; 4.19             ;
 +-----------------------------------+------------------+
 
 
@@ -140,89 +140,87 @@ The pin-out file can be found in H:/D1_Keyboard_Test/Test.pin.
 +----------+-------+----------+-----+-----------------------+--------------------+--------+--------------+----------------------+
 ; Name     ; Pin # ; I/O Bank ; LAB ; Combinational Fan-Out ; Registered Fan-Out ; Global ; I/O Standard ; Location assigned by ;
 +----------+-------+----------+-----+-----------------------+--------------------+--------+--------------+----------------------+
-; Clk      ; 16    ; --       ; 2   ; 0                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
-; nReset   ; 1     ; --       ; --  ; 4                     ; 0                  ; yes    ; 3.3-V LVTTL  ; Fitter               ;
-; ndata    ; 37    ; --       ; 4   ; 15                    ; 0                  ; no     ; 3.3-V LVTTL  ; Fitter               ;
-; ps2_nclk ; 43    ; --       ; --  ; 4                     ; 0                  ; yes    ; 3.3-V LVTTL  ; Fitter               ;
+; Clk      ; 43    ; --       ; --  ; 9                     ; 0                  ; yes    ; 3.3-V LVTTL  ; User                 ;
+; nReset   ; 1     ; --       ; --  ; 48                    ; 0                  ; yes    ; 3.3-V LVTTL  ; User                 ;
+; ndata    ; 11    ; --       ; 1   ; 1                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; ps2_nclk ; 12    ; --       ; 1   ; 33                    ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
 +----------+-------+----------+-----+-----------------------+--------------------+--------+--------------+----------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Output Pins                                                                                                                                                                                             ;
-+---------------------+-------+----------+-----+-----------------+----------------+------------+---------------+--------------+----------------------+-------+----------------------+---------------------+
-; Name                ; Pin # ; I/O Bank ; LAB ; Output Register ; Slow Slew Rate ; Open Drain ; TRI Primitive ; I/O Standard ; Location assigned by ; Load  ; Output Enable Source ; Output Enable Group ;
-+---------------------+-------+----------+-----+-----------------+----------------+------------+---------------+--------------+----------------------+-------+----------------------+---------------------+
-; last_serial_data[0] ; 27    ; --       ; 3   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ; -                    ; -                   ;
-; last_serial_data[1] ; 8     ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ; -                    ; -                   ;
-; last_serial_data[2] ; 5     ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ; -                    ; -                   ;
-; last_serial_data[3] ; 26    ; --       ; 3   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ; -                    ; -                   ;
-; last_serial_data[4] ; 14    ; --       ; 2   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ; -                    ; -                   ;
-; last_serial_data[5] ; 20    ; --       ; 2   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ; -                    ; -                   ;
-; last_serial_data[6] ; 4     ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ; -                    ; -                   ;
-; last_serial_data[7] ; 28    ; --       ; 3   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ; -                    ; -                   ;
-; paritycheck         ; 29    ; --       ; 3   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ; -                    ; -                   ;
-; serial_data[0]      ; 31    ; --       ; 3   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ; -                    ; -                   ;
-; serial_data[1]      ; 9     ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ; -                    ; -                   ;
-; serial_data[2]      ; 11    ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ; -                    ; -                   ;
-; serial_data[3]      ; 24    ; --       ; 3   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ; -                    ; -                   ;
-; serial_data[4]      ; 19    ; --       ; 2   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ; -                    ; -                   ;
-; serial_data[5]      ; 18    ; --       ; 2   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ; -                    ; -                   ;
-; serial_data[6]      ; 6     ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ; -                    ; -                   ;
-; serial_data[7]      ; 25    ; --       ; 3   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ; -                    ; -                   ;
-; valid               ; 12    ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ; -                    ; -                   ;
-+---------------------+-------+----------+-----+-----------------+----------------+------------+---------------+--------------+----------------------+-------+----------------------+---------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Output Pins                                                                                                                                                                                         ;
++-----------------+-------+----------+-----+-----------------+----------------+------------+---------------+--------------+----------------------+-------+----------------------+---------------------+
+; Name            ; Pin # ; I/O Bank ; LAB ; Output Register ; Slow Slew Rate ; Open Drain ; TRI Primitive ; I/O Standard ; Location assigned by ; Load  ; Output Enable Source ; Output Enable Group ;
++-----------------+-------+----------+-----+-----------------+----------------+------------+---------------+--------------+----------------------+-------+----------------------+---------------------+
+; led             ; 33    ; --       ; 4   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; serial_clk      ; 16    ; --       ; 2   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; serial_clk_out  ; 4     ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; serial_data[0]  ; 8     ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; serial_data[10] ; 39    ; --       ; 4   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ; -                    ; -                   ;
+; serial_data[1]  ; 5     ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ; -                    ; -                   ;
+; serial_data[2]  ; 6     ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ; -                    ; -                   ;
+; serial_data[3]  ; 25    ; --       ; 3   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ; -                    ; -                   ;
+; serial_data[4]  ; 24    ; --       ; 3   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ; -                    ; -                   ;
+; serial_data[5]  ; 31    ; --       ; 3   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ; -                    ; -                   ;
+; serial_data[6]  ; 27    ; --       ; 3   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ; -                    ; -                   ;
+; serial_data[7]  ; 29    ; --       ; 3   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ; -                    ; -                   ;
+; serial_data[8]  ; 26    ; --       ; 3   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ; -                    ; -                   ;
+; serial_data[9]  ; 34    ; --       ; 4   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ; -                    ; -                   ;
+; serial_out      ; 9     ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; valid           ; 28    ; --       ; 3   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
++-----------------+-------+----------+-----+-----------------+----------------+------------+---------------+--------------+----------------------+-------+----------------------+---------------------+
 
 
-+------------------------------------------------------------------------------------------------------------+
-; All Package Pins                                                                                           ;
-+----------+------------+----------+---------------------+--------+--------------+---------+-----------------+
-; Location ; Pad Number ; I/O Bank ; Pin Name/Usage      ; Dir.   ; I/O Standard ; Voltage ; User Assignment ;
-+----------+------------+----------+---------------------+--------+--------------+---------+-----------------+
-; 1        ; 0          ; --       ; nReset              ; input  ; 3.3-V LVTTL  ;         ; N               ;
-; 2        ; 1          ; --       ; GND+                ;        ;              ;         ;                 ;
-; 3        ; 2          ; --       ; VCCINT              ; power  ;              ; 3.3V    ;                 ;
-; 4        ; 3          ; --       ; last_serial_data[6] ; output ; 3.3-V LVTTL  ;         ; N               ;
-; 5        ; 4          ; --       ; last_serial_data[2] ; output ; 3.3-V LVTTL  ;         ; N               ;
-; 6        ; 5          ; --       ; serial_data[6]      ; output ; 3.3-V LVTTL  ;         ; N               ;
-; 7        ; 6          ; --       ; TDI                 ; input  ; 3.3-V LVTTL  ;         ; N               ;
-; 8        ; 7          ; --       ; last_serial_data[1] ; output ; 3.3-V LVTTL  ;         ; N               ;
-; 9        ; 8          ; --       ; serial_data[1]      ; output ; 3.3-V LVTTL  ;         ; N               ;
-; 10       ; 9          ; --       ; GND                 ; gnd    ;              ;         ;                 ;
-; 11       ; 10         ; --       ; serial_data[2]      ; output ; 3.3-V LVTTL  ;         ; N               ;
-; 12       ; 11         ; --       ; valid               ; output ; 3.3-V LVTTL  ;         ; N               ;
-; 13       ; 12         ; --       ; TMS                 ; input  ; 3.3-V LVTTL  ;         ; N               ;
-; 14       ; 13         ; --       ; last_serial_data[4] ; output ; 3.3-V LVTTL  ;         ; N               ;
-; 15       ; 14         ; --       ; VCCIO               ; power  ;              ; 3.3V    ;                 ;
-; 16       ; 15         ; --       ; Clk                 ; input  ; 3.3-V LVTTL  ;         ; Y               ;
-; 17       ; 16         ; --       ; GND                 ; gnd    ;              ;         ;                 ;
-; 18       ; 17         ; --       ; serial_data[5]      ; output ; 3.3-V LVTTL  ;         ; N               ;
-; 19       ; 18         ; --       ; serial_data[4]      ; output ; 3.3-V LVTTL  ;         ; N               ;
-; 20       ; 19         ; --       ; last_serial_data[5] ; output ; 3.3-V LVTTL  ;         ; N               ;
-; 21       ; 20         ; --       ; RESERVED            ;        ;              ;         ;                 ;
-; 22       ; 21         ; --       ; GND                 ; gnd    ;              ;         ;                 ;
-; 23       ; 22         ; --       ; VCCINT              ; power  ;              ; 3.3V    ;                 ;
-; 24       ; 23         ; --       ; serial_data[3]      ; output ; 3.3-V LVTTL  ;         ; N               ;
-; 25       ; 24         ; --       ; serial_data[7]      ; output ; 3.3-V LVTTL  ;         ; N               ;
-; 26       ; 25         ; --       ; last_serial_data[3] ; output ; 3.3-V LVTTL  ;         ; N               ;
-; 27       ; 26         ; --       ; last_serial_data[0] ; output ; 3.3-V LVTTL  ;         ; N               ;
-; 28       ; 27         ; --       ; last_serial_data[7] ; output ; 3.3-V LVTTL  ;         ; N               ;
-; 29       ; 28         ; --       ; paritycheck         ; output ; 3.3-V LVTTL  ;         ; N               ;
-; 30       ; 29         ; --       ; GND                 ; gnd    ;              ;         ;                 ;
-; 31       ; 30         ; --       ; serial_data[0]      ; output ; 3.3-V LVTTL  ;         ; N               ;
-; 32       ; 31         ; --       ; TCK                 ; input  ; 3.3-V LVTTL  ;         ; N               ;
-; 33       ; 32         ; --       ; RESERVED            ;        ;              ;         ;                 ;
-; 34       ; 33         ; --       ; RESERVED            ;        ;              ;         ;                 ;
-; 35       ; 34         ; --       ; VCCIO               ; power  ;              ; 3.3V    ;                 ;
-; 36       ; 35         ; --       ; GND                 ; gnd    ;              ;         ;                 ;
-; 37       ; 36         ; --       ; ndata               ; input  ; 3.3-V LVTTL  ;         ; N               ;
-; 38       ; 37         ; --       ; TDO                 ; output ; 3.3-V LVTTL  ;         ; N               ;
-; 39       ; 38         ; --       ; RESERVED            ;        ;              ;         ;                 ;
-; 40       ; 39         ; --       ; RESERVED            ;        ;              ;         ;                 ;
-; 41       ; 40         ; --       ; RESERVED            ;        ;              ;         ;                 ;
-; 42       ; 41         ; --       ; GND                 ; gnd    ;              ;         ;                 ;
-; 43       ; 42         ; --       ; ps2_nclk            ; input  ; 3.3-V LVTTL  ;         ; N               ;
-; 44       ; 43         ; --       ; GND+                ;        ;              ;         ;                 ;
-+----------+------------+----------+---------------------+--------+--------------+---------+-----------------+
++--------------------------------------------------------------------------------------------------------+
+; All Package Pins                                                                                       ;
++----------+------------+----------+-----------------+--------+--------------+---------+-----------------+
+; Location ; Pad Number ; I/O Bank ; Pin Name/Usage  ; Dir.   ; I/O Standard ; Voltage ; User Assignment ;
++----------+------------+----------+-----------------+--------+--------------+---------+-----------------+
+; 1        ; 0          ; --       ; nReset          ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 2        ; 1          ; --       ; GND+            ;        ;              ;         ;                 ;
+; 3        ; 2          ; --       ; VCCINT          ; power  ;              ; 3.3V    ;                 ;
+; 4        ; 3          ; --       ; serial_clk_out  ; output ; 3.3-V LVTTL  ;         ; Y               ;
+; 5        ; 4          ; --       ; serial_data[1]  ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 6        ; 5          ; --       ; serial_data[2]  ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 7        ; 6          ; --       ; TDI             ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; 8        ; 7          ; --       ; serial_data[0]  ; output ; 3.3-V LVTTL  ;         ; Y               ;
+; 9        ; 8          ; --       ; serial_out      ; output ; 3.3-V LVTTL  ;         ; Y               ;
+; 10       ; 9          ; --       ; GND             ; gnd    ;              ;         ;                 ;
+; 11       ; 10         ; --       ; ndata           ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 12       ; 11         ; --       ; ps2_nclk        ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 13       ; 12         ; --       ; TMS             ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; 14       ; 13         ; --       ; RESERVED        ;        ;              ;         ;                 ;
+; 15       ; 14         ; --       ; VCCIO           ; power  ;              ; 3.3V    ;                 ;
+; 16       ; 15         ; --       ; serial_clk      ; output ; 3.3-V LVTTL  ;         ; Y               ;
+; 17       ; 16         ; --       ; GND             ; gnd    ;              ;         ;                 ;
+; 18       ; 17         ; --       ; RESERVED        ;        ;              ;         ;                 ;
+; 19       ; 18         ; --       ; RESERVED        ;        ;              ;         ;                 ;
+; 20       ; 19         ; --       ; RESERVED        ;        ;              ;         ;                 ;
+; 21       ; 20         ; --       ; RESERVED        ;        ;              ;         ;                 ;
+; 22       ; 21         ; --       ; GND             ; gnd    ;              ;         ;                 ;
+; 23       ; 22         ; --       ; VCCINT          ; power  ;              ; 3.3V    ;                 ;
+; 24       ; 23         ; --       ; serial_data[4]  ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 25       ; 24         ; --       ; serial_data[3]  ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 26       ; 25         ; --       ; serial_data[8]  ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 27       ; 26         ; --       ; serial_data[6]  ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 28       ; 27         ; --       ; valid           ; output ; 3.3-V LVTTL  ;         ; Y               ;
+; 29       ; 28         ; --       ; serial_data[7]  ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 30       ; 29         ; --       ; GND             ; gnd    ;              ;         ;                 ;
+; 31       ; 30         ; --       ; serial_data[5]  ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 32       ; 31         ; --       ; TCK             ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; 33       ; 32         ; --       ; led             ; output ; 3.3-V LVTTL  ;         ; Y               ;
+; 34       ; 33         ; --       ; serial_data[9]  ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 35       ; 34         ; --       ; VCCIO           ; power  ;              ; 3.3V    ;                 ;
+; 36       ; 35         ; --       ; GND             ; gnd    ;              ;         ;                 ;
+; 37       ; 36         ; --       ; RESERVED        ;        ;              ;         ;                 ;
+; 38       ; 37         ; --       ; TDO             ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 39       ; 38         ; --       ; serial_data[10] ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 40       ; 39         ; --       ; RESERVED        ;        ;              ;         ;                 ;
+; 41       ; 40         ; --       ; RESERVED        ;        ;              ;         ;                 ;
+; 42       ; 41         ; --       ; GND             ; gnd    ;              ;         ;                 ;
+; 43       ; 42         ; --       ; Clk             ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 44       ; 43         ; --       ; GND+            ;        ;              ;         ;                 ;
++----------+------------+----------+-----------------+--------+--------------+---------+-----------------+
 Note: Pin directions (input, output or bidir) are based on device operating in user mode.
 
 
@@ -235,14 +233,14 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +--------------+------------+----------------------+-------------------+-------------------+-------+
 
 
-+------------------------------------------------------------------------+
-; Dedicated Inputs I/O                                                   ;
-+----------+-------+-------+-------+--------------+------------+---------+
-; Name     ; Pin # ; Type  ; VCCIO ; I/O Standard ; Input Vref ; Current ;
-+----------+-------+-------+-------+--------------+------------+---------+
-; nReset   ; 1     ; Input ; --    ; 3.3-V LVTTL  ; -          ; 0 mA    ;
-; ps2_nclk ; 43    ; Input ; --    ; 3.3-V LVTTL  ; -          ; 0 mA    ;
-+----------+-------+-------+-------+--------------+------------+---------+
++----------------------------------------------------------------------+
+; Dedicated Inputs I/O                                                 ;
++--------+-------+-------+-------+--------------+------------+---------+
+; Name   ; Pin # ; Type  ; VCCIO ; I/O Standard ; Input Vref ; Current ;
++--------+-------+-------+-------+--------------+------------+---------+
+; Clk    ; 43    ; Input ; --    ; 3.3-V LVTTL  ; -          ; 0 mA    ;
+; nReset ; 1     ; Input ; --    ; 3.3-V LVTTL  ; -          ; 0 mA    ;
++--------+-------+-------+-------+--------------+------------+---------+
 
 
 +-----------------------------------------------+
@@ -258,77 +256,109 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 Note: User assignments will override these defaults. The user specified values are listed in the Output Pins and Bidir Pins tables.
 
 
-+-------------------------------------------------------------------------------------+
-; Fitter Resource Utilization by Entity                                               ;
-+----------------------------+------------+------+---------------------+--------------+
-; Compilation Hierarchy Node ; Macrocells ; Pins ; Full Hierarchy Name ; Library Name ;
-+----------------------------+------------+------+---------------------+--------------+
-; |ps2                       ; 24         ; 26   ; |ps2                ; work         ;
-+----------------------------+------------+------+---------------------+--------------+
++------------------------------------------------------------------------------------------------------------------------+
+; Fitter Resource Utilization by Entity                                                                                  ;
++------------------------------------------+------------+------+------------------------------------------+--------------+
+; Compilation Hierarchy Node               ; Macrocells ; Pins ; Full Hierarchy Name                      ; Library Name ;
++------------------------------------------+------------+------+------------------------------------------+--------------+
+; |ps2                                     ; 60         ; 24   ; |ps2                                     ; work         ;
+;    |lpm_counter:clk_counter_rtl_0|       ; 8          ; 0    ; |ps2|lpm_counter:clk_counter_rtl_0       ; work         ;
+;    |lpm_counter:send_serial_count_rtl_0| ; 4          ; 0    ; |ps2|lpm_counter:send_serial_count_rtl_0 ; work         ;
+;    |lpm_counter:serial_counter_rtl_0|    ; 4          ; 0    ; |ps2|lpm_counter:serial_counter_rtl_0    ; work         ;
++------------------------------------------+------------+------+------------------------------------------+--------------+
 
 
-+-------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                 ;
-+----------+----------+---------+--------------+--------+----------------------+------------------+
-; Name     ; Location ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ;
-+----------+----------+---------+--------------+--------+----------------------+------------------+
-; nReset   ; PIN_1    ; 4       ; Async. clear ; yes    ; On                   ; --               ;
-; ps2_nclk ; PIN_43   ; 4       ; Clock        ; yes    ; On                   ; --               ;
-+----------+----------+---------+--------------+--------+----------------------+------------------+
++--------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                        ;
++-----------------+----------+---------+--------------+--------+----------------------+------------------+
+; Name            ; Location ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ;
++-----------------+----------+---------+--------------+--------+----------------------+------------------+
+; Clk             ; PIN_43   ; 9       ; Clock        ; yes    ; On                   ; --               ;
+; nReset          ; PIN_1    ; 48      ; Async. clear ; yes    ; On                   ; --               ;
+; nReset          ; PIN_1    ; 48      ; Preset       ; no     ; --                   ; --               ;
+; ps2_nclk        ; PIN_12   ; 33      ; Clock        ; no     ; --                   ; --               ;
+; serial_clk~reg0 ; LC25     ; 8       ; Clock        ; no     ; --                   ; --               ;
++-----------------+----------+---------+--------------+--------+----------------------+------------------+
 
 
-+-------------------------------------------------------------------------+
-; Global & Other Fast Signals                                             ;
-+----------+----------+---------+----------------------+------------------+
-; Name     ; Location ; Fan-Out ; Global Resource Used ; Global Line Name ;
-+----------+----------+---------+----------------------+------------------+
-; nReset   ; PIN_1    ; 4       ; On                   ; --               ;
-; ps2_nclk ; PIN_43   ; 4       ; On                   ; --               ;
-+----------+----------+---------+----------------------+------------------+
++-----------------------------------------------------------------------+
+; Global & Other Fast Signals                                           ;
++--------+----------+---------+----------------------+------------------+
+; Name   ; Location ; Fan-Out ; Global Resource Used ; Global Line Name ;
++--------+----------+---------+----------------------+------------------+
+; Clk    ; PIN_43   ; 9       ; On                   ; --               ;
+; nReset ; PIN_1    ; 48      ; On                   ; --               ;
++--------+----------+---------+----------------------+------------------+
 
 
-+---------------------------------------+
-; Non-Global High Fan-Out Signals       ;
-+-----------------------------+---------+
-; Name                        ; Fan-Out ;
-+-----------------------------+---------+
-; ps2_present[1]              ; 34      ;
-; ps2_present[3]              ; 34      ;
-; ps2_present[0]              ; 33      ;
-; ps2_present[2]              ; 32      ;
-; ndata                       ; 15      ;
-; Equal9~1                    ; 9       ;
-; serial_data[0]$latch~6      ; 3       ;
-; serial_data[7]$latch~6      ; 3       ;
-; serial_data[6]$latch~6      ; 3       ;
-; serial_data[5]$latch~6      ; 3       ;
-; serial_data[4]$latch~6      ; 3       ;
-; serial_data[3]$latch~6      ; 3       ;
-; serial_data[2]$latch~6      ; 3       ;
-; serial_data[1]$latch~6      ; 3       ;
-; Selector4~1sexpand0         ; 2       ;
-; last_serial_data[0]$latch~6 ; 2       ;
-; last_serial_data[7]$latch~6 ; 2       ;
-; last_serial_data[6]$latch~6 ; 2       ;
-; last_serial_data[5]$latch~6 ; 2       ;
-; last_serial_data[4]$latch~6 ; 2       ;
-; last_serial_data[3]$latch~6 ; 2       ;
-; last_serial_data[2]$latch~6 ; 2       ;
-; last_serial_data[1]$latch~6 ; 2       ;
-; Selector2~3                 ; 2       ;
-; Selector4~6                 ; 1       ;
-; Selector4~5                 ; 1       ;
-; Selector16~1sexpand1        ; 1       ;
-; Selector16~1sexpand0        ; 1       ;
-; Selector12~1sexpand1        ; 1       ;
-; Selector10~1sexpand1        ; 1       ;
-; Selector10~1sexpand0        ; 1       ;
-; Selector8~1sexpand0         ; 1       ;
-; Selector6~1sexpand0         ; 1       ;
-; Selector4~1sexpand1         ; 1       ;
-; ~GND~0                      ; 1       ;
-; Selector14~1                ; 1       ;
-+-----------------------------+---------+
++-------------------------------------------------------+
+; Non-Global High Fan-Out Signals                       ;
++---------------------------------------------+---------+
+; Name                                        ; Fan-Out ;
++---------------------------------------------+---------+
+; ps2_nclk                                    ; 33      ;
+; lpm_counter:serial_counter_rtl_0|dffs[3]    ; 16      ;
+; lpm_counter:serial_counter_rtl_0|dffs[2]    ; 16      ;
+; lpm_counter:serial_counter_rtl_0|dffs[1]    ; 16      ;
+; lpm_counter:clk_counter_rtl_0|dffs[7]       ; 9       ;
+; lpm_counter:clk_counter_rtl_0|dffs[6]       ; 9       ;
+; lpm_counter:clk_counter_rtl_0|dffs[5]       ; 9       ;
+; lpm_counter:clk_counter_rtl_0|dffs[4]       ; 9       ;
+; valid~reg0                                  ; 9       ;
+; lpm_counter:clk_counter_rtl_0|dffs[3]       ; 9       ;
+; lpm_counter:clk_counter_rtl_0|dffs[1]       ; 9       ;
+; lpm_counter:clk_counter_rtl_0|dffs[0]       ; 9       ;
+; lpm_counter:send_serial_count_rtl_0|dffs[3] ; 8       ;
+; lpm_counter:send_serial_count_rtl_0|dffs[1] ; 8       ;
+; lpm_counter:send_serial_count_rtl_0|dffs[0] ; 8       ;
+; serial_clk~reg0                             ; 8       ;
+; lpm_counter:clk_counter_rtl_0|dffs[2]       ; 8       ;
+; lpm_counter:send_serial_count_rtl_0|dffs[2] ; 7       ;
+; serial_out~reg0                             ; 4       ;
+; serial_data[8]~reg0                         ; 4       ;
+; serial_data[7]~reg0                         ; 4       ;
+; serial_data[6]~reg0                         ; 4       ;
+; serial_data[5]~reg0                         ; 4       ;
+; serial_data[4]~reg0                         ; 4       ;
+; serial_data[3]~reg0                         ; 4       ;
+; serial_data[2]~reg0                         ; 4       ;
+; serial_data[1]~reg0                         ; 4       ;
+; lfsr[13]                                    ; 4       ;
+; lfsr[12]                                    ; 4       ;
+; lfsr[10]                                    ; 4       ;
+; lpm_counter:serial_counter_rtl_0|dffs[0]    ; 4       ;
+; serial_data[9]~reg0                         ; 3       ;
+; serial_data[0]~reg0                         ; 3       ;
+; serial_buffer[0]~4                          ; 2       ;
+; show_serial_clock                           ; 2       ;
+; serial_data[10]~reg0                        ; 2       ;
+; lfsr[14]                                    ; 2       ;
+; lfsr[11]                                    ; 2       ;
+; lfsr[9]                                     ; 2       ;
+; lfsr[8]                                     ; 2       ;
+; lfsr[7]                                     ; 2       ;
+; ndata                                       ; 1       ;
+; serial_out~36                               ; 1       ;
+; serial_out~32                               ; 1       ;
+; next_lfsr~7                                 ; 1       ;
+; serial_buffer[6]~28                         ; 1       ;
+; serial_buffer[2]~24                         ; 1       ;
+; serial_buffer[4]~20                         ; 1       ;
+; serial_buffer[1]~16                         ; 1       ;
+; serial_buffer[5]~12                         ; 1       ;
+; serial_buffer[3]~8                          ; 1       ;
+; serial_buffer[7]~0                          ; 1       ;
+; serial_clk_out~2                            ; 1       ;
+; lfsr[6]                                     ; 1       ;
+; lfsr[5]                                     ; 1       ;
+; lfsr[4]                                     ; 1       ;
+; lfsr[3]                                     ; 1       ;
+; lfsr[2]                                     ; 1       ;
+; lfsr[1]                                     ; 1       ;
+; lfsr[0]                                     ; 1       ;
+; lfsr[15]                                    ; 1       ;
+; led~reg0                                    ; 1       ;
++---------------------------------------------+---------+
 
 
 +------------------------------------------------+
@@ -337,74 +367,112 @@ Note: User assignments will override these defaults. The user specified values a
 ; Interconnect Resource Type ; Usage             ;
 +----------------------------+-------------------+
 ; Output enables             ; 0 / 6 ( 0 % )     ;
-; PIA buffers                ; 36 / 144 ( 25 % ) ;
+; PIA buffers                ; 75 / 144 ( 52 % ) ;
 +----------------------------+-------------------+
 
 
-+----------------------------------------------------------------------+
-; LAB Macrocells                                                       ;
-+----------------------------------------+-----------------------------+
-; Number of Macrocells  (Average = 6.00) ; Number of LABs  (Total = 3) ;
-+----------------------------------------+-----------------------------+
-; 0                                      ; 1                           ;
-; 1                                      ; 0                           ;
-; 2                                      ; 0                           ;
-; 3                                      ; 0                           ;
-; 4                                      ; 1                           ;
-; 5                                      ; 0                           ;
-; 6                                      ; 0                           ;
-; 7                                      ; 0                           ;
-; 8                                      ; 1                           ;
-; 9                                      ; 0                           ;
-; 10                                     ; 0                           ;
-; 11                                     ; 0                           ;
-; 12                                     ; 1                           ;
-+----------------------------------------+-----------------------------+
++-----------------------------------------------------------------------+
+; LAB Macrocells                                                        ;
++-----------------------------------------+-----------------------------+
+; Number of Macrocells  (Average = 15.00) ; Number of LABs  (Total = 4) ;
++-----------------------------------------+-----------------------------+
+; 0                                       ; 0                           ;
+; 1                                       ; 0                           ;
+; 2                                       ; 0                           ;
+; 3                                       ; 0                           ;
+; 4                                       ; 0                           ;
+; 5                                       ; 0                           ;
+; 6                                       ; 0                           ;
+; 7                                       ; 0                           ;
+; 8                                       ; 0                           ;
+; 9                                       ; 0                           ;
+; 10                                      ; 0                           ;
+; 11                                      ; 0                           ;
+; 12                                      ; 1                           ;
+; 13                                      ; 0                           ;
+; 14                                      ; 0                           ;
+; 15                                      ; 0                           ;
+; 16                                      ; 3                           ;
++-----------------------------------------+-----------------------------+
 
 
-+-------------------------------------------------------------------------------+
-; Shareable Expander                                                            ;
-+-------------------------------------------------+-----------------------------+
-; Number of shareable expanders  (Average = 2.75) ; Number of LABs  (Total = 3) ;
-+-------------------------------------------------+-----------------------------+
-; 0                                               ; 1                           ;
-; 1                                               ; 0                           ;
-; 2                                               ; 0                           ;
-; 3                                               ; 1                           ;
-; 4                                               ; 2                           ;
-+-------------------------------------------------+-----------------------------+
++---------------------------------------------------------+
+; Parallel Expander                                       ;
++--------------------------+------------------------------+
+; Parallel Expander Length ; Number of Parallel Expanders ;
++--------------------------+------------------------------+
+; 0                        ; 0                            ;
+; 1                        ; 1                            ;
+; 2                        ; 1                            ;
++--------------------------+------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Logic Cell Interconnection                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ;
-+-----+------------+-------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; LAB ; Logic Cell ; Input                                                                                                                                     ; Output                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ;
-+-----+------------+-------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-;  A  ; LC10       ; ps2_nclk, nReset, ps2_present[1], ps2_present[0], ps2_present[3], ps2_present[2]                                                          ; ps2_present[2], ps2_present[3], Selector2~3, Selector14~1, ps2_present[0], Equal9~1, serial_data[2]$latch~6, serial_data[3]$latch~6, serial_data[4]$latch~6, serial_data[1]$latch~6, serial_data[5]$latch~6, serial_data[7]$latch~6, Selector4~1sexpand0, Selector4~1sexpand1, Selector6~1sexpand0, Selector8~1sexpand0, Selector10~1sexpand1, Selector12~1sexpand1, serial_data[6]$latch~6, Selector16~1sexpand0, Selector16~1sexpand1, serial_data[0]$latch~6, last_serial_data[1]$latch~6, last_serial_data[2]$latch~6, last_serial_data[3]$latch~6, last_serial_data[4]$latch~6, last_serial_data[5]$latch~6, last_serial_data[6]$latch~6, last_serial_data[7]$latch~6, last_serial_data[0]$latch~6, Selector4~5, Selector4~6                                       ;
-;  A  ; LC2        ; ps2_nclk, nReset, ps2_present[0], ps2_present[3], ps2_present[2], ps2_present[1]                                                          ; ps2_present[2], ps2_present[3], ps2_present[1], Selector2~3, Selector14~1, ps2_present[0], Equal9~1, serial_data[2]$latch~6, serial_data[3]$latch~6, serial_data[4]$latch~6, serial_data[1]$latch~6, serial_data[5]$latch~6, serial_data[7]$latch~6, Selector4~1sexpand0, Selector4~1sexpand1, Selector6~1sexpand0, Selector8~1sexpand0, Selector10~1sexpand0, Selector10~1sexpand1, Selector12~1sexpand1, serial_data[6]$latch~6, Selector16~1sexpand0, Selector16~1sexpand1, serial_data[0]$latch~6, last_serial_data[1]$latch~6, last_serial_data[2]$latch~6, last_serial_data[3]$latch~6, last_serial_data[4]$latch~6, last_serial_data[5]$latch~6, last_serial_data[6]$latch~6, last_serial_data[7]$latch~6, last_serial_data[0]$latch~6, Selector4~5, Selector4~6 ;
-;  A  ; LC7        ; ps2_nclk, nReset, ps2_present[3], ps2_present[1], ps2_present[0]                                                                          ; ps2_present[2], ps2_present[3], ps2_present[1], Selector2~3, Selector14~1, ps2_present[0], Equal9~1, serial_data[2]$latch~6, serial_data[3]$latch~6, serial_data[4]$latch~6, serial_data[1]$latch~6, serial_data[5]$latch~6, serial_data[7]$latch~6, Selector4~1sexpand0, Selector4~1sexpand1, Selector6~1sexpand0, Selector8~1sexpand0, Selector10~1sexpand0, Selector10~1sexpand1, Selector12~1sexpand1, serial_data[6]$latch~6, Selector16~1sexpand0, Selector16~1sexpand1, serial_data[0]$latch~6, last_serial_data[1]$latch~6, last_serial_data[2]$latch~6, last_serial_data[3]$latch~6, last_serial_data[4]$latch~6, last_serial_data[5]$latch~6, last_serial_data[6]$latch~6, last_serial_data[7]$latch~6, last_serial_data[0]$latch~6, Selector4~5, Selector4~6 ;
-;  A  ; LC13       ; ndata, ps2_present[3], ps2_present[0], ps2_present[2], ps2_present[1]                                                                     ; ps2_present[0], serial_data[0]$latch~6                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ;
-;  A  ; LC6        ; ps2_present[1], ndata, ps2_present[2], ps2_present[3], ps2_present[0]                                                                     ; serial_data[6]$latch~6                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ;
-;  A  ; LC4        ; serial_data[1]$latch~6, ps2_present[2], ndata, ps2_present[3], ps2_present[0], ps2_present[1], Selector4~1sexpand0, Selector4~1sexpand1   ; serial_data[1]$latch~6, serial_data[1], last_serial_data[1]$latch~6                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ;
-;  A  ; LC3        ; serial_data[2]$latch~6, ps2_present[2], ndata, ps2_present[3], ps2_present[0], ps2_present[1], Selector6~1sexpand0, Selector4~1sexpand0   ; serial_data[2]$latch~6, serial_data[2], last_serial_data[2]$latch~6                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ;
-;  A  ; LC11       ; Selector14~1, serial_data[6]$latch~6, ps2_present[2], ndata, ps2_present[3], ps2_present[0], ps2_present[1]                               ; serial_data[6]$latch~6, serial_data[6], last_serial_data[6]$latch~6                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ;
-;  A  ; LC1        ; ps2_present[0], ps2_present[3], ps2_present[2], ps2_present[1]                                                                            ; valid, last_serial_data[1]$latch~6, last_serial_data[2]$latch~6, last_serial_data[3]$latch~6, last_serial_data[4]$latch~6, last_serial_data[5]$latch~6, last_serial_data[6]$latch~6, last_serial_data[7]$latch~6, last_serial_data[0]$latch~6                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ;
-;  A  ; LC5        ; serial_data[1]$latch~6, Equal9~1, last_serial_data[1]$latch~6, ps2_present[0], ps2_present[3], ps2_present[2], ps2_present[1]             ; last_serial_data[1]$latch~6, last_serial_data[1]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ;
-;  A  ; LC14       ; serial_data[2]$latch~6, Equal9~1, last_serial_data[2]$latch~6, ps2_present[0], ps2_present[3], ps2_present[2], ps2_present[1]             ; last_serial_data[2]$latch~6, last_serial_data[2]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ;
-;  A  ; LC16       ; serial_data[6]$latch~6, Equal9~1, last_serial_data[6]$latch~6, ps2_present[0], ps2_present[3], ps2_present[2], ps2_present[1]             ; last_serial_data[6]$latch~6, last_serial_data[6]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ;
-;  B  ; LC20       ; serial_data[4]$latch~6, ps2_present[2], ndata, ps2_present[3], ps2_present[0], ps2_present[1], Selector10~1sexpand0, Selector10~1sexpand1 ; serial_data[4]$latch~6, serial_data[4], last_serial_data[4]$latch~6                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ;
-;  B  ; LC21       ; serial_data[5]$latch~6, ps2_present[2], ndata, ps2_present[3], ps2_present[0], ps2_present[1], Selector4~6, Selector12~1sexpand1          ; serial_data[5]$latch~6, serial_data[5], last_serial_data[5]$latch~6                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ;
-;  B  ; LC30       ; serial_data[4]$latch~6, Equal9~1, last_serial_data[4]$latch~6, ps2_present[0], ps2_present[3], ps2_present[2], ps2_present[1]             ; last_serial_data[4]$latch~6, last_serial_data[4]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ;
-;  B  ; LC19       ; serial_data[5]$latch~6, Equal9~1, last_serial_data[5]$latch~6, ps2_present[0], ps2_present[3], ps2_present[2], ps2_present[1]             ; last_serial_data[5]$latch~6, last_serial_data[5]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ;
-;  C  ; LC34       ; ps2_nclk, nReset, ps2_present[3], ps2_present[0], ps2_present[2], ps2_present[1], Selector2~3                                             ; ps2_present[2], ps2_present[3], ps2_present[1], Selector2~3, Selector14~1, ps2_present[0], Equal9~1, serial_data[2]$latch~6, serial_data[3]$latch~6, serial_data[4]$latch~6, serial_data[1]$latch~6, serial_data[5]$latch~6, serial_data[7]$latch~6, Selector4~1sexpand0, Selector4~1sexpand1, Selector6~1sexpand0, Selector8~1sexpand0, Selector10~1sexpand0, Selector10~1sexpand1, Selector12~1sexpand1, serial_data[6]$latch~6, Selector16~1sexpand1, serial_data[0]$latch~6, last_serial_data[1]$latch~6, last_serial_data[2]$latch~6, last_serial_data[3]$latch~6, last_serial_data[4]$latch~6, last_serial_data[5]$latch~6, last_serial_data[6]$latch~6, last_serial_data[7]$latch~6, last_serial_data[0]$latch~6, Selector4~5, Selector4~6                       ;
-;  C  ; LC33       ; serial_data[3]$latch~6, ps2_present[2], ndata, ps2_present[3], ps2_present[0], ps2_present[1], Selector8~1sexpand0, Selector4~5           ; serial_data[3]$latch~6, serial_data[3], last_serial_data[3]$latch~6                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ;
-;  C  ; LC35       ; serial_data[7]$latch~6, ps2_present[2], ndata, ps2_present[3], ps2_present[0], ps2_present[1], Selector16~1sexpand0, Selector16~1sexpand1 ; serial_data[7]$latch~6, serial_data[7], last_serial_data[7]$latch~6                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ;
-;  C  ; LC36       ; serial_data[3]$latch~6, Equal9~1, last_serial_data[3]$latch~6, ps2_present[0], ps2_present[3], ps2_present[2], ps2_present[1]             ; last_serial_data[3]$latch~6, last_serial_data[3]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ;
-;  C  ; LC40       ; serial_data[7]$latch~6, Equal9~1, last_serial_data[7]$latch~6, ps2_present[0], ps2_present[3], ps2_present[2], ps2_present[1]             ; last_serial_data[7]$latch~6, last_serial_data[7]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ;
-;  C  ; LC46       ; Selector2~3, serial_data[0]$latch~6, ps2_present[2], ndata, ps2_present[3], ps2_present[0], ps2_present[1]                                ; serial_data[0]$latch~6, serial_data[0], last_serial_data[0]$latch~6                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ;
-;  C  ; LC37       ; serial_data[0]$latch~6, Equal9~1, last_serial_data[0]$latch~6, ps2_present[0], ps2_present[3], ps2_present[2], ps2_present[1]             ; last_serial_data[0]$latch~6, last_serial_data[0]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ;
-;  C  ; LC41       ;                                                                                                                                           ; paritycheck                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ;
-+-----+------------+-------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Logic Cell Interconnection                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ;
++-----+------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; LAB ; Logic Cell ; Input                                                                                                                                                                                                                                                                                                                               ; Output                                                                                                                                                                                                                                                                                                                                                                                                                     ;
++-----+------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+;  A  ; LC9        ; nReset, lfsr[7], ps2_nclk                                                                                                                                                                                                                                                                                                           ; lfsr[9], serial_buffer[1]~16                                                                                                                                                                                                                                                                                                                                                                                               ;
+;  A  ; LC2        ; serial_buffer[7]~0, valid~reg0, lpm_counter:send_serial_count_rtl_0|dffs[0], lpm_counter:send_serial_count_rtl_0|dffs[1], lpm_counter:send_serial_count_rtl_0|dffs[3], lpm_counter:send_serial_count_rtl_0|dffs[2], serial_buffer[0]~4, serial_out~reg0                                                                             ; serial_out~36                                                                                                                                                                                                                                                                                                                                                                                                              ;
+;  A  ; LC10       ; nReset, lpm_counter:serial_counter_rtl_0|dffs[3], lpm_counter:serial_counter_rtl_0|dffs[0], lpm_counter:serial_counter_rtl_0|dffs[2], lpm_counter:serial_counter_rtl_0|dffs[1], ps2_nclk                                                                                                                                            ; lpm_counter:serial_counter_rtl_0|dffs[0], lpm_counter:serial_counter_rtl_0|dffs[1], lpm_counter:serial_counter_rtl_0|dffs[2], lpm_counter:serial_counter_rtl_0|dffs[3]                                                                                                                                                                                                                                                     ;
+;  A  ; LC3        ; serial_out~32, serial_buffer[3]~8, valid~reg0, lpm_counter:send_serial_count_rtl_0|dffs[0], lpm_counter:send_serial_count_rtl_0|dffs[1], lpm_counter:send_serial_count_rtl_0|dffs[3], lpm_counter:send_serial_count_rtl_0|dffs[2], serial_buffer[5]~12, serial_out~reg0, serial_buffer[1]~16, serial_buffer[4]~20                   ; serial_out~reg0                                                                                                                                                                                                                                                                                                                                                                                                            ;
+;  A  ; LC15       ; nReset, lpm_counter:send_serial_count_rtl_0|dffs[0], lpm_counter:send_serial_count_rtl_0|dffs[3], valid~reg0, lpm_counter:send_serial_count_rtl_0|dffs[1], serial_clk~reg0                                                                                                                                                          ; lpm_counter:send_serial_count_rtl_0|dffs[0], lpm_counter:send_serial_count_rtl_0|dffs[1], lpm_counter:send_serial_count_rtl_0|dffs[2], lpm_counter:send_serial_count_rtl_0|dffs[3], show_serial_clock, serial_out~reg0, serial_out~32, serial_out~36                                                                                                                                                                       ;
+;  A  ; LC7        ; nReset, lpm_counter:send_serial_count_rtl_0|dffs[1], lpm_counter:send_serial_count_rtl_0|dffs[0], lpm_counter:send_serial_count_rtl_0|dffs[3], valid~reg0, lpm_counter:send_serial_count_rtl_0|dffs[2], serial_clk~reg0                                                                                                             ; lpm_counter:send_serial_count_rtl_0|dffs[0], lpm_counter:send_serial_count_rtl_0|dffs[2], lpm_counter:send_serial_count_rtl_0|dffs[3], show_serial_clock, serial_out~reg0, serial_out~32, serial_out~36                                                                                                                                                                                                                    ;
+;  A  ; LC6        ; nReset, lpm_counter:serial_counter_rtl_0|dffs[3], lpm_counter:serial_counter_rtl_0|dffs[1], lpm_counter:serial_counter_rtl_0|dffs[0], lpm_counter:serial_counter_rtl_0|dffs[2], ps2_nclk                                                                                                                                            ; lpm_counter:serial_counter_rtl_0|dffs[0], lpm_counter:serial_counter_rtl_0|dffs[1], lpm_counter:serial_counter_rtl_0|dffs[2], lpm_counter:serial_counter_rtl_0|dffs[3], valid~reg0, serial_data[0]~reg0, serial_data[1]~reg0, serial_data[2]~reg0, serial_data[3]~reg0, serial_data[4]~reg0, serial_data[5]~reg0, serial_data[6]~reg0, serial_data[7]~reg0, serial_data[8]~reg0, serial_data[9]~reg0, serial_data[10]~reg0 ;
+;  A  ; LC8        ; nReset, lpm_counter:send_serial_count_rtl_0|dffs[0], valid~reg0, lpm_counter:send_serial_count_rtl_0|dffs[3], lpm_counter:send_serial_count_rtl_0|dffs[2], lpm_counter:send_serial_count_rtl_0|dffs[1], serial_clk~reg0                                                                                                             ; lpm_counter:send_serial_count_rtl_0|dffs[0], lpm_counter:send_serial_count_rtl_0|dffs[1], lpm_counter:send_serial_count_rtl_0|dffs[2], lpm_counter:send_serial_count_rtl_0|dffs[3], show_serial_clock, serial_out~reg0, serial_out~32, serial_out~36                                                                                                                                                                       ;
+;  A  ; LC1        ; nReset, lpm_counter:send_serial_count_rtl_0|dffs[2], lpm_counter:send_serial_count_rtl_0|dffs[1], valid~reg0, lpm_counter:send_serial_count_rtl_0|dffs[0], lpm_counter:send_serial_count_rtl_0|dffs[3], serial_clk~reg0                                                                                                             ; lpm_counter:send_serial_count_rtl_0|dffs[0], lpm_counter:send_serial_count_rtl_0|dffs[1], lpm_counter:send_serial_count_rtl_0|dffs[2], lpm_counter:send_serial_count_rtl_0|dffs[3], show_serial_clock, serial_out~reg0, serial_out~32, serial_out~36                                                                                                                                                                       ;
+;  A  ; LC13       ; nReset, lpm_counter:send_serial_count_rtl_0|dffs[3], valid~reg0, lpm_counter:send_serial_count_rtl_0|dffs[2], show_serial_clock, lpm_counter:send_serial_count_rtl_0|dffs[1], lpm_counter:send_serial_count_rtl_0|dffs[0], serial_clk~reg0                                                                                          ; show_serial_clock, serial_clk_out~2                                                                                                                                                                                                                                                                                                                                                                                        ;
+;  A  ; LC11       ; nReset, serial_data[1]~reg0, lpm_counter:serial_counter_rtl_0|dffs[3], lpm_counter:serial_counter_rtl_0|dffs[2], lpm_counter:serial_counter_rtl_0|dffs[1], serial_data[2]~reg0, ps2_nclk                                                                                                                                            ; serial_data[2]~reg0, serial_data[2], serial_data[3]~reg0, serial_buffer[1]~16                                                                                                                                                                                                                                                                                                                                              ;
+;  A  ; LC16       ; serial_clk~reg0, show_serial_clock                                                                                                                                                                                                                                                                                                  ; serial_clk_out                                                                                                                                                                                                                                                                                                                                                                                                             ;
+;  A  ; LC12       ; lfsr[7], serial_data[1]~reg0                                                                                                                                                                                                                                                                                                        ; serial_out~reg0, serial_out~32                                                                                                                                                                                                                                                                                                                                                                                             ;
+;  A  ; LC4        ; nReset, serial_out~36, serial_out~reg0, valid~reg0, lpm_counter:send_serial_count_rtl_0|dffs[0], lpm_counter:send_serial_count_rtl_0|dffs[3], serial_buffer[0]~4, lpm_counter:send_serial_count_rtl_0|dffs[1], lpm_counter:send_serial_count_rtl_0|dffs[2], serial_buffer[2]~24, serial_buffer[6]~28, serial_clk~reg0               ; serial_out~reg0, serial_out, serial_out~32, serial_out~36                                                                                                                                                                                                                                                                                                                                                                  ;
+;  A  ; LC5        ; ndata, nReset, lpm_counter:serial_counter_rtl_0|dffs[3], serial_data[0]~reg0, lpm_counter:serial_counter_rtl_0|dffs[2], lpm_counter:serial_counter_rtl_0|dffs[1], ps2_nclk                                                                                                                                                          ; serial_data[0]~reg0, serial_data[0], serial_data[1]~reg0                                                                                                                                                                                                                                                                                                                                                                   ;
+;  A  ; LC14       ; nReset, serial_data[0]~reg0, lpm_counter:serial_counter_rtl_0|dffs[3], lpm_counter:serial_counter_rtl_0|dffs[2], lpm_counter:serial_counter_rtl_0|dffs[1], serial_data[1]~reg0, ps2_nclk                                                                                                                                            ; serial_data[1]~reg0, serial_data[1], serial_data[2]~reg0, serial_buffer[0]~4                                                                                                                                                                                                                                                                                                                                               ;
+;  B  ; LC20       ; Clk, nReset, lpm_counter:clk_counter_rtl_0|dffs[7], lpm_counter:clk_counter_rtl_0|dffs[6], lpm_counter:clk_counter_rtl_0|dffs[5], lpm_counter:clk_counter_rtl_0|dffs[4], lpm_counter:clk_counter_rtl_0|dffs[3], lpm_counter:clk_counter_rtl_0|dffs[0], lpm_counter:clk_counter_rtl_0|dffs[1]                                        ; lpm_counter:clk_counter_rtl_0|dffs[0], lpm_counter:clk_counter_rtl_0|dffs[1], lpm_counter:clk_counter_rtl_0|dffs[2], lpm_counter:clk_counter_rtl_0|dffs[3], lpm_counter:clk_counter_rtl_0|dffs[4], lpm_counter:clk_counter_rtl_0|dffs[5], lpm_counter:clk_counter_rtl_0|dffs[6], lpm_counter:clk_counter_rtl_0|dffs[7], serial_clk~reg0                                                                                    ;
+;  B  ; LC19       ; lfsr[12], serial_data[6]~reg0                                                                                                                                                                                                                                                                                                       ; serial_out~36                                                                                                                                                                                                                                                                                                                                                                                                              ;
+;  B  ; LC24       ; Clk, nReset, lpm_counter:clk_counter_rtl_0|dffs[2], lpm_counter:clk_counter_rtl_0|dffs[7], lpm_counter:clk_counter_rtl_0|dffs[6], lpm_counter:clk_counter_rtl_0|dffs[5], lpm_counter:clk_counter_rtl_0|dffs[4], lpm_counter:clk_counter_rtl_0|dffs[3], lpm_counter:clk_counter_rtl_0|dffs[0], lpm_counter:clk_counter_rtl_0|dffs[1] ; lpm_counter:clk_counter_rtl_0|dffs[0], lpm_counter:clk_counter_rtl_0|dffs[1], lpm_counter:clk_counter_rtl_0|dffs[2], lpm_counter:clk_counter_rtl_0|dffs[3], lpm_counter:clk_counter_rtl_0|dffs[4], lpm_counter:clk_counter_rtl_0|dffs[5], lpm_counter:clk_counter_rtl_0|dffs[6], lpm_counter:clk_counter_rtl_0|dffs[7], serial_clk~reg0                                                                                    ;
+;  B  ; LC18       ; nReset, next_lfsr~7, lfsr[12], lfsr[13], lfsr[10], lfsr[15], ps2_nclk                                                                                                                                                                                                                                                               ; lfsr[1]                                                                                                                                                                                                                                                                                                                                                                                                                    ;
+;  B  ; LC22       ; nReset, lfsr[10], ps2_nclk                                                                                                                                                                                                                                                                                                          ; lfsr[12], serial_buffer[4]~20                                                                                                                                                                                                                                                                                                                                                                                              ;
+;  B  ; LC26       ; Clk, nReset, lpm_counter:clk_counter_rtl_0|dffs[7], lpm_counter:clk_counter_rtl_0|dffs[6], lpm_counter:clk_counter_rtl_0|dffs[5], lpm_counter:clk_counter_rtl_0|dffs[4], lpm_counter:clk_counter_rtl_0|dffs[3], lpm_counter:clk_counter_rtl_0|dffs[2], lpm_counter:clk_counter_rtl_0|dffs[1], lpm_counter:clk_counter_rtl_0|dffs[0] ; lpm_counter:clk_counter_rtl_0|dffs[0], lpm_counter:clk_counter_rtl_0|dffs[2], lpm_counter:clk_counter_rtl_0|dffs[3], lpm_counter:clk_counter_rtl_0|dffs[4], lpm_counter:clk_counter_rtl_0|dffs[5], lpm_counter:clk_counter_rtl_0|dffs[6], lpm_counter:clk_counter_rtl_0|dffs[7], serial_clk~reg0                                                                                                                           ;
+;  B  ; LC17       ; lfsr[12], lfsr[13], lfsr[10]                                                                                                                                                                                                                                                                                                        ; lfsr[0]                                                                                                                                                                                                                                                                                                                                                                                                                    ;
+;  B  ; LC28       ; nReset, lfsr[12], ps2_nclk                                                                                                                                                                                                                                                                                                          ; lfsr[0], lfsr[14], serial_buffer[6]~28, next_lfsr~7                                                                                                                                                                                                                                                                                                                                                                        ;
+;  B  ; LC23       ; Clk, nReset, lpm_counter:clk_counter_rtl_0|dffs[7], lpm_counter:clk_counter_rtl_0|dffs[6], lpm_counter:clk_counter_rtl_0|dffs[5], lpm_counter:clk_counter_rtl_0|dffs[3], lpm_counter:clk_counter_rtl_0|dffs[4], lpm_counter:clk_counter_rtl_0|dffs[0], lpm_counter:clk_counter_rtl_0|dffs[1], lpm_counter:clk_counter_rtl_0|dffs[2] ; lpm_counter:clk_counter_rtl_0|dffs[0], lpm_counter:clk_counter_rtl_0|dffs[1], lpm_counter:clk_counter_rtl_0|dffs[2], lpm_counter:clk_counter_rtl_0|dffs[3], lpm_counter:clk_counter_rtl_0|dffs[4], lpm_counter:clk_counter_rtl_0|dffs[5], lpm_counter:clk_counter_rtl_0|dffs[6], lpm_counter:clk_counter_rtl_0|dffs[7], serial_clk~reg0                                                                                    ;
+;  B  ; LC27       ; nReset, lfsr[13], ps2_nclk                                                                                                                                                                                                                                                                                                          ; lfsr[15], serial_buffer[7]~0                                                                                                                                                                                                                                                                                                                                                                                               ;
+;  B  ; LC30       ; Clk, nReset, lpm_counter:clk_counter_rtl_0|dffs[7], lpm_counter:clk_counter_rtl_0|dffs[6], lpm_counter:clk_counter_rtl_0|dffs[3], lpm_counter:clk_counter_rtl_0|dffs[4], lpm_counter:clk_counter_rtl_0|dffs[5], lpm_counter:clk_counter_rtl_0|dffs[0], lpm_counter:clk_counter_rtl_0|dffs[1], lpm_counter:clk_counter_rtl_0|dffs[2] ; lpm_counter:clk_counter_rtl_0|dffs[0], lpm_counter:clk_counter_rtl_0|dffs[1], lpm_counter:clk_counter_rtl_0|dffs[2], lpm_counter:clk_counter_rtl_0|dffs[3], lpm_counter:clk_counter_rtl_0|dffs[4], lpm_counter:clk_counter_rtl_0|dffs[5], lpm_counter:clk_counter_rtl_0|dffs[6], lpm_counter:clk_counter_rtl_0|dffs[7], serial_clk~reg0                                                                                    ;
+;  B  ; LC31       ; Clk, nReset, lpm_counter:clk_counter_rtl_0|dffs[7], lpm_counter:clk_counter_rtl_0|dffs[3], lpm_counter:clk_counter_rtl_0|dffs[4], lpm_counter:clk_counter_rtl_0|dffs[5], lpm_counter:clk_counter_rtl_0|dffs[6], lpm_counter:clk_counter_rtl_0|dffs[0], lpm_counter:clk_counter_rtl_0|dffs[1], lpm_counter:clk_counter_rtl_0|dffs[2] ; lpm_counter:clk_counter_rtl_0|dffs[0], lpm_counter:clk_counter_rtl_0|dffs[1], lpm_counter:clk_counter_rtl_0|dffs[2], lpm_counter:clk_counter_rtl_0|dffs[3], lpm_counter:clk_counter_rtl_0|dffs[4], lpm_counter:clk_counter_rtl_0|dffs[5], lpm_counter:clk_counter_rtl_0|dffs[6], lpm_counter:clk_counter_rtl_0|dffs[7], serial_clk~reg0                                                                                    ;
+;  B  ; LC32       ; Clk, nReset, lpm_counter:clk_counter_rtl_0|dffs[1], lpm_counter:clk_counter_rtl_0|dffs[0], lpm_counter:clk_counter_rtl_0|dffs[3], lpm_counter:clk_counter_rtl_0|dffs[4], lpm_counter:clk_counter_rtl_0|dffs[5], lpm_counter:clk_counter_rtl_0|dffs[2], lpm_counter:clk_counter_rtl_0|dffs[6], lpm_counter:clk_counter_rtl_0|dffs[7] ; lpm_counter:clk_counter_rtl_0|dffs[0], lpm_counter:clk_counter_rtl_0|dffs[1], lpm_counter:clk_counter_rtl_0|dffs[2], lpm_counter:clk_counter_rtl_0|dffs[3], lpm_counter:clk_counter_rtl_0|dffs[4], lpm_counter:clk_counter_rtl_0|dffs[5], lpm_counter:clk_counter_rtl_0|dffs[6], lpm_counter:clk_counter_rtl_0|dffs[7], serial_clk~reg0                                                                                    ;
+;  B  ; LC25       ; Clk, nReset, lpm_counter:clk_counter_rtl_0|dffs[2], lpm_counter:clk_counter_rtl_0|dffs[7], lpm_counter:clk_counter_rtl_0|dffs[6], lpm_counter:clk_counter_rtl_0|dffs[5], lpm_counter:clk_counter_rtl_0|dffs[4], lpm_counter:clk_counter_rtl_0|dffs[3], lpm_counter:clk_counter_rtl_0|dffs[1], lpm_counter:clk_counter_rtl_0|dffs[0] ; serial_clk, lpm_counter:send_serial_count_rtl_0|dffs[0], lpm_counter:send_serial_count_rtl_0|dffs[1], lpm_counter:send_serial_count_rtl_0|dffs[2], lpm_counter:send_serial_count_rtl_0|dffs[3], show_serial_clock, serial_clk_out~2, serial_out~reg0                                                                                                                                                                       ;
+;  B  ; LC29       ; lfsr[10], serial_data[4]~reg0                                                                                                                                                                                                                                                                                                       ; serial_out~36                                                                                                                                                                                                                                                                                                                                                                                                              ;
+;  B  ; LC21       ; Clk, nReset, lpm_counter:clk_counter_rtl_0|dffs[7], lpm_counter:clk_counter_rtl_0|dffs[6], lpm_counter:clk_counter_rtl_0|dffs[5], lpm_counter:clk_counter_rtl_0|dffs[4], lpm_counter:clk_counter_rtl_0|dffs[3], lpm_counter:clk_counter_rtl_0|dffs[0], lpm_counter:clk_counter_rtl_0|dffs[1], lpm_counter:clk_counter_rtl_0|dffs[2] ; lpm_counter:clk_counter_rtl_0|dffs[0], lpm_counter:clk_counter_rtl_0|dffs[1], lpm_counter:clk_counter_rtl_0|dffs[2], lpm_counter:clk_counter_rtl_0|dffs[3], lpm_counter:clk_counter_rtl_0|dffs[4], lpm_counter:clk_counter_rtl_0|dffs[5], lpm_counter:clk_counter_rtl_0|dffs[6], lpm_counter:clk_counter_rtl_0|dffs[7], serial_clk~reg0                                                                                    ;
+;  C  ; LC47       ; nReset, lfsr[14], ps2_nclk                                                                                                                                                                                                                                                                                                          ; lfsr[0]                                                                                                                                                                                                                                                                                                                                                                                                                    ;
+;  C  ; LC34       ; nReset, lfsr[8], ps2_nclk                                                                                                                                                                                                                                                                                                           ; lfsr[10], serial_buffer[2]~24                                                                                                                                                                                                                                                                                                                                                                                              ;
+;  C  ; LC44       ; nReset, lfsr[9], ps2_nclk                                                                                                                                                                                                                                                                                                           ; lfsr[0], lfsr[11], serial_buffer[3]~8, next_lfsr~7                                                                                                                                                                                                                                                                                                                                                                         ;
+;  C  ; LC40       ; lpm_counter:serial_counter_rtl_0|dffs[2], lpm_counter:serial_counter_rtl_0|dffs[1], lpm_counter:serial_counter_rtl_0|dffs[3], ps2_nclk, nReset                                                                                                                                                                                      ; valid, lpm_counter:send_serial_count_rtl_0|dffs[0], lpm_counter:send_serial_count_rtl_0|dffs[1], lpm_counter:send_serial_count_rtl_0|dffs[2], lpm_counter:send_serial_count_rtl_0|dffs[3], show_serial_clock, serial_out~reg0, serial_out~32, serial_out~36                                                                                                                                                                ;
+;  C  ; LC41       ; nReset, serial_data[6]~reg0, lpm_counter:serial_counter_rtl_0|dffs[3], lpm_counter:serial_counter_rtl_0|dffs[2], lpm_counter:serial_counter_rtl_0|dffs[1], serial_data[7]~reg0, ps2_nclk                                                                                                                                            ; serial_data[7]~reg0, serial_data[7], serial_data[8]~reg0, serial_buffer[6]~28                                                                                                                                                                                                                                                                                                                                              ;
+;  C  ; LC33       ; nReset, serial_data[3]~reg0, lpm_counter:serial_counter_rtl_0|dffs[3], lpm_counter:serial_counter_rtl_0|dffs[2], lpm_counter:serial_counter_rtl_0|dffs[1], serial_data[4]~reg0, ps2_nclk                                                                                                                                            ; serial_data[4]~reg0, serial_data[4], serial_data[5]~reg0, serial_buffer[3]~8                                                                                                                                                                                                                                                                                                                                               ;
+;  C  ; LC36       ; nReset, serial_data[7]~reg0, lpm_counter:serial_counter_rtl_0|dffs[3], lpm_counter:serial_counter_rtl_0|dffs[2], lpm_counter:serial_counter_rtl_0|dffs[1], serial_data[8]~reg0, ps2_nclk                                                                                                                                            ; serial_data[8]~reg0, serial_data[8], serial_data[9]~reg0, serial_buffer[7]~0                                                                                                                                                                                                                                                                                                                                               ;
+;  C  ; LC48       ; lfsr[14], serial_data[8]~reg0                                                                                                                                                                                                                                                                                                       ; serial_out~32                                                                                                                                                                                                                                                                                                                                                                                                              ;
+;  C  ; LC46       ; nReset, serial_data[4]~reg0, lpm_counter:serial_counter_rtl_0|dffs[3], lpm_counter:serial_counter_rtl_0|dffs[2], lpm_counter:serial_counter_rtl_0|dffs[1], serial_data[5]~reg0, ps2_nclk                                                                                                                                            ; serial_data[5]~reg0, serial_data[5], serial_data[6]~reg0, serial_buffer[4]~20                                                                                                                                                                                                                                                                                                                                              ;
+;  C  ; LC35       ; nReset, serial_data[2]~reg0, lpm_counter:serial_counter_rtl_0|dffs[3], lpm_counter:serial_counter_rtl_0|dffs[2], lpm_counter:serial_counter_rtl_0|dffs[1], serial_data[3]~reg0, ps2_nclk                                                                                                                                            ; serial_data[3]~reg0, serial_data[3], serial_data[4]~reg0, serial_buffer[2]~24                                                                                                                                                                                                                                                                                                                                              ;
+;  C  ; LC38       ; lfsr[11], serial_data[5]~reg0                                                                                                                                                                                                                                                                                                       ; serial_out~36                                                                                                                                                                                                                                                                                                                                                                                                              ;
+;  C  ; LC39       ; lfsr[9], serial_data[3]~reg0                                                                                                                                                                                                                                                                                                        ; serial_out~reg0                                                                                                                                                                                                                                                                                                                                                                                                            ;
+;  C  ; LC43       ; lfsr[13], serial_data[7]~reg0                                                                                                                                                                                                                                                                                                       ; serial_out~reg0                                                                                                                                                                                                                                                                                                                                                                                                            ;
+;  C  ; LC45       ; nReset, lfsr[11], ps2_nclk                                                                                                                                                                                                                                                                                                          ; lfsr[0], lfsr[13], serial_buffer[5]~12, next_lfsr~7                                                                                                                                                                                                                                                                                                                                                                        ;
+;  C  ; LC37       ; nReset, serial_data[5]~reg0, lpm_counter:serial_counter_rtl_0|dffs[3], lpm_counter:serial_counter_rtl_0|dffs[2], lpm_counter:serial_counter_rtl_0|dffs[1], serial_data[6]~reg0, ps2_nclk                                                                                                                                            ; serial_data[6]~reg0, serial_data[6], serial_data[7]~reg0, serial_buffer[5]~12                                                                                                                                                                                                                                                                                                                                              ;
+;  C  ; LC42       ; lfsr[8], serial_data[2]~reg0                                                                                                                                                                                                                                                                                                        ; serial_out~36                                                                                                                                                                                                                                                                                                                                                                                                              ;
+;  D  ; LC53       ; nReset, lfsr[0], ps2_nclk                                                                                                                                                                                                                                                                                                           ; lfsr[2]                                                                                                                                                                                                                                                                                                                                                                                                                    ;
+;  D  ; LC58       ; nReset, lfsr[2], ps2_nclk                                                                                                                                                                                                                                                                                                           ; lfsr[4]                                                                                                                                                                                                                                                                                                                                                                                                                    ;
+;  D  ; LC52       ; nReset, lfsr[3], ps2_nclk                                                                                                                                                                                                                                                                                                           ; lfsr[5]                                                                                                                                                                                                                                                                                                                                                                                                                    ;
+;  D  ; LC59       ; nReset, lfsr[4], ps2_nclk                                                                                                                                                                                                                                                                                                           ; lfsr[6]                                                                                                                                                                                                                                                                                                                                                                                                                    ;
+;  D  ; LC50       ; nReset, lpm_counter:serial_counter_rtl_0|dffs[3], lpm_counter:serial_counter_rtl_0|dffs[1], lpm_counter:serial_counter_rtl_0|dffs[0], lpm_counter:serial_counter_rtl_0|dffs[2], ps2_nclk                                                                                                                                            ; lpm_counter:serial_counter_rtl_0|dffs[0], lpm_counter:serial_counter_rtl_0|dffs[1], lpm_counter:serial_counter_rtl_0|dffs[2], lpm_counter:serial_counter_rtl_0|dffs[3], valid~reg0, serial_data[0]~reg0, serial_data[1]~reg0, serial_data[2]~reg0, serial_data[3]~reg0, serial_data[4]~reg0, serial_data[5]~reg0, serial_data[6]~reg0, serial_data[7]~reg0, serial_data[8]~reg0, serial_data[9]~reg0, serial_data[10]~reg0 ;
+;  D  ; LC55       ; nReset, lfsr[1], ps2_nclk                                                                                                                                                                                                                                                                                                           ; lfsr[3]                                                                                                                                                                                                                                                                                                                                                                                                                    ;
+;  D  ; LC61       ; nReset, lfsr[5], ps2_nclk                                                                                                                                                                                                                                                                                                           ; lfsr[7]                                                                                                                                                                                                                                                                                                                                                                                                                    ;
+;  D  ; LC64       ; nReset, lfsr[6], ps2_nclk                                                                                                                                                                                                                                                                                                           ; lfsr[8], serial_buffer[0]~4                                                                                                                                                                                                                                                                                                                                                                                                ;
+;  D  ; LC56       ; nReset, lpm_counter:serial_counter_rtl_0|dffs[0], lpm_counter:serial_counter_rtl_0|dffs[2], lpm_counter:serial_counter_rtl_0|dffs[1], lpm_counter:serial_counter_rtl_0|dffs[3], ps2_nclk                                                                                                                                            ; lpm_counter:serial_counter_rtl_0|dffs[0], lpm_counter:serial_counter_rtl_0|dffs[1], lpm_counter:serial_counter_rtl_0|dffs[2], lpm_counter:serial_counter_rtl_0|dffs[3], valid~reg0, serial_data[0]~reg0, serial_data[1]~reg0, serial_data[2]~reg0, serial_data[3]~reg0, serial_data[4]~reg0, serial_data[5]~reg0, serial_data[6]~reg0, serial_data[7]~reg0, serial_data[8]~reg0, serial_data[9]~reg0, serial_data[10]~reg0 ;
+;  D  ; LC51       ; nReset, serial_data[8]~reg0, lpm_counter:serial_counter_rtl_0|dffs[3], lpm_counter:serial_counter_rtl_0|dffs[2], lpm_counter:serial_counter_rtl_0|dffs[1], serial_data[9]~reg0, ps2_nclk                                                                                                                                            ; serial_data[9]~reg0, serial_data[9], serial_data[10]~reg0                                                                                                                                                                                                                                                                                                                                                                  ;
+;  D  ; LC49       ; ps2_nclk, nReset                                                                                                                                                                                                                                                                                                                    ; led                                                                                                                                                                                                                                                                                                                                                                                                                        ;
+;  D  ; LC57       ; nReset, serial_data[9]~reg0, lpm_counter:serial_counter_rtl_0|dffs[3], lpm_counter:serial_counter_rtl_0|dffs[2], lpm_counter:serial_counter_rtl_0|dffs[1], serial_data[10]~reg0, ps2_nclk                                                                                                                                           ; serial_data[10]~reg0, serial_data[10]                                                                                                                                                                                                                                                                                                                                                                                      ;
++-----+------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +---------------------------------------------------------------+
@@ -427,24 +495,15 @@ Note: User assignments will override these defaults. The user specified values a
 +-----------------+
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Fitter
-    Info: Version 12.0 Build 178 05/31/2012 SJ Full Version
-    Info: Processing started: Sun Jan 20 16:47:51 2013
+    Info: Version 12.0 Build 263 08/02/2012 Service Pack 2 SJ Full Version
+    Info: Processing started: Thu Jan 24 18:46:02 2013
 Info: Command: quartus_fit --read_settings_files=off --write_settings_files=off Test -c Test
-Info (20030): Parallel compilation is enabled and will use 16 of the 64 processors detected
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (119006): Selected device EPM3064ALC44-10 for design "Test"
-Warning (15705): Ignored locations or region assignments to the following nodes
-    Warning (15706): Node "clk" is assigned to location or region, but does not exist in design
-    Warning (15706): Node "n_reset" is assigned to location or region, but does not exist in design
-    Warning (15706): Node "out[23]" is assigned to location or region, but does not exist in design
-    Warning (15706): Node "q[0]" is assigned to location or region, but does not exist in design
-    Warning (15706): Node "reset" is assigned to location or region, but does not exist in design
-    Warning (15706): Node "rin" is assigned to location or region, but does not exist in design
-    Warning (15706): Node "s[0]" is assigned to location or region, but does not exist in design
-    Warning (15706): Node "s[1]" is assigned to location or region, but does not exist in design
-Info: Quartus II 64-Bit Fitter was successful. 0 errors, 9 warnings
-    Info: Peak virtual memory: 395 megabytes
-    Info: Processing ended: Sun Jan 20 16:48:07 2013
-    Info: Elapsed time: 00:00:16
+Info: Quartus II 64-Bit Fitter was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 392 megabytes
+    Info: Processing ended: Thu Jan 24 18:46:07 2013
+    Info: Elapsed time: 00:00:05
     Info: Total CPU time (on all processors): 00:00:01
 
 

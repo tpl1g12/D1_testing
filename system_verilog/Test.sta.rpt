@@ -1,6 +1,6 @@
 TimeQuest Timing Analyzer report for Test
-Sun Jan 20 16:48:26 2013
-Quartus II 64-Bit Version 12.0 Build 178 05/31/2012 SJ Full Version
+Thu Jan 24 18:46:15 2013
+Quartus II 64-Bit Version 12.0 Build 263 08/02/2012 Service Pack 2 SJ Full Version
 
 
 ---------------------
@@ -16,21 +16,25 @@ Quartus II 64-Bit Version 12.0 Build 178 05/31/2012 SJ Full Version
   8. Recovery Summary
   9. Removal Summary
  10. Minimum Pulse Width Summary
- 11. Setup: 'ps2_nclk'
- 12. Hold: 'ps2_nclk'
- 13. Minimum Pulse Width: 'ps2_nclk'
- 14. Setup Times
- 15. Hold Times
- 16. Clock to Output Times
- 17. Minimum Clock to Output Times
- 18. Propagation Delay
- 19. Minimum Propagation Delay
- 20. Setup Transfers
- 21. Hold Transfers
- 22. Report TCCS
- 23. Report RSKM
- 24. Unconstrained Paths
- 25. TimeQuest Timing Analyzer Messages
+ 11. Setup: 'serial_clk~reg0'
+ 12. Setup: 'ps2_nclk'
+ 13. Setup: 'Clk'
+ 14. Hold: 'Clk'
+ 15. Hold: 'ps2_nclk'
+ 16. Hold: 'serial_clk~reg0'
+ 17. Minimum Pulse Width: 'ps2_nclk'
+ 18. Minimum Pulse Width: 'Clk'
+ 19. Minimum Pulse Width: 'serial_clk~reg0'
+ 20. Setup Times
+ 21. Hold Times
+ 22. Clock to Output Times
+ 23. Minimum Clock to Output Times
+ 24. Setup Transfers
+ 25. Hold Transfers
+ 26. Report TCCS
+ 27. Report RSKM
+ 28. Unconstrained Paths
+ 29. TimeQuest Timing Analyzer Messages
 
 
 
@@ -53,17 +57,17 @@ applicable agreement for further details.
 
 
 
-+------------------------------------------------------------------------+
-; TimeQuest Timing Analyzer Summary                                      ;
-+--------------------+---------------------------------------------------+
-; Quartus II Version ; Version 12.0 Build 178 05/31/2012 SJ Full Version ;
-; Revision Name      ; Test                                              ;
-; Device Family      ; MAX3000A                                          ;
-; Device Name        ; EPM3064ALC44-10                                   ;
-; Timing Models      ; Final                                             ;
-; Delay Model        ; Slow Model                                        ;
-; Rise/Fall Delays   ; Unavailable                                       ;
-+--------------------+---------------------------------------------------+
++---------------------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                                     ;
++--------------------+------------------------------------------------------------------+
+; Quartus II Version ; Version 12.0 Build 263 08/02/2012 Service Pack 2 SJ Full Version ;
+; Revision Name      ; Test                                                             ;
+; Device Family      ; MAX3000A                                                         ;
+; Device Name        ; EPM3064ALC44-10                                                  ;
+; Timing Models      ; Final                                                            ;
+; Delay Model        ; Slow Model                                                       ;
+; Rise/Fall Delays   ; Unavailable                                                      ;
++--------------------+------------------------------------------------------------------+
 
 
 +------------------------------------------+
@@ -71,53 +75,61 @@ applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 64          ;
-; Maximum allowed            ; 16          ;
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
 ; Maximum used               ; 1           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     1 processor            ; 100.0%      ;
-;     2-64 processors        ;   0.0%      ;
+;     2-4 processors         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Clocks                                                                                                                                                                               ;
-+------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
-; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets      ;
-+------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
-; ps2_nclk   ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { ps2_nclk } ;
-+------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                           ;
++-----------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------------------+
+; Clock Name      ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets             ;
++-----------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------------------+
+; Clk             ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { Clk }             ;
+; ps2_nclk        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { ps2_nclk }        ;
+; serial_clk~reg0 ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { serial_clk~reg0 } ;
++-----------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------------------+
 
 
-+-------------------------------------------------+
-; Fmax Summary                                    ;
-+-----------+-----------------+------------+------+
-; Fmax      ; Restricted Fmax ; Clock Name ; Note ;
-+-----------+-----------------+------------+------+
-; 58.82 MHz ; 58.82 MHz       ; ps2_nclk   ;      ;
-+-----------+-----------------+------------+------+
++------------------------------------------------------+
+; Fmax Summary                                         ;
++-----------+-----------------+-----------------+------+
+; Fmax      ; Restricted Fmax ; Clock Name      ; Note ;
++-----------+-----------------+-----------------+------+
+; 84.75 MHz ; 84.75 MHz       ; serial_clk~reg0 ;      ;
+; 90.91 MHz ; 90.91 MHz       ; ps2_nclk        ;      ;
+; 100.0 MHz ; 100.0 MHz       ; Clk             ;      ;
++-----------+-----------------+-----------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
-+------------------------------------+
-; Setup Summary                      ;
-+----------+---------+---------------+
-; Clock    ; Slack   ; End Point TNS ;
-+----------+---------+---------------+
-; ps2_nclk ; -16.000 ; -43.600       ;
-+----------+---------+---------------+
++-------------------------------------------+
+; Setup Summary                             ;
++-----------------+---------+---------------+
+; Clock           ; Slack   ; End Point TNS ;
++-----------------+---------+---------------+
+; serial_clk~reg0 ; -19.800 ; -73.300       ;
+; ps2_nclk        ; -10.000 ; -292.300      ;
+; Clk             ; -9.000  ; -81.000       ;
++-----------------+---------+---------------+
 
 
-+----------------------------------+
-; Hold Summary                     ;
-+----------+-------+---------------+
-; Clock    ; Slack ; End Point TNS ;
-+----------+-------+---------------+
-; ps2_nclk ; 5.800 ; 0.000         ;
-+----------+-------+---------------+
++-----------------------------------------+
+; Hold Summary                            ;
++-----------------+-------+---------------+
+; Clock           ; Slack ; End Point TNS ;
++-----------------+-------+---------------+
+; Clk             ; 0.600 ; 0.000         ;
+; ps2_nclk        ; 5.800 ; 0.000         ;
+; serial_clk~reg0 ; 5.800 ; 0.000         ;
++-----------------+-------+---------------+
 
 
 --------------------
@@ -132,224 +144,776 @@ No paths to report.
 No paths to report.
 
 
-+-----------------------------------+
-; Minimum Pulse Width Summary       ;
-+----------+--------+---------------+
-; Clock    ; Slack  ; End Point TNS ;
-+----------+--------+---------------+
-; ps2_nclk ; -3.500 ; -28.000       ;
-+----------+--------+---------------+
++------------------------------------------+
+; Minimum Pulse Width Summary              ;
++-----------------+--------+---------------+
+; Clock           ; Slack  ; End Point TNS ;
++-----------------+--------+---------------+
+; ps2_nclk        ; -3.500 ; -231.000      ;
+; Clk             ; -3.500 ; -63.000       ;
+; serial_clk~reg0 ; -3.500 ; -42.000       ;
++-----------------+--------+---------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------+
-; Setup: 'ps2_nclk'                                                                                               ;
-+---------+----------------+----------------+--------------+-------------+--------------+------------+------------+
-; Slack   ; From Node      ; To Node        ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
-+---------+----------------+----------------+--------------+-------------+--------------+------------+------------+
-; -16.000 ; ps2_present[3] ; ps2_present[0] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 14.100     ;
-; -16.000 ; ps2_present[0] ; ps2_present[0] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 14.100     ;
-; -16.000 ; ps2_present[2] ; ps2_present[0] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 14.100     ;
-; -16.000 ; ps2_present[1] ; ps2_present[0] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 14.100     ;
-; -9.200  ; ps2_present[0] ; ps2_present[3] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
-; -9.200  ; ps2_present[3] ; ps2_present[3] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
-; -9.200  ; ps2_present[2] ; ps2_present[3] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
-; -9.200  ; ps2_present[1] ; ps2_present[3] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
-; -9.200  ; ps2_present[3] ; ps2_present[1] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
-; -9.200  ; ps2_present[1] ; ps2_present[1] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
-; -9.200  ; ps2_present[0] ; ps2_present[1] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
-; -9.200  ; ps2_present[1] ; ps2_present[2] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
-; -9.200  ; ps2_present[0] ; ps2_present[2] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
-; -9.200  ; ps2_present[3] ; ps2_present[2] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
-; -9.200  ; ps2_present[2] ; ps2_present[2] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
-+---------+----------------+----------------+--------------+-------------+--------------+------------+------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'serial_clk~reg0'                                                                                                                                                         ;
++---------+---------------------------------------------+---------------------------------------------+-----------------+-----------------+--------------+------------+------------+
+; Slack   ; From Node                                   ; To Node                                     ; Launch Clock    ; Latch Clock     ; Relationship ; Clock Skew ; Data Delay ;
++---------+---------------------------------------------+---------------------------------------------+-----------------+-----------------+--------------+------------+------------+
+; -19.800 ; lfsr[14]                                    ; serial_out~reg0                             ; ps2_nclk        ; serial_clk~reg0 ; 0.500        ; -1.700     ; 15.700     ;
+; -19.800 ; lfsr[7]                                     ; serial_out~reg0                             ; ps2_nclk        ; serial_clk~reg0 ; 0.500        ; -1.700     ; 15.700     ;
+; -19.400 ; serial_data[8]~reg0                         ; serial_out~reg0                             ; ps2_nclk        ; serial_clk~reg0 ; 1.000        ; -1.700     ; 15.800     ;
+; -19.300 ; serial_data[1]~reg0                         ; serial_out~reg0                             ; ps2_nclk        ; serial_clk~reg0 ; 1.000        ; -1.700     ; 15.700     ;
+; -18.900 ; lfsr[11]                                    ; serial_out~reg0                             ; ps2_nclk        ; serial_clk~reg0 ; 0.500        ; -1.700     ; 14.800     ;
+; -18.900 ; lfsr[10]                                    ; serial_out~reg0                             ; ps2_nclk        ; serial_clk~reg0 ; 0.500        ; -1.700     ; 14.800     ;
+; -18.900 ; lfsr[12]                                    ; serial_out~reg0                             ; ps2_nclk        ; serial_clk~reg0 ; 0.500        ; -1.700     ; 14.800     ;
+; -18.900 ; lfsr[8]                                     ; serial_out~reg0                             ; ps2_nclk        ; serial_clk~reg0 ; 0.500        ; -1.700     ; 14.800     ;
+; -18.500 ; serial_data[4]~reg0                         ; serial_out~reg0                             ; ps2_nclk        ; serial_clk~reg0 ; 1.000        ; -1.700     ; 14.900     ;
+; -18.500 ; serial_data[6]~reg0                         ; serial_out~reg0                             ; ps2_nclk        ; serial_clk~reg0 ; 1.000        ; -1.700     ; 14.900     ;
+; -18.500 ; serial_data[2]~reg0                         ; serial_out~reg0                             ; ps2_nclk        ; serial_clk~reg0 ; 1.000        ; -1.700     ; 14.900     ;
+; -18.400 ; serial_data[5]~reg0                         ; serial_out~reg0                             ; ps2_nclk        ; serial_clk~reg0 ; 1.000        ; -1.700     ; 14.800     ;
+; -18.100 ; lfsr[13]                                    ; serial_out~reg0                             ; ps2_nclk        ; serial_clk~reg0 ; 0.500        ; -1.700     ; 14.000     ;
+; -18.000 ; lfsr[9]                                     ; serial_out~reg0                             ; ps2_nclk        ; serial_clk~reg0 ; 0.500        ; -1.700     ; 13.900     ;
+; -17.500 ; serial_data[7]~reg0                         ; serial_out~reg0                             ; ps2_nclk        ; serial_clk~reg0 ; 1.000        ; -1.700     ; 13.900     ;
+; -17.500 ; serial_data[3]~reg0                         ; serial_out~reg0                             ; ps2_nclk        ; serial_clk~reg0 ; 1.000        ; -1.700     ; 13.900     ;
+; -12.500 ; valid~reg0                                  ; serial_out~reg0                             ; ps2_nclk        ; serial_clk~reg0 ; 1.000        ; -1.700     ; 8.900      ;
+; -10.800 ; lpm_counter:send_serial_count_rtl_0|dffs[0] ; serial_out~reg0                             ; serial_clk~reg0 ; serial_clk~reg0 ; 1.000        ; 0.000      ; 8.900      ;
+; -10.800 ; lpm_counter:send_serial_count_rtl_0|dffs[1] ; serial_out~reg0                             ; serial_clk~reg0 ; serial_clk~reg0 ; 1.000        ; 0.000      ; 8.900      ;
+; -10.800 ; lpm_counter:send_serial_count_rtl_0|dffs[3] ; serial_out~reg0                             ; serial_clk~reg0 ; serial_clk~reg0 ; 1.000        ; 0.000      ; 8.900      ;
+; -10.800 ; lpm_counter:send_serial_count_rtl_0|dffs[2] ; serial_out~reg0                             ; serial_clk~reg0 ; serial_clk~reg0 ; 1.000        ; 0.000      ; 8.900      ;
+; -10.800 ; serial_out~reg0                             ; serial_out~reg0                             ; serial_clk~reg0 ; serial_clk~reg0 ; 1.000        ; 0.000      ; 8.900      ;
+; -10.700 ; valid~reg0                                  ; show_serial_clock                           ; ps2_nclk        ; serial_clk~reg0 ; 1.000        ; -1.700     ; 7.100      ;
+; -10.700 ; valid~reg0                                  ; lpm_counter:send_serial_count_rtl_0|dffs[0] ; ps2_nclk        ; serial_clk~reg0 ; 1.000        ; -1.700     ; 7.100      ;
+; -10.700 ; valid~reg0                                  ; lpm_counter:send_serial_count_rtl_0|dffs[3] ; ps2_nclk        ; serial_clk~reg0 ; 1.000        ; -1.700     ; 7.100      ;
+; -10.700 ; valid~reg0                                  ; lpm_counter:send_serial_count_rtl_0|dffs[2] ; ps2_nclk        ; serial_clk~reg0 ; 1.000        ; -1.700     ; 7.100      ;
+; -10.700 ; valid~reg0                                  ; lpm_counter:send_serial_count_rtl_0|dffs[1] ; ps2_nclk        ; serial_clk~reg0 ; 1.000        ; -1.700     ; 7.100      ;
+; -9.000  ; show_serial_clock                           ; show_serial_clock                           ; serial_clk~reg0 ; serial_clk~reg0 ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; lpm_counter:send_serial_count_rtl_0|dffs[0] ; show_serial_clock                           ; serial_clk~reg0 ; serial_clk~reg0 ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; lpm_counter:send_serial_count_rtl_0|dffs[3] ; show_serial_clock                           ; serial_clk~reg0 ; serial_clk~reg0 ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; lpm_counter:send_serial_count_rtl_0|dffs[2] ; show_serial_clock                           ; serial_clk~reg0 ; serial_clk~reg0 ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; lpm_counter:send_serial_count_rtl_0|dffs[1] ; show_serial_clock                           ; serial_clk~reg0 ; serial_clk~reg0 ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; lpm_counter:send_serial_count_rtl_0|dffs[0] ; lpm_counter:send_serial_count_rtl_0|dffs[0] ; serial_clk~reg0 ; serial_clk~reg0 ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; lpm_counter:send_serial_count_rtl_0|dffs[3] ; lpm_counter:send_serial_count_rtl_0|dffs[0] ; serial_clk~reg0 ; serial_clk~reg0 ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; lpm_counter:send_serial_count_rtl_0|dffs[2] ; lpm_counter:send_serial_count_rtl_0|dffs[0] ; serial_clk~reg0 ; serial_clk~reg0 ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; lpm_counter:send_serial_count_rtl_0|dffs[1] ; lpm_counter:send_serial_count_rtl_0|dffs[0] ; serial_clk~reg0 ; serial_clk~reg0 ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; lpm_counter:send_serial_count_rtl_0|dffs[2] ; lpm_counter:send_serial_count_rtl_0|dffs[3] ; serial_clk~reg0 ; serial_clk~reg0 ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; lpm_counter:send_serial_count_rtl_0|dffs[1] ; lpm_counter:send_serial_count_rtl_0|dffs[3] ; serial_clk~reg0 ; serial_clk~reg0 ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; lpm_counter:send_serial_count_rtl_0|dffs[0] ; lpm_counter:send_serial_count_rtl_0|dffs[3] ; serial_clk~reg0 ; serial_clk~reg0 ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; lpm_counter:send_serial_count_rtl_0|dffs[3] ; lpm_counter:send_serial_count_rtl_0|dffs[3] ; serial_clk~reg0 ; serial_clk~reg0 ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; lpm_counter:send_serial_count_rtl_0|dffs[2] ; lpm_counter:send_serial_count_rtl_0|dffs[2] ; serial_clk~reg0 ; serial_clk~reg0 ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; lpm_counter:send_serial_count_rtl_0|dffs[1] ; lpm_counter:send_serial_count_rtl_0|dffs[2] ; serial_clk~reg0 ; serial_clk~reg0 ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; lpm_counter:send_serial_count_rtl_0|dffs[0] ; lpm_counter:send_serial_count_rtl_0|dffs[2] ; serial_clk~reg0 ; serial_clk~reg0 ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; lpm_counter:send_serial_count_rtl_0|dffs[3] ; lpm_counter:send_serial_count_rtl_0|dffs[2] ; serial_clk~reg0 ; serial_clk~reg0 ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; lpm_counter:send_serial_count_rtl_0|dffs[1] ; lpm_counter:send_serial_count_rtl_0|dffs[1] ; serial_clk~reg0 ; serial_clk~reg0 ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; lpm_counter:send_serial_count_rtl_0|dffs[0] ; lpm_counter:send_serial_count_rtl_0|dffs[1] ; serial_clk~reg0 ; serial_clk~reg0 ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; lpm_counter:send_serial_count_rtl_0|dffs[3] ; lpm_counter:send_serial_count_rtl_0|dffs[1] ; serial_clk~reg0 ; serial_clk~reg0 ; 1.000        ; 0.000      ; 7.100      ;
++---------+---------------------------------------------+---------------------------------------------+-----------------+-----------------+--------------+------------+------------+
 
 
-+---------------------------------------------------------------------------------------------------------------+
-; Hold: 'ps2_nclk'                                                                                              ;
-+-------+----------------+----------------+--------------+-------------+--------------+------------+------------+
-; Slack ; From Node      ; To Node        ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
-+-------+----------------+----------------+--------------+-------------+--------------+------------+------------+
-; 5.800 ; ps2_present[2] ; ps2_present[2] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.100      ;
-; 6.000 ; ps2_present[3] ; ps2_present[0] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
-; 6.000 ; ps2_present[0] ; ps2_present[0] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
-; 6.000 ; ps2_present[2] ; ps2_present[0] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
-; 6.000 ; ps2_present[1] ; ps2_present[0] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
-; 6.000 ; ps2_present[0] ; ps2_present[3] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
-; 6.000 ; ps2_present[3] ; ps2_present[3] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
-; 6.000 ; ps2_present[2] ; ps2_present[3] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
-; 6.000 ; ps2_present[1] ; ps2_present[3] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
-; 6.000 ; ps2_present[3] ; ps2_present[1] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
-; 6.000 ; ps2_present[1] ; ps2_present[1] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
-; 6.000 ; ps2_present[0] ; ps2_present[1] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
-; 6.000 ; ps2_present[1] ; ps2_present[2] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
-; 6.000 ; ps2_present[0] ; ps2_present[2] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
-; 6.000 ; ps2_present[3] ; ps2_present[2] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
-+-------+----------------+----------------+--------------+-------------+--------------+------------+------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'ps2_nclk'                                                                                                                                                   ;
++---------+------------------------------------------+------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack   ; From Node                                ; To Node                                  ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++---------+------------------------------------------+------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -10.000 ; lfsr[13]                                 ; lfsr[0]                                  ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 8.100      ;
+; -9.900  ; lfsr[12]                                 ; lfsr[0]                                  ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 8.000      ;
+; -9.900  ; lfsr[10]                                 ; lfsr[0]                                  ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 8.000      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[3] ; lpm_counter:serial_counter_rtl_0|dffs[1] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[1] ; lpm_counter:serial_counter_rtl_0|dffs[1] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[2] ; lpm_counter:serial_counter_rtl_0|dffs[1] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[3] ; lpm_counter:serial_counter_rtl_0|dffs[2] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[1] ; lpm_counter:serial_counter_rtl_0|dffs[2] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[2] ; lpm_counter:serial_counter_rtl_0|dffs[2] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[2] ; lpm_counter:serial_counter_rtl_0|dffs[3] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[1] ; lpm_counter:serial_counter_rtl_0|dffs[3] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[3] ; lpm_counter:serial_counter_rtl_0|dffs[3] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[3] ; lpm_counter:serial_counter_rtl_0|dffs[0] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[2] ; lpm_counter:serial_counter_rtl_0|dffs[0] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[1] ; lpm_counter:serial_counter_rtl_0|dffs[0] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[2] ; valid~reg0                               ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[1] ; valid~reg0                               ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[3] ; valid~reg0                               ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[3] ; serial_data[0]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[2] ; serial_data[0]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[1] ; serial_data[0]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[3] ; serial_data[1]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[1] ; serial_data[1]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[2] ; serial_data[1]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[3] ; serial_data[2]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[1] ; serial_data[2]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[2] ; serial_data[2]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[3] ; serial_data[3]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[1] ; serial_data[3]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[2] ; serial_data[3]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[3] ; serial_data[4]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[1] ; serial_data[4]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[2] ; serial_data[4]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[3] ; serial_data[5]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[1] ; serial_data[5]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[2] ; serial_data[5]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[3] ; serial_data[6]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[1] ; serial_data[6]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[2] ; serial_data[6]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[3] ; serial_data[7]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[1] ; serial_data[7]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[2] ; serial_data[7]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[3] ; serial_data[8]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[1] ; serial_data[8]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[2] ; serial_data[8]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[3] ; serial_data[9]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[1] ; serial_data[9]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[2] ; serial_data[9]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[3] ; serial_data[10]~reg0                     ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[1] ; serial_data[10]~reg0                     ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.200  ; lpm_counter:serial_counter_rtl_0|dffs[2] ; serial_data[10]~reg0                     ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.300      ;
+; -9.100  ; lfsr[13]                                 ; lfsr[14]                                 ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; lpm_counter:serial_counter_rtl_0|dffs[0] ; lpm_counter:serial_counter_rtl_0|dffs[1] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; lpm_counter:serial_counter_rtl_0|dffs[0] ; lpm_counter:serial_counter_rtl_0|dffs[2] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; lpm_counter:serial_counter_rtl_0|dffs[0] ; lpm_counter:serial_counter_rtl_0|dffs[3] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; lpm_counter:serial_counter_rtl_0|dffs[0] ; lpm_counter:serial_counter_rtl_0|dffs[0] ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; serial_data[2]~reg0                      ; serial_data[2]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; serial_data[2]~reg0                      ; serial_data[3]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; serial_data[4]~reg0                      ; serial_data[4]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; serial_data[4]~reg0                      ; serial_data[5]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; serial_data[6]~reg0                      ; serial_data[6]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; serial_data[6]~reg0                      ; serial_data[7]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; serial_data[8]~reg0                      ; serial_data[8]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.200      ;
+; -9.100  ; serial_data[8]~reg0                      ; serial_data[9]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.200      ;
+; -9.000  ; lfsr[15]                                 ; lfsr[0]                                  ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; lfsr[0]                                  ; lfsr[1]                                  ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; lfsr[1]                                  ; lfsr[2]                                  ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; lfsr[2]                                  ; lfsr[3]                                  ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; lfsr[3]                                  ; lfsr[4]                                  ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; lfsr[4]                                  ; lfsr[5]                                  ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; lfsr[5]                                  ; lfsr[6]                                  ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; lfsr[6]                                  ; lfsr[7]                                  ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; lfsr[7]                                  ; lfsr[8]                                  ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; lfsr[8]                                  ; lfsr[9]                                  ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; lfsr[9]                                  ; lfsr[10]                                 ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; lfsr[10]                                 ; lfsr[11]                                 ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; lfsr[11]                                 ; lfsr[12]                                 ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; lfsr[12]                                 ; lfsr[13]                                 ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; lfsr[14]                                 ; lfsr[15]                                 ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; serial_data[0]~reg0                      ; serial_data[0]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; serial_data[1]~reg0                      ; serial_data[1]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; serial_data[0]~reg0                      ; serial_data[1]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; serial_data[1]~reg0                      ; serial_data[2]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; serial_data[3]~reg0                      ; serial_data[3]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; serial_data[3]~reg0                      ; serial_data[4]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; serial_data[5]~reg0                      ; serial_data[5]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; serial_data[5]~reg0                      ; serial_data[6]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; serial_data[7]~reg0                      ; serial_data[7]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; serial_data[7]~reg0                      ; serial_data[8]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; serial_data[9]~reg0                      ; serial_data[9]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; serial_data[10]~reg0                     ; serial_data[10]~reg0                     ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000  ; serial_data[9]~reg0                      ; serial_data[10]~reg0                     ; ps2_nclk     ; ps2_nclk    ; 1.000        ; 0.000      ; 7.100      ;
++---------+------------------------------------------+------------------------------------------+--------------+-------------+--------------+------------+------------+
 
 
-+--------------------------------------------------------------------------------------------------------+
-; Minimum Pulse Width: 'ps2_nclk'                                                                        ;
-+--------+--------------+----------------+------------------+----------+------------+--------------------+
-; Slack  ; Actual Width ; Required Width ; Type             ; Clock    ; Clock Edge ; Target             ;
-+--------+--------------+----------------+------------------+----------+------------+--------------------+
-; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Fall       ; ps2_present[0]     ;
-; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Fall       ; ps2_present[0]     ;
-; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Fall       ; ps2_present[1]     ;
-; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Fall       ; ps2_present[1]     ;
-; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Fall       ; ps2_present[2]     ;
-; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Fall       ; ps2_present[2]     ;
-; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Fall       ; ps2_present[3]     ;
-; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Fall       ; ps2_present[3]     ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; ps2_nclk ; Rise       ; ps2_nclk|dataout   ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; ps2_nclk|dataout   ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; ps2_nclk ; Rise       ; ps2_present[0]|clk ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; ps2_present[0]|clk ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; ps2_nclk ; Rise       ; ps2_present[1]|clk ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; ps2_present[1]|clk ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; ps2_nclk ; Rise       ; ps2_present[2]|clk ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; ps2_present[2]|clk ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; ps2_nclk ; Rise       ; ps2_present[3]|clk ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; ps2_present[3]|clk ;
-+--------+--------------+----------------+------------------+----------+------------+--------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'Clk'                                                                                                                                                    ;
++--------+---------------------------------------+---------------------------------------+-----------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                             ; To Node                               ; Launch Clock    ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+---------------------------------------+---------------------------------------+-----------------+-------------+--------------+------------+------------+
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[4] ; lpm_counter:clk_counter_rtl_0|dffs[4] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[7] ; lpm_counter:clk_counter_rtl_0|dffs[4] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[6] ; lpm_counter:clk_counter_rtl_0|dffs[4] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[5] ; lpm_counter:clk_counter_rtl_0|dffs[4] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[3] ; lpm_counter:clk_counter_rtl_0|dffs[4] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[0] ; lpm_counter:clk_counter_rtl_0|dffs[4] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[1] ; lpm_counter:clk_counter_rtl_0|dffs[4] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[2] ; lpm_counter:clk_counter_rtl_0|dffs[4] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[5] ; lpm_counter:clk_counter_rtl_0|dffs[5] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[7] ; lpm_counter:clk_counter_rtl_0|dffs[5] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[6] ; lpm_counter:clk_counter_rtl_0|dffs[5] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[3] ; lpm_counter:clk_counter_rtl_0|dffs[5] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[4] ; lpm_counter:clk_counter_rtl_0|dffs[5] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[0] ; lpm_counter:clk_counter_rtl_0|dffs[5] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[1] ; lpm_counter:clk_counter_rtl_0|dffs[5] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[2] ; lpm_counter:clk_counter_rtl_0|dffs[5] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[3] ; lpm_counter:clk_counter_rtl_0|dffs[3] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[7] ; lpm_counter:clk_counter_rtl_0|dffs[3] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[6] ; lpm_counter:clk_counter_rtl_0|dffs[3] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[5] ; lpm_counter:clk_counter_rtl_0|dffs[3] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[4] ; lpm_counter:clk_counter_rtl_0|dffs[3] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[0] ; lpm_counter:clk_counter_rtl_0|dffs[3] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[1] ; lpm_counter:clk_counter_rtl_0|dffs[3] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[2] ; lpm_counter:clk_counter_rtl_0|dffs[3] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[6] ; lpm_counter:clk_counter_rtl_0|dffs[6] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[7] ; lpm_counter:clk_counter_rtl_0|dffs[6] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[3] ; lpm_counter:clk_counter_rtl_0|dffs[6] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[4] ; lpm_counter:clk_counter_rtl_0|dffs[6] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[5] ; lpm_counter:clk_counter_rtl_0|dffs[6] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[0] ; lpm_counter:clk_counter_rtl_0|dffs[6] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[1] ; lpm_counter:clk_counter_rtl_0|dffs[6] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[2] ; lpm_counter:clk_counter_rtl_0|dffs[6] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[7] ; lpm_counter:clk_counter_rtl_0|dffs[1] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[6] ; lpm_counter:clk_counter_rtl_0|dffs[1] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[5] ; lpm_counter:clk_counter_rtl_0|dffs[1] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[4] ; lpm_counter:clk_counter_rtl_0|dffs[1] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[3] ; lpm_counter:clk_counter_rtl_0|dffs[1] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[0] ; lpm_counter:clk_counter_rtl_0|dffs[1] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[1] ; lpm_counter:clk_counter_rtl_0|dffs[1] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[7] ; lpm_counter:clk_counter_rtl_0|dffs[7] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[1] ; lpm_counter:clk_counter_rtl_0|dffs[7] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[0] ; lpm_counter:clk_counter_rtl_0|dffs[7] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[3] ; lpm_counter:clk_counter_rtl_0|dffs[7] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[4] ; lpm_counter:clk_counter_rtl_0|dffs[7] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[5] ; lpm_counter:clk_counter_rtl_0|dffs[7] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[2] ; lpm_counter:clk_counter_rtl_0|dffs[7] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[6] ; lpm_counter:clk_counter_rtl_0|dffs[7] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[7] ; lpm_counter:clk_counter_rtl_0|dffs[2] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[6] ; lpm_counter:clk_counter_rtl_0|dffs[2] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[5] ; lpm_counter:clk_counter_rtl_0|dffs[2] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[4] ; lpm_counter:clk_counter_rtl_0|dffs[2] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[3] ; lpm_counter:clk_counter_rtl_0|dffs[2] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[2] ; lpm_counter:clk_counter_rtl_0|dffs[2] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[1] ; lpm_counter:clk_counter_rtl_0|dffs[2] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[0] ; lpm_counter:clk_counter_rtl_0|dffs[2] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[0] ; lpm_counter:clk_counter_rtl_0|dffs[0] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[2] ; lpm_counter:clk_counter_rtl_0|dffs[0] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[7] ; lpm_counter:clk_counter_rtl_0|dffs[0] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[6] ; lpm_counter:clk_counter_rtl_0|dffs[0] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[5] ; lpm_counter:clk_counter_rtl_0|dffs[0] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[4] ; lpm_counter:clk_counter_rtl_0|dffs[0] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[3] ; lpm_counter:clk_counter_rtl_0|dffs[0] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[1] ; lpm_counter:clk_counter_rtl_0|dffs[0] ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[2] ; serial_clk~reg0                       ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[7] ; serial_clk~reg0                       ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[6] ; serial_clk~reg0                       ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[5] ; serial_clk~reg0                       ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[4] ; serial_clk~reg0                       ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[3] ; serial_clk~reg0                       ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[1] ; serial_clk~reg0                       ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -9.000 ; lpm_counter:clk_counter_rtl_0|dffs[0] ; serial_clk~reg0                       ; Clk             ; Clk         ; 1.000        ; 0.000      ; 7.100      ;
+; -4.300 ; serial_clk~reg0                       ; serial_clk~reg0                       ; serial_clk~reg0 ; Clk         ; 0.500        ; 3.600      ; 7.100      ;
+; -3.800 ; serial_clk~reg0                       ; serial_clk~reg0                       ; serial_clk~reg0 ; Clk         ; 1.000        ; 3.600      ; 7.100      ;
++--------+---------------------------------------+---------------------------------------+-----------------+-------------+--------------+------------+------------+
 
 
-+-------------------------------------------------------------------------+
-; Setup Times                                                             ;
-+-----------+------------+--------+--------+------------+-----------------+
-; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
-+-----------+------------+--------+--------+------------+-----------------+
-; ndata     ; ps2_nclk   ; 13.200 ; 13.200 ; Fall       ; ps2_nclk        ;
-+-----------+------------+--------+--------+------------+-----------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'Clk'                                                                                                                                                    ;
++-------+---------------------------------------+---------------------------------------+-----------------+-------------+--------------+------------+------------+
+; Slack ; From Node                             ; To Node                               ; Launch Clock    ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------------------------------+---------------------------------------+-----------------+-------------+--------------+------------+------------+
+; 0.600 ; serial_clk~reg0                       ; serial_clk~reg0                       ; serial_clk~reg0 ; Clk         ; 0.000        ; 3.600      ; 7.100      ;
+; 1.100 ; serial_clk~reg0                       ; serial_clk~reg0                       ; serial_clk~reg0 ; Clk         ; -0.500       ; 3.600      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[4] ; lpm_counter:clk_counter_rtl_0|dffs[4] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[7] ; lpm_counter:clk_counter_rtl_0|dffs[4] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[6] ; lpm_counter:clk_counter_rtl_0|dffs[4] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[5] ; lpm_counter:clk_counter_rtl_0|dffs[4] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[3] ; lpm_counter:clk_counter_rtl_0|dffs[4] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[0] ; lpm_counter:clk_counter_rtl_0|dffs[4] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[1] ; lpm_counter:clk_counter_rtl_0|dffs[4] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[2] ; lpm_counter:clk_counter_rtl_0|dffs[4] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[5] ; lpm_counter:clk_counter_rtl_0|dffs[5] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[7] ; lpm_counter:clk_counter_rtl_0|dffs[5] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[6] ; lpm_counter:clk_counter_rtl_0|dffs[5] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[3] ; lpm_counter:clk_counter_rtl_0|dffs[5] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[4] ; lpm_counter:clk_counter_rtl_0|dffs[5] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[0] ; lpm_counter:clk_counter_rtl_0|dffs[5] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[1] ; lpm_counter:clk_counter_rtl_0|dffs[5] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[2] ; lpm_counter:clk_counter_rtl_0|dffs[5] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[3] ; lpm_counter:clk_counter_rtl_0|dffs[3] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[7] ; lpm_counter:clk_counter_rtl_0|dffs[3] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[6] ; lpm_counter:clk_counter_rtl_0|dffs[3] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[5] ; lpm_counter:clk_counter_rtl_0|dffs[3] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[4] ; lpm_counter:clk_counter_rtl_0|dffs[3] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[0] ; lpm_counter:clk_counter_rtl_0|dffs[3] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[1] ; lpm_counter:clk_counter_rtl_0|dffs[3] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[2] ; lpm_counter:clk_counter_rtl_0|dffs[3] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[6] ; lpm_counter:clk_counter_rtl_0|dffs[6] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[7] ; lpm_counter:clk_counter_rtl_0|dffs[6] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[3] ; lpm_counter:clk_counter_rtl_0|dffs[6] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[4] ; lpm_counter:clk_counter_rtl_0|dffs[6] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[5] ; lpm_counter:clk_counter_rtl_0|dffs[6] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[0] ; lpm_counter:clk_counter_rtl_0|dffs[6] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[1] ; lpm_counter:clk_counter_rtl_0|dffs[6] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[2] ; lpm_counter:clk_counter_rtl_0|dffs[6] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[7] ; lpm_counter:clk_counter_rtl_0|dffs[1] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[6] ; lpm_counter:clk_counter_rtl_0|dffs[1] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[5] ; lpm_counter:clk_counter_rtl_0|dffs[1] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[4] ; lpm_counter:clk_counter_rtl_0|dffs[1] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[3] ; lpm_counter:clk_counter_rtl_0|dffs[1] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[0] ; lpm_counter:clk_counter_rtl_0|dffs[1] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[1] ; lpm_counter:clk_counter_rtl_0|dffs[1] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[7] ; lpm_counter:clk_counter_rtl_0|dffs[7] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[1] ; lpm_counter:clk_counter_rtl_0|dffs[7] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[0] ; lpm_counter:clk_counter_rtl_0|dffs[7] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[3] ; lpm_counter:clk_counter_rtl_0|dffs[7] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[4] ; lpm_counter:clk_counter_rtl_0|dffs[7] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[5] ; lpm_counter:clk_counter_rtl_0|dffs[7] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[2] ; lpm_counter:clk_counter_rtl_0|dffs[7] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[6] ; lpm_counter:clk_counter_rtl_0|dffs[7] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[7] ; lpm_counter:clk_counter_rtl_0|dffs[2] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[6] ; lpm_counter:clk_counter_rtl_0|dffs[2] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[5] ; lpm_counter:clk_counter_rtl_0|dffs[2] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[4] ; lpm_counter:clk_counter_rtl_0|dffs[2] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[3] ; lpm_counter:clk_counter_rtl_0|dffs[2] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[2] ; lpm_counter:clk_counter_rtl_0|dffs[2] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[1] ; lpm_counter:clk_counter_rtl_0|dffs[2] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[0] ; lpm_counter:clk_counter_rtl_0|dffs[2] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[0] ; lpm_counter:clk_counter_rtl_0|dffs[0] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[2] ; lpm_counter:clk_counter_rtl_0|dffs[0] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[7] ; lpm_counter:clk_counter_rtl_0|dffs[0] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[6] ; lpm_counter:clk_counter_rtl_0|dffs[0] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[5] ; lpm_counter:clk_counter_rtl_0|dffs[0] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[4] ; lpm_counter:clk_counter_rtl_0|dffs[0] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[3] ; lpm_counter:clk_counter_rtl_0|dffs[0] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[1] ; lpm_counter:clk_counter_rtl_0|dffs[0] ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[2] ; serial_clk~reg0                       ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[7] ; serial_clk~reg0                       ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[6] ; serial_clk~reg0                       ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[5] ; serial_clk~reg0                       ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[4] ; serial_clk~reg0                       ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[3] ; serial_clk~reg0                       ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[1] ; serial_clk~reg0                       ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:clk_counter_rtl_0|dffs[0] ; serial_clk~reg0                       ; Clk             ; Clk         ; 0.000        ; 0.000      ; 7.100      ;
++-------+---------------------------------------+---------------------------------------+-----------------+-------------+--------------+------------+------------+
 
 
-+-------------------------------------------------------------------------+
-; Hold Times                                                              ;
-+-----------+------------+--------+--------+------------+-----------------+
-; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
-+-----------+------------+--------+--------+------------+-----------------+
-; ndata     ; ps2_nclk   ; -9.000 ; -9.000 ; Fall       ; ps2_nclk        ;
-+-----------+------------+--------+--------+------------+-----------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'ps2_nclk'                                                                                                                                                  ;
++-------+------------------------------------------+------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                ; To Node                                  ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------------------------------+------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 5.800 ; lfsr[12]                                 ; lfsr[0]                                  ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lfsr[10]                                 ; lfsr[0]                                  ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lfsr[15]                                 ; lfsr[0]                                  ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lfsr[0]                                  ; lfsr[1]                                  ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lfsr[1]                                  ; lfsr[2]                                  ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lfsr[2]                                  ; lfsr[3]                                  ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lfsr[3]                                  ; lfsr[4]                                  ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lfsr[4]                                  ; lfsr[5]                                  ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lfsr[5]                                  ; lfsr[6]                                  ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lfsr[6]                                  ; lfsr[7]                                  ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lfsr[7]                                  ; lfsr[8]                                  ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lfsr[8]                                  ; lfsr[9]                                  ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lfsr[9]                                  ; lfsr[10]                                 ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lfsr[10]                                 ; lfsr[11]                                 ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lfsr[11]                                 ; lfsr[12]                                 ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lfsr[12]                                 ; lfsr[13]                                 ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lfsr[14]                                 ; lfsr[15]                                 ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; lpm_counter:serial_counter_rtl_0|dffs[2] ; lpm_counter:serial_counter_rtl_0|dffs[2] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; serial_data[0]~reg0                      ; serial_data[0]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; serial_data[1]~reg0                      ; serial_data[1]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; serial_data[0]~reg0                      ; serial_data[1]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; serial_data[1]~reg0                      ; serial_data[2]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; serial_data[3]~reg0                      ; serial_data[3]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; serial_data[3]~reg0                      ; serial_data[4]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; serial_data[5]~reg0                      ; serial_data[5]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; serial_data[5]~reg0                      ; serial_data[6]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; serial_data[7]~reg0                      ; serial_data[7]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; serial_data[7]~reg0                      ; serial_data[8]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; serial_data[9]~reg0                      ; serial_data[9]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; serial_data[10]~reg0                     ; serial_data[10]~reg0                     ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800 ; serial_data[9]~reg0                      ; serial_data[10]~reg0                     ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.100      ;
+; 5.900 ; lfsr[13]                                 ; lfsr[0]                                  ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.200      ;
+; 5.900 ; lfsr[13]                                 ; lfsr[14]                                 ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.200      ;
+; 5.900 ; lpm_counter:serial_counter_rtl_0|dffs[0] ; lpm_counter:serial_counter_rtl_0|dffs[1] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.200      ;
+; 5.900 ; lpm_counter:serial_counter_rtl_0|dffs[0] ; lpm_counter:serial_counter_rtl_0|dffs[2] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.200      ;
+; 5.900 ; lpm_counter:serial_counter_rtl_0|dffs[0] ; lpm_counter:serial_counter_rtl_0|dffs[3] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.200      ;
+; 5.900 ; lpm_counter:serial_counter_rtl_0|dffs[0] ; lpm_counter:serial_counter_rtl_0|dffs[0] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.200      ;
+; 5.900 ; serial_data[2]~reg0                      ; serial_data[2]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.200      ;
+; 5.900 ; serial_data[2]~reg0                      ; serial_data[3]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.200      ;
+; 5.900 ; serial_data[4]~reg0                      ; serial_data[4]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.200      ;
+; 5.900 ; serial_data[4]~reg0                      ; serial_data[5]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.200      ;
+; 5.900 ; serial_data[6]~reg0                      ; serial_data[6]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.200      ;
+; 5.900 ; serial_data[6]~reg0                      ; serial_data[7]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.200      ;
+; 5.900 ; serial_data[8]~reg0                      ; serial_data[8]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.200      ;
+; 5.900 ; serial_data[8]~reg0                      ; serial_data[9]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.200      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[3] ; lpm_counter:serial_counter_rtl_0|dffs[1] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[1] ; lpm_counter:serial_counter_rtl_0|dffs[1] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[2] ; lpm_counter:serial_counter_rtl_0|dffs[1] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[3] ; lpm_counter:serial_counter_rtl_0|dffs[2] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[1] ; lpm_counter:serial_counter_rtl_0|dffs[2] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[2] ; lpm_counter:serial_counter_rtl_0|dffs[3] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[1] ; lpm_counter:serial_counter_rtl_0|dffs[3] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[3] ; lpm_counter:serial_counter_rtl_0|dffs[3] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[3] ; lpm_counter:serial_counter_rtl_0|dffs[0] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[2] ; lpm_counter:serial_counter_rtl_0|dffs[0] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[1] ; lpm_counter:serial_counter_rtl_0|dffs[0] ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[2] ; valid~reg0                               ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[1] ; valid~reg0                               ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[3] ; valid~reg0                               ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[3] ; serial_data[0]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[2] ; serial_data[0]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[1] ; serial_data[0]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[3] ; serial_data[1]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[1] ; serial_data[1]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[2] ; serial_data[1]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[3] ; serial_data[2]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[1] ; serial_data[2]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[2] ; serial_data[2]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[3] ; serial_data[3]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[1] ; serial_data[3]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[2] ; serial_data[3]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[3] ; serial_data[4]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[1] ; serial_data[4]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[2] ; serial_data[4]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[3] ; serial_data[5]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[1] ; serial_data[5]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[2] ; serial_data[5]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[3] ; serial_data[6]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[1] ; serial_data[6]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[2] ; serial_data[6]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[3] ; serial_data[7]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[1] ; serial_data[7]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[2] ; serial_data[7]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[3] ; serial_data[8]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[1] ; serial_data[8]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[2] ; serial_data[8]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[3] ; serial_data[9]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[1] ; serial_data[9]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[2] ; serial_data[9]~reg0                      ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[3] ; serial_data[10]~reg0                     ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[1] ; serial_data[10]~reg0                     ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
+; 6.000 ; lpm_counter:serial_counter_rtl_0|dffs[2] ; serial_data[10]~reg0                     ; ps2_nclk     ; ps2_nclk    ; 0.000        ; 0.000      ; 7.300      ;
++-------+------------------------------------------+------------------------------------------+--------------+-------------+--------------+------------+------------+
 
 
-+------------------------------------------------------------------------------------+
-; Clock to Output Times                                                              ;
-+----------------------+------------+--------+--------+------------+-----------------+
-; Data Port            ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
-+----------------------+------------+--------+--------+------------+-----------------+
-; last_serial_data[*]  ; ps2_nclk   ; 27.600 ; 27.600 ; Fall       ; ps2_nclk        ;
-;  last_serial_data[0] ; ps2_nclk   ; 27.600 ; 27.600 ; Fall       ; ps2_nclk        ;
-;  last_serial_data[1] ; ps2_nclk   ; 24.700 ; 24.700 ; Fall       ; ps2_nclk        ;
-;  last_serial_data[2] ; ps2_nclk   ; 24.700 ; 24.700 ; Fall       ; ps2_nclk        ;
-;  last_serial_data[3] ; ps2_nclk   ; 24.700 ; 24.700 ; Fall       ; ps2_nclk        ;
-;  last_serial_data[4] ; ps2_nclk   ; 24.700 ; 24.700 ; Fall       ; ps2_nclk        ;
-;  last_serial_data[5] ; ps2_nclk   ; 24.700 ; 24.700 ; Fall       ; ps2_nclk        ;
-;  last_serial_data[6] ; ps2_nclk   ; 27.600 ; 27.600 ; Fall       ; ps2_nclk        ;
-;  last_serial_data[7] ; ps2_nclk   ; 24.700 ; 24.700 ; Fall       ; ps2_nclk        ;
-; serial_data[*]       ; ps2_nclk   ; 20.800 ; 20.800 ; Fall       ; ps2_nclk        ;
-;  serial_data[0]      ; ps2_nclk   ; 20.800 ; 20.800 ; Fall       ; ps2_nclk        ;
-;  serial_data[1]      ; ps2_nclk   ; 17.900 ; 17.900 ; Fall       ; ps2_nclk        ;
-;  serial_data[2]      ; ps2_nclk   ; 17.900 ; 17.900 ; Fall       ; ps2_nclk        ;
-;  serial_data[3]      ; ps2_nclk   ; 17.900 ; 17.900 ; Fall       ; ps2_nclk        ;
-;  serial_data[4]      ; ps2_nclk   ; 17.900 ; 17.900 ; Fall       ; ps2_nclk        ;
-;  serial_data[5]      ; ps2_nclk   ; 17.900 ; 17.900 ; Fall       ; ps2_nclk        ;
-;  serial_data[6]      ; ps2_nclk   ; 20.800 ; 20.800 ; Fall       ; ps2_nclk        ;
-;  serial_data[7]      ; ps2_nclk   ; 17.900 ; 17.900 ; Fall       ; ps2_nclk        ;
-; valid                ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
-+----------------------+------------+--------+--------+------------+-----------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'serial_clk~reg0'                                                                                                                                                         ;
++--------+---------------------------------------------+---------------------------------------------+-----------------+-----------------+--------------+------------+------------+
+; Slack  ; From Node                                   ; To Node                                     ; Launch Clock    ; Latch Clock     ; Relationship ; Clock Skew ; Data Delay ;
++--------+---------------------------------------------+---------------------------------------------+-----------------+-----------------+--------------+------------+------------+
+; 5.800  ; lpm_counter:send_serial_count_rtl_0|dffs[0] ; serial_out~reg0                             ; serial_clk~reg0 ; serial_clk~reg0 ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; lpm_counter:send_serial_count_rtl_0|dffs[3] ; serial_out~reg0                             ; serial_clk~reg0 ; serial_clk~reg0 ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; lpm_counter:send_serial_count_rtl_0|dffs[1] ; serial_out~reg0                             ; serial_clk~reg0 ; serial_clk~reg0 ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; lpm_counter:send_serial_count_rtl_0|dffs[2] ; serial_out~reg0                             ; serial_clk~reg0 ; serial_clk~reg0 ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; serial_out~reg0                             ; serial_out~reg0                             ; serial_clk~reg0 ; serial_clk~reg0 ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; show_serial_clock                           ; show_serial_clock                           ; serial_clk~reg0 ; serial_clk~reg0 ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; lpm_counter:send_serial_count_rtl_0|dffs[0] ; show_serial_clock                           ; serial_clk~reg0 ; serial_clk~reg0 ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; lpm_counter:send_serial_count_rtl_0|dffs[3] ; show_serial_clock                           ; serial_clk~reg0 ; serial_clk~reg0 ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; lpm_counter:send_serial_count_rtl_0|dffs[2] ; show_serial_clock                           ; serial_clk~reg0 ; serial_clk~reg0 ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; lpm_counter:send_serial_count_rtl_0|dffs[1] ; show_serial_clock                           ; serial_clk~reg0 ; serial_clk~reg0 ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; lpm_counter:send_serial_count_rtl_0|dffs[0] ; lpm_counter:send_serial_count_rtl_0|dffs[0] ; serial_clk~reg0 ; serial_clk~reg0 ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; lpm_counter:send_serial_count_rtl_0|dffs[3] ; lpm_counter:send_serial_count_rtl_0|dffs[0] ; serial_clk~reg0 ; serial_clk~reg0 ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; lpm_counter:send_serial_count_rtl_0|dffs[2] ; lpm_counter:send_serial_count_rtl_0|dffs[0] ; serial_clk~reg0 ; serial_clk~reg0 ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; lpm_counter:send_serial_count_rtl_0|dffs[1] ; lpm_counter:send_serial_count_rtl_0|dffs[0] ; serial_clk~reg0 ; serial_clk~reg0 ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; lpm_counter:send_serial_count_rtl_0|dffs[2] ; lpm_counter:send_serial_count_rtl_0|dffs[3] ; serial_clk~reg0 ; serial_clk~reg0 ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; lpm_counter:send_serial_count_rtl_0|dffs[1] ; lpm_counter:send_serial_count_rtl_0|dffs[3] ; serial_clk~reg0 ; serial_clk~reg0 ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; lpm_counter:send_serial_count_rtl_0|dffs[0] ; lpm_counter:send_serial_count_rtl_0|dffs[3] ; serial_clk~reg0 ; serial_clk~reg0 ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; lpm_counter:send_serial_count_rtl_0|dffs[3] ; lpm_counter:send_serial_count_rtl_0|dffs[3] ; serial_clk~reg0 ; serial_clk~reg0 ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; lpm_counter:send_serial_count_rtl_0|dffs[2] ; lpm_counter:send_serial_count_rtl_0|dffs[2] ; serial_clk~reg0 ; serial_clk~reg0 ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; lpm_counter:send_serial_count_rtl_0|dffs[1] ; lpm_counter:send_serial_count_rtl_0|dffs[2] ; serial_clk~reg0 ; serial_clk~reg0 ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; lpm_counter:send_serial_count_rtl_0|dffs[0] ; lpm_counter:send_serial_count_rtl_0|dffs[2] ; serial_clk~reg0 ; serial_clk~reg0 ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; lpm_counter:send_serial_count_rtl_0|dffs[3] ; lpm_counter:send_serial_count_rtl_0|dffs[2] ; serial_clk~reg0 ; serial_clk~reg0 ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; lpm_counter:send_serial_count_rtl_0|dffs[1] ; lpm_counter:send_serial_count_rtl_0|dffs[1] ; serial_clk~reg0 ; serial_clk~reg0 ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; lpm_counter:send_serial_count_rtl_0|dffs[0] ; lpm_counter:send_serial_count_rtl_0|dffs[1] ; serial_clk~reg0 ; serial_clk~reg0 ; 0.000        ; 0.000      ; 7.100      ;
+; 5.800  ; lpm_counter:send_serial_count_rtl_0|dffs[3] ; lpm_counter:send_serial_count_rtl_0|dffs[1] ; serial_clk~reg0 ; serial_clk~reg0 ; 0.000        ; 0.000      ; 7.100      ;
+; 7.500  ; valid~reg0                                  ; serial_out~reg0                             ; ps2_nclk        ; serial_clk~reg0 ; 0.000        ; -1.700     ; 7.100      ;
+; 7.500  ; valid~reg0                                  ; show_serial_clock                           ; ps2_nclk        ; serial_clk~reg0 ; 0.000        ; -1.700     ; 7.100      ;
+; 7.500  ; valid~reg0                                  ; lpm_counter:send_serial_count_rtl_0|dffs[0] ; ps2_nclk        ; serial_clk~reg0 ; 0.000        ; -1.700     ; 7.100      ;
+; 7.500  ; valid~reg0                                  ; lpm_counter:send_serial_count_rtl_0|dffs[3] ; ps2_nclk        ; serial_clk~reg0 ; 0.000        ; -1.700     ; 7.100      ;
+; 7.500  ; valid~reg0                                  ; lpm_counter:send_serial_count_rtl_0|dffs[2] ; ps2_nclk        ; serial_clk~reg0 ; 0.000        ; -1.700     ; 7.100      ;
+; 7.500  ; valid~reg0                                  ; lpm_counter:send_serial_count_rtl_0|dffs[1] ; ps2_nclk        ; serial_clk~reg0 ; 0.000        ; -1.700     ; 7.100      ;
+; 14.300 ; serial_data[7]~reg0                         ; serial_out~reg0                             ; ps2_nclk        ; serial_clk~reg0 ; 0.000        ; -1.700     ; 13.900     ;
+; 14.300 ; serial_data[1]~reg0                         ; serial_out~reg0                             ; ps2_nclk        ; serial_clk~reg0 ; 0.000        ; -1.700     ; 13.900     ;
+; 14.300 ; serial_data[3]~reg0                         ; serial_out~reg0                             ; ps2_nclk        ; serial_clk~reg0 ; 0.000        ; -1.700     ; 13.900     ;
+; 14.800 ; lfsr[7]                                     ; serial_out~reg0                             ; ps2_nclk        ; serial_clk~reg0 ; -0.500       ; -1.700     ; 13.900     ;
+; 14.800 ; lfsr[9]                                     ; serial_out~reg0                             ; ps2_nclk        ; serial_clk~reg0 ; -0.500       ; -1.700     ; 13.900     ;
+; 14.900 ; lfsr[13]                                    ; serial_out~reg0                             ; ps2_nclk        ; serial_clk~reg0 ; -0.500       ; -1.700     ; 14.000     ;
+; 15.200 ; serial_data[5]~reg0                         ; serial_out~reg0                             ; ps2_nclk        ; serial_clk~reg0 ; 0.000        ; -1.700     ; 14.800     ;
+; 15.300 ; serial_data[4]~reg0                         ; serial_out~reg0                             ; ps2_nclk        ; serial_clk~reg0 ; 0.000        ; -1.700     ; 14.900     ;
+; 15.300 ; serial_data[6]~reg0                         ; serial_out~reg0                             ; ps2_nclk        ; serial_clk~reg0 ; 0.000        ; -1.700     ; 14.900     ;
+; 15.300 ; serial_data[2]~reg0                         ; serial_out~reg0                             ; ps2_nclk        ; serial_clk~reg0 ; 0.000        ; -1.700     ; 14.900     ;
+; 15.700 ; lfsr[11]                                    ; serial_out~reg0                             ; ps2_nclk        ; serial_clk~reg0 ; -0.500       ; -1.700     ; 14.800     ;
+; 15.700 ; lfsr[10]                                    ; serial_out~reg0                             ; ps2_nclk        ; serial_clk~reg0 ; -0.500       ; -1.700     ; 14.800     ;
+; 15.700 ; lfsr[12]                                    ; serial_out~reg0                             ; ps2_nclk        ; serial_clk~reg0 ; -0.500       ; -1.700     ; 14.800     ;
+; 15.700 ; lfsr[8]                                     ; serial_out~reg0                             ; ps2_nclk        ; serial_clk~reg0 ; -0.500       ; -1.700     ; 14.800     ;
+; 16.200 ; serial_data[8]~reg0                         ; serial_out~reg0                             ; ps2_nclk        ; serial_clk~reg0 ; 0.000        ; -1.700     ; 15.800     ;
+; 16.600 ; lfsr[14]                                    ; serial_out~reg0                             ; ps2_nclk        ; serial_clk~reg0 ; -0.500       ; -1.700     ; 15.700     ;
++--------+---------------------------------------------+---------------------------------------------+-----------------+-----------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'ps2_nclk'                                                                                              ;
++--------+--------------+----------------+------------------+----------+------------+------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock    ; Clock Edge ; Target                                   ;
++--------+--------------+----------------+------------------+----------+------------+------------------------------------------+
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Fall       ; led~reg0                                 ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Fall       ; led~reg0                                 ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Rise       ; lfsr[0]                                  ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; lfsr[0]                                  ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Rise       ; lfsr[10]                                 ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; lfsr[10]                                 ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Rise       ; lfsr[11]                                 ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; lfsr[11]                                 ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Rise       ; lfsr[12]                                 ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; lfsr[12]                                 ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Rise       ; lfsr[13]                                 ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; lfsr[13]                                 ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Rise       ; lfsr[14]                                 ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; lfsr[14]                                 ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Rise       ; lfsr[15]                                 ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; lfsr[15]                                 ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Rise       ; lfsr[1]                                  ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; lfsr[1]                                  ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Rise       ; lfsr[2]                                  ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; lfsr[2]                                  ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Rise       ; lfsr[3]                                  ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; lfsr[3]                                  ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Rise       ; lfsr[4]                                  ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; lfsr[4]                                  ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Rise       ; lfsr[5]                                  ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; lfsr[5]                                  ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Rise       ; lfsr[6]                                  ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; lfsr[6]                                  ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Rise       ; lfsr[7]                                  ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; lfsr[7]                                  ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Rise       ; lfsr[8]                                  ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; lfsr[8]                                  ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Rise       ; lfsr[9]                                  ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; lfsr[9]                                  ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Fall       ; lpm_counter:serial_counter_rtl_0|dffs[0] ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Fall       ; lpm_counter:serial_counter_rtl_0|dffs[0] ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Fall       ; lpm_counter:serial_counter_rtl_0|dffs[1] ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Fall       ; lpm_counter:serial_counter_rtl_0|dffs[1] ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Fall       ; lpm_counter:serial_counter_rtl_0|dffs[2] ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Fall       ; lpm_counter:serial_counter_rtl_0|dffs[2] ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Fall       ; lpm_counter:serial_counter_rtl_0|dffs[3] ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Fall       ; lpm_counter:serial_counter_rtl_0|dffs[3] ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Fall       ; serial_data[0]~reg0                      ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Fall       ; serial_data[0]~reg0                      ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Fall       ; serial_data[10]~reg0                     ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Fall       ; serial_data[10]~reg0                     ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Fall       ; serial_data[1]~reg0                      ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Fall       ; serial_data[1]~reg0                      ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Fall       ; serial_data[2]~reg0                      ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Fall       ; serial_data[2]~reg0                      ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Fall       ; serial_data[3]~reg0                      ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Fall       ; serial_data[3]~reg0                      ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Fall       ; serial_data[4]~reg0                      ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Fall       ; serial_data[4]~reg0                      ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Fall       ; serial_data[5]~reg0                      ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Fall       ; serial_data[5]~reg0                      ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Fall       ; serial_data[6]~reg0                      ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Fall       ; serial_data[6]~reg0                      ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Fall       ; serial_data[7]~reg0                      ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Fall       ; serial_data[7]~reg0                      ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Fall       ; serial_data[8]~reg0                      ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Fall       ; serial_data[8]~reg0                      ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Fall       ; serial_data[9]~reg0                      ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Fall       ; serial_data[9]~reg0                      ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; ps2_nclk ; Fall       ; valid~reg0                               ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; ps2_nclk ; Fall       ; valid~reg0                               ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; ps2_nclk ; Rise       ; led~reg0|[0]                             ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; led~reg0|[0]                             ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; ps2_nclk ; Rise       ; lfsr[0]|[4]                              ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; lfsr[0]|[4]                              ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; ps2_nclk ; Rise       ; lfsr[10]|[1]                             ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; lfsr[10]|[1]                             ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; ps2_nclk ; Rise       ; lfsr[11]|[1]                             ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; lfsr[11]|[1]                             ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; ps2_nclk ; Rise       ; lfsr[12]|[1]                             ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; lfsr[12]|[1]                             ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; ps2_nclk ; Rise       ; lfsr[13]|[1]                             ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; lfsr[13]|[1]                             ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; ps2_nclk ; Rise       ; lfsr[14]|[1]                             ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; lfsr[14]|[1]                             ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; ps2_nclk ; Rise       ; lfsr[15]|[1]                             ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; lfsr[15]|[1]                             ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; ps2_nclk ; Rise       ; lfsr[1]|[1]                              ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; lfsr[1]|[1]                              ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; ps2_nclk ; Rise       ; lfsr[2]|[1]                              ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; lfsr[2]|[1]                              ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; ps2_nclk ; Rise       ; lfsr[3]|[1]                              ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; lfsr[3]|[1]                              ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; ps2_nclk ; Rise       ; lfsr[4]|[1]                              ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; lfsr[4]|[1]                              ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; ps2_nclk ; Rise       ; lfsr[5]|[1]                              ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; lfsr[5]|[1]                              ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; ps2_nclk ; Rise       ; lfsr[6]|[1]                              ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; lfsr[6]|[1]                              ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; ps2_nclk ; Rise       ; lfsr[7]|[1]                              ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; lfsr[7]|[1]                              ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; ps2_nclk ; Rise       ; lfsr[8]|[1]                              ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; lfsr[8]|[1]                              ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; ps2_nclk ; Rise       ; lfsr[9]|[1]                              ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; ps2_nclk ; Rise       ; lfsr[9]|[1]                              ;
++--------+--------------+----------------+------------------+----------+------------+------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'Clk'                                                                                             ;
++--------+--------------+----------------+------------------+-------+------------+---------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                                ;
++--------+--------------+----------------+------------------+-------+------------+---------------------------------------+
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; Clk   ; Rise       ; lpm_counter:clk_counter_rtl_0|dffs[0] ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; Clk   ; Rise       ; lpm_counter:clk_counter_rtl_0|dffs[0] ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; Clk   ; Rise       ; lpm_counter:clk_counter_rtl_0|dffs[1] ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; Clk   ; Rise       ; lpm_counter:clk_counter_rtl_0|dffs[1] ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; Clk   ; Rise       ; lpm_counter:clk_counter_rtl_0|dffs[2] ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; Clk   ; Rise       ; lpm_counter:clk_counter_rtl_0|dffs[2] ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; Clk   ; Rise       ; lpm_counter:clk_counter_rtl_0|dffs[3] ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; Clk   ; Rise       ; lpm_counter:clk_counter_rtl_0|dffs[3] ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; Clk   ; Rise       ; lpm_counter:clk_counter_rtl_0|dffs[4] ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; Clk   ; Rise       ; lpm_counter:clk_counter_rtl_0|dffs[4] ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; Clk   ; Rise       ; lpm_counter:clk_counter_rtl_0|dffs[5] ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; Clk   ; Rise       ; lpm_counter:clk_counter_rtl_0|dffs[5] ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; Clk   ; Rise       ; lpm_counter:clk_counter_rtl_0|dffs[6] ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; Clk   ; Rise       ; lpm_counter:clk_counter_rtl_0|dffs[6] ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; Clk   ; Rise       ; lpm_counter:clk_counter_rtl_0|dffs[7] ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; Clk   ; Rise       ; lpm_counter:clk_counter_rtl_0|dffs[7] ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; Clk   ; Rise       ; serial_clk~reg0                       ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; Clk   ; Rise       ; serial_clk~reg0                       ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Clk|dataout                           ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Clk|dataout                           ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; clk_counter_rtl_0|dffs[0]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; clk_counter_rtl_0|dffs[0]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; clk_counter_rtl_0|dffs[1]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; clk_counter_rtl_0|dffs[1]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; clk_counter_rtl_0|dffs[2]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; clk_counter_rtl_0|dffs[2]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; clk_counter_rtl_0|dffs[3]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; clk_counter_rtl_0|dffs[3]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; clk_counter_rtl_0|dffs[4]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; clk_counter_rtl_0|dffs[4]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; clk_counter_rtl_0|dffs[5]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; clk_counter_rtl_0|dffs[5]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; clk_counter_rtl_0|dffs[6]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; clk_counter_rtl_0|dffs[6]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; clk_counter_rtl_0|dffs[7]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; clk_counter_rtl_0|dffs[7]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; serial_clk~reg0|clk                   ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; serial_clk~reg0|clk                   ;
++--------+--------------+----------------+------------------+-------+------------+---------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'serial_clk~reg0'                                                                                                 ;
++--------+--------------+----------------+------------------+-----------------+------------+---------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock           ; Clock Edge ; Target                                      ;
++--------+--------------+----------------+------------------+-----------------+------------+---------------------------------------------+
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; serial_clk~reg0 ; Fall       ; lpm_counter:send_serial_count_rtl_0|dffs[0] ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; serial_clk~reg0 ; Fall       ; lpm_counter:send_serial_count_rtl_0|dffs[0] ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; serial_clk~reg0 ; Fall       ; lpm_counter:send_serial_count_rtl_0|dffs[1] ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; serial_clk~reg0 ; Fall       ; lpm_counter:send_serial_count_rtl_0|dffs[1] ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; serial_clk~reg0 ; Fall       ; lpm_counter:send_serial_count_rtl_0|dffs[2] ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; serial_clk~reg0 ; Fall       ; lpm_counter:send_serial_count_rtl_0|dffs[2] ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; serial_clk~reg0 ; Fall       ; lpm_counter:send_serial_count_rtl_0|dffs[3] ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; serial_clk~reg0 ; Fall       ; lpm_counter:send_serial_count_rtl_0|dffs[3] ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; serial_clk~reg0 ; Fall       ; serial_out~reg0                             ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; serial_clk~reg0 ; Fall       ; serial_out~reg0                             ;
+; -3.500 ; 0.500        ; 4.000          ; High Pulse Width ; serial_clk~reg0 ; Fall       ; show_serial_clock                           ;
+; -3.500 ; 0.500        ; 4.000          ; Low Pulse Width  ; serial_clk~reg0 ; Fall       ; show_serial_clock                           ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; serial_clk~reg0 ; Rise       ; send_serial_count_rtl_0|dffs[0]|[5]         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; serial_clk~reg0 ; Rise       ; send_serial_count_rtl_0|dffs[0]|[5]         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; serial_clk~reg0 ; Rise       ; send_serial_count_rtl_0|dffs[1]|[4]         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; serial_clk~reg0 ; Rise       ; send_serial_count_rtl_0|dffs[1]|[4]         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; serial_clk~reg0 ; Rise       ; send_serial_count_rtl_0|dffs[2]|[5]         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; serial_clk~reg0 ; Rise       ; send_serial_count_rtl_0|dffs[2]|[5]         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; serial_clk~reg0 ; Rise       ; send_serial_count_rtl_0|dffs[3]|[5]         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; serial_clk~reg0 ; Rise       ; send_serial_count_rtl_0|dffs[3]|[5]         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; serial_clk~reg0 ; Rise       ; serial_clk~reg0|dataout                     ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; serial_clk~reg0 ; Rise       ; serial_clk~reg0|dataout                     ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; serial_clk~reg0 ; Rise       ; serial_out~reg0|[9]                         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; serial_clk~reg0 ; Rise       ; serial_out~reg0|[9]                         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; serial_clk~reg0 ; Rise       ; show_serial_clock|[6]                       ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; serial_clk~reg0 ; Rise       ; show_serial_clock|[6]                       ;
++--------+--------------+----------------+------------------+-----------------+------------+---------------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; nReset    ; ps2_nclk   ; 3.500 ; 3.500 ; Fall       ; ps2_nclk        ;
+; ndata     ; ps2_nclk   ; 3.300 ; 3.300 ; Fall       ; ps2_nclk        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Hold Times                                                            ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; nReset    ; ps2_nclk   ; 0.700 ; 0.700 ; Fall       ; ps2_nclk        ;
+; ndata     ; ps2_nclk   ; 0.900 ; 0.900 ; Fall       ; ps2_nclk        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------------------+
+; Clock to Output Times                                                               ;
++------------------+-----------------+--------+--------+------------+-----------------+
+; Data Port        ; Clock Port      ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++------------------+-----------------+--------+--------+------------+-----------------+
+; led              ; ps2_nclk        ; 9.900  ; 9.900  ; Fall       ; ps2_nclk        ;
+; serial_data[*]   ; ps2_nclk        ; 9.900  ; 9.900  ; Fall       ; ps2_nclk        ;
+;  serial_data[0]  ; ps2_nclk        ; 9.900  ; 9.900  ; Fall       ; ps2_nclk        ;
+;  serial_data[1]  ; ps2_nclk        ; 9.900  ; 9.900  ; Fall       ; ps2_nclk        ;
+;  serial_data[2]  ; ps2_nclk        ; 9.900  ; 9.900  ; Fall       ; ps2_nclk        ;
+;  serial_data[3]  ; ps2_nclk        ; 9.900  ; 9.900  ; Fall       ; ps2_nclk        ;
+;  serial_data[4]  ; ps2_nclk        ; 9.900  ; 9.900  ; Fall       ; ps2_nclk        ;
+;  serial_data[5]  ; ps2_nclk        ; 9.900  ; 9.900  ; Fall       ; ps2_nclk        ;
+;  serial_data[6]  ; ps2_nclk        ; 9.900  ; 9.900  ; Fall       ; ps2_nclk        ;
+;  serial_data[7]  ; ps2_nclk        ; 9.900  ; 9.900  ; Fall       ; ps2_nclk        ;
+;  serial_data[8]  ; ps2_nclk        ; 9.900  ; 9.900  ; Fall       ; ps2_nclk        ;
+;  serial_data[9]  ; ps2_nclk        ; 9.900  ; 9.900  ; Fall       ; ps2_nclk        ;
+;  serial_data[10] ; ps2_nclk        ; 9.900  ; 9.900  ; Fall       ; ps2_nclk        ;
+; valid            ; ps2_nclk        ; 9.900  ; 9.900  ; Fall       ; ps2_nclk        ;
+; serial_clk       ; serial_clk~reg0 ; 1.800  ;        ; Rise       ; serial_clk~reg0 ;
+; serial_clk_out   ; serial_clk~reg0 ; 8.600  ;        ; Rise       ; serial_clk~reg0 ;
+; serial_clk       ; serial_clk~reg0 ;        ; 1.800  ; Fall       ; serial_clk~reg0 ;
+; serial_clk_out   ; serial_clk~reg0 ; 15.000 ; 15.000 ; Fall       ; serial_clk~reg0 ;
+; serial_out       ; serial_clk~reg0 ; 8.200  ; 8.200  ; Fall       ; serial_clk~reg0 ;
++------------------+-----------------+--------+--------+------------+-----------------+
 
 
 +------------------------------------------------------------------------------------+
 ; Minimum Clock to Output Times                                                      ;
-+----------------------+------------+--------+--------+------------+-----------------+
-; Data Port            ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
-+----------------------+------------+--------+--------+------------+-----------------+
-; last_serial_data[*]  ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
-;  last_serial_data[0] ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
-;  last_serial_data[1] ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
-;  last_serial_data[2] ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
-;  last_serial_data[3] ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
-;  last_serial_data[4] ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
-;  last_serial_data[5] ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
-;  last_serial_data[6] ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
-;  last_serial_data[7] ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
-; serial_data[*]       ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
-;  serial_data[0]      ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
-;  serial_data[1]      ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
-;  serial_data[2]      ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
-;  serial_data[3]      ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
-;  serial_data[4]      ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
-;  serial_data[5]      ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
-;  serial_data[6]      ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
-;  serial_data[7]      ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
-; valid                ; ps2_nclk   ; 14.000 ; 14.000 ; Fall       ; ps2_nclk        ;
-+----------------------+------------+--------+--------+------------+-----------------+
++------------------+-----------------+--------+-------+------------+-----------------+
+; Data Port        ; Clock Port      ; Rise   ; Fall  ; Clock Edge ; Clock Reference ;
++------------------+-----------------+--------+-------+------------+-----------------+
+; led              ; ps2_nclk        ; 9.900  ; 9.900 ; Fall       ; ps2_nclk        ;
+; serial_data[*]   ; ps2_nclk        ; 9.900  ; 9.900 ; Fall       ; ps2_nclk        ;
+;  serial_data[0]  ; ps2_nclk        ; 9.900  ; 9.900 ; Fall       ; ps2_nclk        ;
+;  serial_data[1]  ; ps2_nclk        ; 9.900  ; 9.900 ; Fall       ; ps2_nclk        ;
+;  serial_data[2]  ; ps2_nclk        ; 9.900  ; 9.900 ; Fall       ; ps2_nclk        ;
+;  serial_data[3]  ; ps2_nclk        ; 9.900  ; 9.900 ; Fall       ; ps2_nclk        ;
+;  serial_data[4]  ; ps2_nclk        ; 9.900  ; 9.900 ; Fall       ; ps2_nclk        ;
+;  serial_data[5]  ; ps2_nclk        ; 9.900  ; 9.900 ; Fall       ; ps2_nclk        ;
+;  serial_data[6]  ; ps2_nclk        ; 9.900  ; 9.900 ; Fall       ; ps2_nclk        ;
+;  serial_data[7]  ; ps2_nclk        ; 9.900  ; 9.900 ; Fall       ; ps2_nclk        ;
+;  serial_data[8]  ; ps2_nclk        ; 9.900  ; 9.900 ; Fall       ; ps2_nclk        ;
+;  serial_data[9]  ; ps2_nclk        ; 9.900  ; 9.900 ; Fall       ; ps2_nclk        ;
+;  serial_data[10] ; ps2_nclk        ; 9.900  ; 9.900 ; Fall       ; ps2_nclk        ;
+; valid            ; ps2_nclk        ; 9.900  ; 9.900 ; Fall       ; ps2_nclk        ;
+; serial_clk       ; serial_clk~reg0 ; 1.800  ;       ; Rise       ; serial_clk~reg0 ;
+; serial_clk_out   ; serial_clk~reg0 ; 8.600  ;       ; Rise       ; serial_clk~reg0 ;
+; serial_clk       ; serial_clk~reg0 ;        ; 1.800 ; Fall       ; serial_clk~reg0 ;
+; serial_clk_out   ; serial_clk~reg0 ; 15.000 ; 8.600 ; Fall       ; serial_clk~reg0 ;
+; serial_out       ; serial_clk~reg0 ; 8.200  ; 8.200 ; Fall       ; serial_clk~reg0 ;
++------------------+-----------------+--------+-------+------------+-----------------+
 
 
-+----------------------------------------------------------------------+
-; Propagation Delay                                                    ;
-+------------+---------------------+--------+--------+--------+--------+
-; Input Port ; Output Port         ; RR     ; RF     ; FR     ; FF     ;
-+------------+---------------------+--------+--------+--------+--------+
-; ndata      ; last_serial_data[0] ; 23.800 ; 23.800 ; 23.800 ; 23.800 ;
-; ndata      ; last_serial_data[1] ; 20.900 ; 17.000 ; 17.000 ; 20.900 ;
-; ndata      ; last_serial_data[2] ; 20.900 ; 17.000 ; 17.000 ; 20.900 ;
-; ndata      ; last_serial_data[3] ; 20.900 ; 17.000 ; 17.000 ; 20.900 ;
-; ndata      ; last_serial_data[4] ; 20.900 ; 17.000 ; 17.000 ; 20.900 ;
-; ndata      ; last_serial_data[5] ; 20.900 ; 17.000 ; 17.000 ; 20.900 ;
-; ndata      ; last_serial_data[6] ; 23.800 ; 23.800 ; 23.800 ; 23.800 ;
-; ndata      ; last_serial_data[7] ; 20.900 ; 17.000 ; 17.000 ; 20.900 ;
-; ndata      ; serial_data[0]      ; 17.000 ; 17.000 ; 17.000 ; 17.000 ;
-; ndata      ; serial_data[1]      ; 14.100 ; 10.200 ; 10.200 ; 14.100 ;
-; ndata      ; serial_data[2]      ; 14.100 ; 10.200 ; 10.200 ; 14.100 ;
-; ndata      ; serial_data[3]      ; 14.100 ; 10.200 ; 10.200 ; 14.100 ;
-; ndata      ; serial_data[4]      ; 14.100 ; 10.200 ; 10.200 ; 14.100 ;
-; ndata      ; serial_data[5]      ; 14.100 ; 10.200 ; 10.200 ; 14.100 ;
-; ndata      ; serial_data[6]      ; 17.000 ; 17.000 ; 17.000 ; 17.000 ;
-; ndata      ; serial_data[7]      ; 14.100 ; 10.200 ; 10.200 ; 14.100 ;
-+------------+---------------------+--------+--------+--------+--------+
-
-
-+----------------------------------------------------------------------+
-; Minimum Propagation Delay                                            ;
-+------------+---------------------+--------+--------+--------+--------+
-; Input Port ; Output Port         ; RR     ; RF     ; FR     ; FF     ;
-+------------+---------------------+--------+--------+--------+--------+
-; ndata      ; last_serial_data[0] ; 23.800 ; 17.000 ; 17.000 ; 23.800 ;
-; ndata      ; last_serial_data[1] ; 20.900 ; 17.000 ; 17.000 ; 20.900 ;
-; ndata      ; last_serial_data[2] ; 20.900 ; 17.000 ; 17.000 ; 20.900 ;
-; ndata      ; last_serial_data[3] ; 20.900 ; 17.000 ; 17.000 ; 20.900 ;
-; ndata      ; last_serial_data[4] ; 20.900 ; 17.000 ; 17.000 ; 20.900 ;
-; ndata      ; last_serial_data[5] ; 20.900 ; 17.000 ; 17.000 ; 20.900 ;
-; ndata      ; last_serial_data[6] ; 23.800 ; 17.000 ; 17.000 ; 23.800 ;
-; ndata      ; last_serial_data[7] ; 20.900 ; 17.000 ; 17.000 ; 20.900 ;
-; ndata      ; serial_data[0]      ; 17.000 ; 10.200 ; 10.200 ; 17.000 ;
-; ndata      ; serial_data[1]      ; 14.100 ; 10.200 ; 10.200 ; 14.100 ;
-; ndata      ; serial_data[2]      ; 14.100 ; 10.200 ; 10.200 ; 14.100 ;
-; ndata      ; serial_data[3]      ; 14.100 ; 10.200 ; 10.200 ; 14.100 ;
-; ndata      ; serial_data[4]      ; 14.100 ; 10.200 ; 10.200 ; 14.100 ;
-; ndata      ; serial_data[5]      ; 14.100 ; 10.200 ; 10.200 ; 14.100 ;
-; ndata      ; serial_data[6]      ; 17.000 ; 10.200 ; 10.200 ; 17.000 ;
-; ndata      ; serial_data[7]      ; 14.100 ; 10.200 ; 10.200 ; 14.100 ;
-+------------+---------------------+--------+--------+--------+--------+
-
-
-+-------------------------------------------------------------------+
-; Setup Transfers                                                   ;
-+------------+----------+----------+----------+----------+----------+
-; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
-+------------+----------+----------+----------+----------+----------+
-; ps2_nclk   ; ps2_nclk ; 0        ; 0        ; 0        ; 30       ;
-+------------+----------+----------+----------+----------+----------+
++-------------------------------------------------------------------------------+
+; Setup Transfers                                                               ;
++-----------------+-----------------+----------+----------+----------+----------+
+; From Clock      ; To Clock        ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++-----------------+-----------------+----------+----------+----------+----------+
+; Clk             ; Clk             ; 175      ; 0        ; 0        ; 0        ;
+; serial_clk~reg0 ; Clk             ; 1        ; 1        ; 0        ; 0        ;
+; ps2_nclk        ; ps2_nclk        ; 28       ; 0        ; 0        ; 151      ;
+; ps2_nclk        ; serial_clk~reg0 ; 0        ; 0        ; 9        ; 34       ;
+; serial_clk~reg0 ; serial_clk~reg0 ; 0        ; 0        ; 0        ; 72       ;
++-----------------+-----------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
 
-+-------------------------------------------------------------------+
-; Hold Transfers                                                    ;
-+------------+----------+----------+----------+----------+----------+
-; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
-+------------+----------+----------+----------+----------+----------+
-; ps2_nclk   ; ps2_nclk ; 0        ; 0        ; 0        ; 30       ;
-+------------+----------+----------+----------+----------+----------+
++-------------------------------------------------------------------------------+
+; Hold Transfers                                                                ;
++-----------------+-----------------+----------+----------+----------+----------+
+; From Clock      ; To Clock        ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++-----------------+-----------------+----------+----------+----------+----------+
+; Clk             ; Clk             ; 175      ; 0        ; 0        ; 0        ;
+; serial_clk~reg0 ; Clk             ; 1        ; 1        ; 0        ; 0        ;
+; ps2_nclk        ; ps2_nclk        ; 28       ; 0        ; 0        ; 151      ;
+; ps2_nclk        ; serial_clk~reg0 ; 0        ; 0        ; 9        ; 34       ;
+; serial_clk~reg0 ; serial_clk~reg0 ; 0        ; 0        ; 0        ; 72       ;
++-----------------+-----------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
 
@@ -373,9 +937,9 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
 ; Unconstrained Input Ports       ; 2     ; 2    ;
-; Unconstrained Input Port Paths  ; 21    ; 21   ;
-; Unconstrained Output Ports      ; 17    ; 17   ;
-; Unconstrained Output Port Paths ; 84    ; 84   ;
+; Unconstrained Input Port Paths  ; 49    ; 49   ;
+; Unconstrained Output Ports      ; 16    ; 16   ;
+; Unconstrained Output Port Paths ; 17    ; 17   ;
 +---------------------------------+-------+------+
 
 
@@ -384,11 +948,11 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 +------------------------------------+
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
-    Info: Version 12.0 Build 178 05/31/2012 SJ Full Version
-    Info: Processing started: Sun Jan 20 16:48:09 2013
+    Info: Version 12.0 Build 263 08/02/2012 Service Pack 2 SJ Full Version
+    Info: Processing started: Thu Jan 24 18:46:10 2013
 Info: Command: quartus_sta Test -c Test
-Info: qsta_default_script.tcl version: #4
-Info (20030): Parallel compilation is enabled and will use 16 of the 64 processors detected
+Info: qsta_default_script.tcl version: #2
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (306004): Started post-fitting delay annotation
 Info (306005): Delay annotation completed successfully
 Warning (335095): TimeQuest Timing Analyzer does not support the analysis of latches as synchronous elements for the currently selected device family.
@@ -396,77 +960,37 @@ Critical Warning (332012): Synopsys Design Constraints File file not found: 'Tes
 Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
 Info (332105): Deriving Clocks
     Info (332105): create_clock -period 1.000 -name ps2_nclk ps2_nclk
-Warning (332125): Found combinational loop of 2 nodes
-    Warning (332126): Node "last_serial_data[0]$latch~6|[2]"
-    Warning (332126): Node "last_serial_data[0]$latch~6|dataout"
-Warning (332125): Found combinational loop of 2 nodes
-    Warning (332126): Node "serial_data[0]$latch~6|[1]"
-    Warning (332126): Node "serial_data[0]$latch~6|dataout"
-Warning (332125): Found combinational loop of 2 nodes
-    Warning (332126): Node "last_serial_data[7]$latch~6|[2]"
-    Warning (332126): Node "last_serial_data[7]$latch~6|dataout"
-Warning (332125): Found combinational loop of 2 nodes
-    Warning (332126): Node "last_serial_data[6]$latch~6|[2]"
-    Warning (332126): Node "last_serial_data[6]$latch~6|dataout"
-Warning (332125): Found combinational loop of 2 nodes
-    Warning (332126): Node "last_serial_data[5]$latch~6|[2]"
-    Warning (332126): Node "last_serial_data[5]$latch~6|dataout"
-Warning (332125): Found combinational loop of 2 nodes
-    Warning (332126): Node "last_serial_data[4]$latch~6|[2]"
-    Warning (332126): Node "last_serial_data[4]$latch~6|dataout"
-Warning (332125): Found combinational loop of 2 nodes
-    Warning (332126): Node "last_serial_data[3]$latch~6|[2]"
-    Warning (332126): Node "last_serial_data[3]$latch~6|dataout"
-Warning (332125): Found combinational loop of 2 nodes
-    Warning (332126): Node "last_serial_data[2]$latch~6|[2]"
-    Warning (332126): Node "last_serial_data[2]$latch~6|dataout"
-Warning (332125): Found combinational loop of 2 nodes
-    Warning (332126): Node "last_serial_data[1]$latch~6|[2]"
-    Warning (332126): Node "last_serial_data[1]$latch~6|dataout"
-Warning (332125): Found combinational loop of 2 nodes
-    Warning (332126): Node "serial_data[7]$latch~6|[0]"
-    Warning (332126): Node "serial_data[7]$latch~6|dataout"
-Warning (332125): Found combinational loop of 2 nodes
-    Warning (332126): Node "serial_data[6]$latch~6|[1]"
-    Warning (332126): Node "serial_data[6]$latch~6|dataout"
-Warning (332125): Found combinational loop of 2 nodes
-    Warning (332126): Node "serial_data[5]$latch~6|[0]"
-    Warning (332126): Node "serial_data[5]$latch~6|dataout"
-Warning (332125): Found combinational loop of 2 nodes
-    Warning (332126): Node "serial_data[4]$latch~6|[0]"
-    Warning (332126): Node "serial_data[4]$latch~6|dataout"
-Warning (332125): Found combinational loop of 2 nodes
-    Warning (332126): Node "serial_data[3]$latch~6|[0]"
-    Warning (332126): Node "serial_data[3]$latch~6|dataout"
-Warning (332125): Found combinational loop of 2 nodes
-    Warning (332126): Node "serial_data[2]$latch~6|[0]"
-    Warning (332126): Node "serial_data[2]$latch~6|dataout"
-Warning (332125): Found combinational loop of 2 nodes
-    Warning (332126): Node "serial_data[1]$latch~6|[0]"
-    Warning (332126): Node "serial_data[1]$latch~6|dataout"
+    Info (332105): create_clock -period 1.000 -name Clk Clk
+    Info (332105): create_clock -period 1.000 -name serial_clk~reg0 serial_clk~reg0
 Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -16.000
+Info (332146): Worst-case setup slack is -19.800
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
-    Info (332119):   -16.000       -43.600 ps2_nclk 
-Info (332146): Worst-case hold slack is 5.800
+    Info (332119):   -19.800       -73.300 serial_clk~reg0 
+    Info (332119):   -10.000      -292.300 ps2_nclk 
+    Info (332119):    -9.000       -81.000 Clk 
+Info (332146): Worst-case hold slack is 0.600
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
+    Info (332119):     0.600         0.000 Clk 
     Info (332119):     5.800         0.000 ps2_nclk 
+    Info (332119):     5.800         0.000 serial_clk~reg0 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.500
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
-    Info (332119):    -3.500       -28.000 ps2_nclk 
+    Info (332119):    -3.500      -231.000 ps2_nclk 
+    Info (332119):    -3.500       -63.000 Clk 
+    Info (332119):    -3.500       -42.000 serial_clk~reg0 
 Info (332001): The selected device family is not supported by the report_metastability command.
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
-Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 51 warnings
-    Info: Peak virtual memory: 371 megabytes
-    Info: Processing ended: Sun Jan 20 16:48:26 2013
-    Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:01
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 378 megabytes
+    Info: Processing ended: Thu Jan 24 18:46:15 2013
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:02
 
 

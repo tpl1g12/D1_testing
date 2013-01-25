@@ -1,6 +1,6 @@
 Analysis & Synthesis report for Test
-Sun Jan 20 16:47:50 2013
-Quartus II 64-Bit Version 12.0 Build 178 05/31/2012 SJ Full Version
+Thu Jan 24 18:46:00 2013
+Quartus II 64-Bit Version 12.0 Build 263 08/02/2012 Service Pack 2 SJ Full Version
 
 
 ---------------------
@@ -13,10 +13,13 @@ Quartus II 64-Bit Version 12.0 Build 178 05/31/2012 SJ Full Version
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. User-Specified and Inferred Latches
-  9. Registers Removed During Synthesis
- 10. Analysis & Synthesis Messages
- 11. Analysis & Synthesis Suppressed Messages
+  8. Registers Removed During Synthesis
+  9. Parameter Settings for User Entity Instance: Top-level Entity: |ps2
+ 10. Parameter Settings for Inferred Entity Instance: lpm_counter:serial_counter_rtl_0
+ 11. Parameter Settings for Inferred Entity Instance: lpm_counter:send_serial_count_rtl_0
+ 12. Parameter Settings for Inferred Entity Instance: lpm_counter:clk_counter_rtl_0
+ 13. Analysis & Synthesis Messages
+ 14. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -39,17 +42,17 @@ applicable agreement for further details.
 
 
 
-+-------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                            ;
-+-----------------------------+-------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Sun Jan 20 16:47:50 2013     ;
-; Quartus II 64-Bit Version   ; 12.0 Build 178 05/31/2012 SJ Full Version ;
-; Revision Name               ; Test                                      ;
-; Top-level Entity Name       ; ps2                                       ;
-; Family                      ; MAX3000A                                  ;
-; Total macrocells            ; 24                                        ;
-; Total pins                  ; 22                                        ;
-+-----------------------------+-------------------------------------------+
++------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                 ;
++-----------------------------+------------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Thu Jan 24 18:46:00 2013          ;
+; Quartus II 64-Bit Version   ; 12.0 Build 263 08/02/2012 SP 2 SJ Full Version ;
+; Revision Name               ; Test                                           ;
+; Top-level Entity Name       ; ps2                                            ;
+; Family                      ; MAX3000A                                       ;
+; Total macrocells            ; 60                                             ;
+; Total pins                  ; 20                                             ;
++-----------------------------+------------------------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------+
@@ -124,25 +127,35 @@ applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 64          ;
-; Maximum allowed            ; 16          ;
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
 ; Maximum used               ; 1           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     1 processor            ; 100.0%      ;
-;     2-64 processors        ;   0.0%      ;
+;     2-4 processors         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                     ;
-+----------------------------------+-----------------+------------------------------+------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path ; Library ;
-+----------------------------------+-----------------+------------------------------+------------------------------+---------+
-; ps2.sv                           ; yes             ; User SystemVerilog HDL File  ; H:/D1_Keyboard_Test/ps2.sv   ;         ;
-+----------------------------------+-----------------+------------------------------+------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                               ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                           ; Library ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------+---------+
+; ps2.sv                           ; yes             ; User SystemVerilog HDL File  ; H:/D1_Keyboard_Test/ps2.sv                                             ;         ;
+; lpm_counter.tdf                  ; yes             ; Megafunction                 ; c:/altera/12.0/quartus/libraries/megafunctions/lpm_counter.tdf         ;         ;
+; lpm_constant.inc                 ; yes             ; Megafunction                 ; c:/altera/12.0/quartus/libraries/megafunctions/lpm_constant.inc        ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                 ; c:/altera/12.0/quartus/libraries/megafunctions/lpm_decode.inc          ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/altera/12.0/quartus/libraries/megafunctions/lpm_add_sub.inc         ;         ;
+; cmpconst.inc                     ; yes             ; Megafunction                 ; c:/altera/12.0/quartus/libraries/megafunctions/cmpconst.inc            ;         ;
+; lpm_compare.inc                  ; yes             ; Megafunction                 ; c:/altera/12.0/quartus/libraries/megafunctions/lpm_compare.inc         ;         ;
+; lpm_counter.inc                  ; yes             ; Megafunction                 ; c:/altera/12.0/quartus/libraries/megafunctions/lpm_counter.inc         ;         ;
+; dffeea.inc                       ; yes             ; Megafunction                 ; c:/altera/12.0/quartus/libraries/megafunctions/dffeea.inc              ;         ;
+; alt_counter_stratix.inc          ; yes             ; Megafunction                 ; c:/altera/12.0/quartus/libraries/megafunctions/alt_counter_stratix.inc ;         ;
+; aglobal120.inc                   ; yes             ; Megafunction                 ; c:/altera/12.0/quartus/libraries/megafunctions/aglobal120.inc          ;         ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------+---------+
 
 
 +---------------------------------------------+
@@ -150,60 +163,128 @@ applicable agreement for further details.
 +----------------------+----------------------+
 ; Resource             ; Usage                ;
 +----------------------+----------------------+
-; Logic cells          ; 24                   ;
-; Total registers      ; 4                    ;
-; I/O pins             ; 22                   ;
-; Shareable expanders  ; 9                    ;
-; Maximum fan-out node ; ps2_present[3]       ;
-; Maximum fan-out      ; 32                   ;
-; Total fan-out        ; 211                  ;
-; Average fan-out      ; 3.84                 ;
+; Logic cells          ; 60                   ;
+; Total registers      ; 48                   ;
+; I/O pins             ; 20                   ;
+; Parallel expanders   ; 3                    ;
+; Maximum fan-out node ; nReset               ;
+; Maximum fan-out      ; 48                   ;
+; Total fan-out        ; 352                  ;
+; Average fan-out      ; 4.40                 ;
 +----------------------+----------------------+
 
 
-+-------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                 ;
-+----------------------------+------------+------+---------------------+--------------+
-; Compilation Hierarchy Node ; Macrocells ; Pins ; Full Hierarchy Name ; Library Name ;
-+----------------------------+------------+------+---------------------+--------------+
-; |ps2                       ; 24         ; 22   ; |ps2                ; work         ;
-+----------------------------+------------+------+---------------------+--------------+
++------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                    ;
++------------------------------------------+------------+------+------------------------------------------+--------------+
+; Compilation Hierarchy Node               ; Macrocells ; Pins ; Full Hierarchy Name                      ; Library Name ;
++------------------------------------------+------------+------+------------------------------------------+--------------+
+; |ps2                                     ; 60         ; 20   ; |ps2                                     ; work         ;
+;    |lpm_counter:clk_counter_rtl_0|       ; 8          ; 0    ; |ps2|lpm_counter:clk_counter_rtl_0       ; work         ;
+;    |lpm_counter:send_serial_count_rtl_0| ; 4          ; 0    ; |ps2|lpm_counter:send_serial_count_rtl_0 ; work         ;
+;    |lpm_counter:serial_counter_rtl_0|    ; 4          ; 0    ; |ps2|lpm_counter:serial_counter_rtl_0    ; work         ;
++------------------------------------------+------------+------+------------------------------------------+--------------+
 
 
-+----------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                ;
-+-----------------------------------------------------+---------------------+------------------------+
-; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
-+-----------------------------------------------------+---------------------+------------------------+
-; serial_data[0]$latch                                ; Selector2           ; yes                    ;
-; serial_data[1]$latch                                ; Selector4           ; yes                    ;
-; serial_data[2]$latch                                ; Selector6           ; yes                    ;
-; serial_data[3]$latch                                ; Selector8           ; yes                    ;
-; serial_data[4]$latch                                ; Selector10          ; yes                    ;
-; serial_data[5]$latch                                ; Selector12          ; yes                    ;
-; serial_data[6]$latch                                ; Selector14          ; yes                    ;
-; serial_data[7]$latch                                ; Selector16          ; yes                    ;
-; last_serial_data[0]$latch                           ; Equal9              ; yes                    ;
-; last_serial_data[1]$latch                           ; Equal9              ; yes                    ;
-; last_serial_data[2]$latch                           ; Equal9              ; yes                    ;
-; last_serial_data[3]$latch                           ; Equal9              ; yes                    ;
-; last_serial_data[4]$latch                           ; Equal9              ; yes                    ;
-; last_serial_data[5]$latch                           ; Equal9              ; yes                    ;
-; last_serial_data[6]$latch                           ; Equal9              ; yes                    ;
-; last_serial_data[7]$latch                           ; Equal9              ; yes                    ;
-; Number of user-specified and inferred latches = 16  ;                     ;                        ;
-+-----------------------------------------------------+---------------------+------------------------+
-Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
++------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                 ;
++-------------------------------------------+----------------------------------------+
+; Register name                             ; Reason for Removal                     ;
++-------------------------------------------+----------------------------------------+
+; lpm_counter:clk_counter_rtl_0|dffs[8..12] ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 5     ;                                        ;
++-------------------------------------------+----------------------------------------+
 
 
-+---------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                              ;
-+----------------------------------------+----------------------------------------+
-; Register name                          ; Reason for Removal                     ;
-+----------------------------------------+----------------------------------------+
-; ps2_present[4..31]                     ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 28 ;                                        ;
-+----------------------------------------+----------------------------------------+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |ps2 ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; N              ; 11    ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_counter:serial_counter_rtl_0 ;
++------------------------+-------------------+--------------------------------------+
+; Parameter Name         ; Value             ; Type                                 ;
++------------------------+-------------------+--------------------------------------+
+; AUTO_CARRY_CHAINS      ; ON                ; AUTO_CARRY                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF               ; IGNORE_CARRY                         ;
+; AUTO_CASCADE_CHAINS    ; ON                ; AUTO_CASCADE                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF               ; IGNORE_CASCADE                       ;
+; LPM_WIDTH              ; 4                 ; Untyped                              ;
+; LPM_DIRECTION          ; UP                ; Untyped                              ;
+; LPM_MODULUS            ; 0                 ; Untyped                              ;
+; LPM_AVALUE             ; UNUSED            ; Untyped                              ;
+; LPM_SVALUE             ; UNUSED            ; Untyped                              ;
+; LPM_PORT_UPDOWN        ; PORT_CONNECTIVITY ; Untyped                              ;
+; DEVICE_FAMILY          ; MAX3000A          ; Untyped                              ;
+; CARRY_CHAIN            ; MANUAL            ; Untyped                              ;
+; CARRY_CHAIN_LENGTH     ; 48                ; CARRY_CHAIN_LENGTH                   ;
+; NOT_GATE_PUSH_BACK     ; ON                ; NOT_GATE_PUSH_BACK                   ;
+; CARRY_CNT_EN           ; SMART             ; Untyped                              ;
+; LABWIDE_SCLR           ; ON                ; Untyped                              ;
+; USE_NEW_VERSION        ; TRUE              ; Untyped                              ;
+; CBXI_PARAMETER         ; NOTHING           ; Untyped                              ;
++------------------------+-------------------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_counter:send_serial_count_rtl_0 ;
++------------------------+-------------------+-----------------------------------------+
+; Parameter Name         ; Value             ; Type                                    ;
++------------------------+-------------------+-----------------------------------------+
+; AUTO_CARRY_CHAINS      ; ON                ; AUTO_CARRY                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF               ; IGNORE_CARRY                            ;
+; AUTO_CASCADE_CHAINS    ; ON                ; AUTO_CASCADE                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF               ; IGNORE_CASCADE                          ;
+; LPM_WIDTH              ; 4                 ; Untyped                                 ;
+; LPM_DIRECTION          ; UP                ; Untyped                                 ;
+; LPM_MODULUS            ; 0                 ; Untyped                                 ;
+; LPM_AVALUE             ; UNUSED            ; Untyped                                 ;
+; LPM_SVALUE             ; UNUSED            ; Untyped                                 ;
+; LPM_PORT_UPDOWN        ; PORT_CONNECTIVITY ; Untyped                                 ;
+; DEVICE_FAMILY          ; MAX3000A          ; Untyped                                 ;
+; CARRY_CHAIN            ; MANUAL            ; Untyped                                 ;
+; CARRY_CHAIN_LENGTH     ; 48                ; CARRY_CHAIN_LENGTH                      ;
+; NOT_GATE_PUSH_BACK     ; ON                ; NOT_GATE_PUSH_BACK                      ;
+; CARRY_CNT_EN           ; SMART             ; Untyped                                 ;
+; LABWIDE_SCLR           ; ON                ; Untyped                                 ;
+; USE_NEW_VERSION        ; TRUE              ; Untyped                                 ;
+; CBXI_PARAMETER         ; NOTHING           ; Untyped                                 ;
++------------------------+-------------------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_counter:clk_counter_rtl_0 ;
++------------------------+-------------------+-----------------------------------+
+; Parameter Name         ; Value             ; Type                              ;
++------------------------+-------------------+-----------------------------------+
+; AUTO_CARRY_CHAINS      ; ON                ; AUTO_CARRY                        ;
+; IGNORE_CARRY_BUFFERS   ; OFF               ; IGNORE_CARRY                      ;
+; AUTO_CASCADE_CHAINS    ; ON                ; AUTO_CASCADE                      ;
+; IGNORE_CASCADE_BUFFERS ; OFF               ; IGNORE_CASCADE                    ;
+; LPM_WIDTH              ; 13                ; Untyped                           ;
+; LPM_DIRECTION          ; UP                ; Untyped                           ;
+; LPM_MODULUS            ; 0                 ; Untyped                           ;
+; LPM_AVALUE             ; UNUSED            ; Untyped                           ;
+; LPM_SVALUE             ; UNUSED            ; Untyped                           ;
+; LPM_PORT_UPDOWN        ; PORT_CONNECTIVITY ; Untyped                           ;
+; DEVICE_FAMILY          ; MAX3000A          ; Untyped                           ;
+; CARRY_CHAIN            ; MANUAL            ; Untyped                           ;
+; CARRY_CHAIN_LENGTH     ; 48                ; CARRY_CHAIN_LENGTH                ;
+; NOT_GATE_PUSH_BACK     ; ON                ; NOT_GATE_PUSH_BACK                ;
+; CARRY_CNT_EN           ; SMART             ; Untyped                           ;
+; LABWIDE_SCLR           ; ON                ; Untyped                           ;
+; USE_NEW_VERSION        ; TRUE              ; Untyped                           ;
+; CBXI_PARAMETER         ; NOTHING           ; Untyped                           ;
++------------------------+-------------------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +-------------------------------+
@@ -211,48 +292,49 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
-    Info: Version 12.0 Build 178 05/31/2012 SJ Full Version
-    Info: Processing started: Sun Jan 20 16:47:33 2013
+    Info: Version 12.0 Build 263 08/02/2012 Service Pack 2 SJ Full Version
+    Info: Processing started: Thu Jan 24 18:45:46 2013
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Test -c Test
-Info (20030): Parallel compilation is enabled and will use 16 of the 64 processors detected
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file ps2.sv
     Info (12023): Found entity 1: ps2
 Info (12127): Elaborating entity "ps2" for the top level hierarchy
-Warning (10034): Output port "paritycheck" at ps2.sv(9) has no driver
-Info (10041): Inferred latch for "last_serial_data[0]" at ps2.sv(34)
-Info (10041): Inferred latch for "last_serial_data[1]" at ps2.sv(34)
-Info (10041): Inferred latch for "last_serial_data[2]" at ps2.sv(34)
-Info (10041): Inferred latch for "last_serial_data[3]" at ps2.sv(34)
-Info (10041): Inferred latch for "last_serial_data[4]" at ps2.sv(34)
-Info (10041): Inferred latch for "last_serial_data[5]" at ps2.sv(34)
-Info (10041): Inferred latch for "last_serial_data[6]" at ps2.sv(34)
-Info (10041): Inferred latch for "last_serial_data[7]" at ps2.sv(34)
-Info (10041): Inferred latch for "serial_data[0]" at ps2.sv(34)
-Info (10041): Inferred latch for "serial_data[1]" at ps2.sv(34)
-Info (10041): Inferred latch for "serial_data[2]" at ps2.sv(34)
-Info (10041): Inferred latch for "serial_data[3]" at ps2.sv(34)
-Info (10041): Inferred latch for "serial_data[4]" at ps2.sv(34)
-Info (10041): Inferred latch for "serial_data[5]" at ps2.sv(34)
-Info (10041): Inferred latch for "serial_data[6]" at ps2.sv(34)
-Info (10041): Inferred latch for "serial_data[7]" at ps2.sv(34)
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "paritycheck" is stuck at GND
+Warning (10036): Verilog HDL or VHDL warning at ps2.sv(17): object "test_scale" assigned a value but never read
+Warning (10230): Verilog HDL assignment warning at ps2.sv(191): truncated value with size 9 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at ps2.sv(214): truncated value with size 32 to match size of target (4)
+Info (19000): Inferred 3 megafunctions from design logic
+    Info (19001): Inferred lpm_counter megafunction (LPM_WIDTH=4) from the following logic: "serial_counter_rtl_0"
+    Info (19001): Inferred lpm_counter megafunction (LPM_WIDTH=4) from the following logic: "send_serial_count_rtl_0"
+    Info (19001): Inferred lpm_counter megafunction (LPM_WIDTH=13) from the following logic: "clk_counter_rtl_0"
+Info (12130): Elaborated megafunction instantiation "lpm_counter:serial_counter_rtl_0"
+Info (12133): Instantiated megafunction "lpm_counter:serial_counter_rtl_0" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTH" = "4"
+    Info (12134): Parameter "LPM_DIRECTION" = "UP"
+    Info (12134): Parameter "LPM_TYPE" = "LPM_COUNTER"
+Info (12130): Elaborated megafunction instantiation "lpm_counter:send_serial_count_rtl_0"
+Info (12133): Instantiated megafunction "lpm_counter:send_serial_count_rtl_0" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTH" = "4"
+    Info (12134): Parameter "LPM_DIRECTION" = "UP"
+    Info (12134): Parameter "LPM_TYPE" = "LPM_COUNTER"
+Info (12130): Elaborated megafunction instantiation "lpm_counter:clk_counter_rtl_0"
+Info (12133): Instantiated megafunction "lpm_counter:clk_counter_rtl_0" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTH" = "13"
+    Info (12134): Parameter "LPM_DIRECTION" = "UP"
+    Info (12134): Parameter "LPM_TYPE" = "LPM_COUNTER"
+Info (13000): Registers with preset signals will power-up high
 Info (280013): Promoted pin-driven signal(s) to global signal
-    Info (280014): Promoted clock signal driven by pin "ps2_nclk" to global clock signal
+    Info (280014): Promoted clock signal driven by pin "Clk" to global clock signal
     Info (280015): Promoted clear signal driven by pin "nReset" to global clear signal
-Warning (21074): Design contains 1 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "Clk"
-Info (21057): Implemented 55 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 80 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 4 input pins
-    Info (21059): Implemented 18 output pins
-    Info (21063): Implemented 24 macrocells
-    Info (21073): Implemented 9 shareable expanders
+    Info (21059): Implemented 16 output pins
+    Info (21063): Implemented 60 macrocells
 Info (144001): Generated suppressed messages file H:/D1_Keyboard_Test/Test.map.smsg
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 389 megabytes
-    Info: Processing ended: Sun Jan 20 16:47:50 2013
-    Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:01
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 388 megabytes
+    Info: Processing ended: Thu Jan 24 18:46:00 2013
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:05
 
 
 +------------------------------------------+
